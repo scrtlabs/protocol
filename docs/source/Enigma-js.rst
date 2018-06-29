@@ -10,18 +10,39 @@ and paying fees. (Trusted hardware for this release means Intel SGX: for
 more information on SGX, see sections `On SGX <#on-sgx>`__ and
 `Registration <#registration>`__)
 
-validateKeyHex
+**validateKeyHex**
 
-getDerivedKey
+	validateKeyHex(key)
 
-encryptMessage
+	- Checks whether the supplied key is valid.
 
-getPublicKey
+**getDerivedKey**
 
-removeTrailing0x
+	getDerivedKey (enclavePublicKey, clientPrivateKey)
 
-recoverPubKey
 
-verifySignature
+**encryptMessage**
+	
+	encryptMessage (derivedKey, msg)
 
-selectWorker
+
+**getPublicKey**
+	
+	getPublicKey (clientPrivateKey)
+	
+**removeTrailing0x**
+	
+	removeTrailing0x(str)
+
+**recoverPubKey**
+
+	recoverPubKey(msgHash, signature)
+
+**verifySignature**
+
+	verifySignature(msg, signature, pubAddr)
+
+
+**selectWorker**
+
+	selectWorker(taskId)

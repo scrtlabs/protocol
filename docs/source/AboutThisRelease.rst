@@ -4,7 +4,7 @@ This initial testnet release prioritizes developer access, transparency,
 and ease of use. We have included some essential features, and postponed
 others or made temporary assumptions that are specific to this
 development release. These choices are described at a high level in this
-section. Help us improve by joining our developer forum and letting us
+section. Help us improve by joining our `developer forum <https://forum.enigma.co/>`__ and letting us
 know what’s working, what’s not, and what you have questions about.
 
 Selected features of this release:
