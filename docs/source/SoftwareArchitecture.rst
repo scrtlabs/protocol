@@ -2,9 +2,6 @@
 
 Software architecture
 ---------------------
-
-.. _overview-1:
-
 Overview
 ~~~~~~~~
 

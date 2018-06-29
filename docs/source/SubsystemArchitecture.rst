@@ -24,7 +24,7 @@ verified with Intel and sent on-chain.
 Now, everyone (whether it’s a user or some other stakeholder), can
 independently verify that this node’s identity is linked to an enclave.
 When Dapp users request a computation task, they can run through the
-list on-chain and verify that all workers are legit, and cache a
+list on-chain and verify that all workers are legitimate, and cache a
 whitelist of these. Workers will be able to perform the same
 verification in future releases.
 
@@ -73,8 +73,9 @@ decrypt this data in context of a future computation task.
 
 |image6|
 
-In the encryption and storage protocol, functions of the Enigma Library
-help executing these instructions:
+In the encryption and storage protocol, functions of the `Enigma
+Library <#enigma-js-client-library>`__ help executing these
+instructions:
 
 1. Request the application key pair from the Dapp config. In this
       development release, there is a single app key for all
@@ -93,7 +94,7 @@ help executing these instructions:
       enclave can decrypt the message, while proving that the message
       was encrypted by the Dapp (and nothing else).
 
-4. Generate a random initialization vector(IV) [4]_, then use it to
+4. Generate a random initialization vector (IV) [4]_, then use it to
       encrypt the message with the derived key. The IV will be
       concatenated at the beginning of the encrypted message. The IV and
       message can later be easily extracted because the IV always
@@ -193,6 +194,8 @@ While in later versions, this would be achieved by a distributed MPC
 algorithm, for Discovery it suffices to have a *principal* Enigma node
 that generates this kind of randomness.
 
+.. _section-1:
+
 Computation 
 ~~~~~~~~~~~~
 
@@ -251,10 +254,24 @@ The computation protocol works as follows:
       secretContract address and taskId using the *commitResults*
       function.
 
-8. In addition to verifying the selected worker as described above, the
-      Enigma Contract recreates the same hash as Core, and passes it
-      along with the signature the erecovery method of Ethereum to
-      verify that the selected worker computed the task as instructed.
+8. The Enigma contract verifies that the worker submitting the results
+      1) is the worker selected for the task; 2) did not tamper with the
+      inputs; 3) computed the task in a secure enclave. This
+      verification protocol is composed of the following steps.
+
+   g. With the workers parameters of the block originating the task, run
+         the pseudo-random worker selection algorithm. This ensures that
+         the worker committing the results is the worker selected by the
+         network.
+
+   h. Compute a hash function with the task parameters stored prior to
+         broadcasting the task to the network -- which never left the
+         contract so could not have been tampered with -- and the
+         results submitted by the worker.
+
+   i. Compute Ethereum’s *ECRecover*\  [5]_ function with the hash and
+         the submitted signature. For a successful verification, this
+         should return the signer address of the worker.
 
 Payment of the Computation Fee
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -403,10 +420,10 @@ about the privacy and correctness of those tasks (see `On
 SGX <#on-sgx>`__).
 
 The attestation protocol of Enigma is adapted from the Remote
-Attestation Protocol of Intel [5]_; a protocol developed by them for
+Attestation Protocol of Intel [6]_; a protocol developed by them for
 establishing a secure stateful channel between two parties: an Enclave
 and a Service Provider. The Remote Attestation protocol of SGX is
-described in the SGX Attestation Process document [6]_. Technically
+described in the SGX Attestation Process document [7]_. Technically
 speaking, we stripped down the higher level API provided by Intel, in
 methods *msg0* to *msg4* (from the diagram), and only used the things
 that we need to offer the guarantees stated above.
@@ -451,6 +468,5 @@ The attestation protocol works as follows before each computation task:
 7. Using standard crypto libraries, it verifies that the report is
       correctly signed by the attached x509 certificate. It also
       verifies that the attached root certificate matches Intel’s
-      publically available root certificate issued by a CA.
-
-.. _section-1:
+      publically available root certificate issued by a Certificate
+      Authority.

@@ -14,12 +14,7 @@ dApp contract. Encryption of the data happens on the client side, before
 data is submitted to the ethereum dApp.
 
 To create a private computation task, developers use the Enigma-JS
-client library. Enigma-JS contains tools to: 1) safely encrypt sensitive
-data in-memory for immediate use or storage; 2) obtain an authoritative
-proof that the target worker is securely running trusted hardware prior
-to sending data and paying fees. (Trusted hardware for this release
-means Intel SGX: for more information on SGX, see sections On SGX and
-Registration)
+client library.
 
 Interfaces
 ~~~~~~~~~~
@@ -27,10 +22,18 @@ Interfaces
 This diagram describes the public interfaces of each component and how
 they are related to each other.
 
-Client Library
-~~~~~~~~~~~~~~
+Enigma-JS Client Library
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-TODO
+The Enigma client library, `Enigma-JS <#_ydldonl0i1f1>`__, is a
+javascript library that interfaces with the Enigma protocol. The API for
+this library describes tasks that a dApp will require to interact with
+Enigma, such as encryption and verification. Enigma-JS contains tools
+to: 1) safely encrypt sensitive data in-memory for immediate use or
+storage; 2) obtain an authoritative proof that the target worker is
+securely running trusted hardware prior to sending data and paying fees.
+(Trusted hardware for this release means Intel SGX: for more information
+on SGX, see sections On SGX and Registration)
 
 Enigma Contract
 ~~~~~~~~~~~~~~~
@@ -109,12 +112,30 @@ Enigma Node
 
 An Enigma Node is composed of two components: Surface and Core.
 
-.. image:: https://s3.amazonaws.com/enigmaco-docs/protocol/composite-structure.png
-    :align: center
-    :alt: Composite Structure
+|image0|
 
 Surface
 ~~~~~~~
 
+Surface is the untrusted component of an Enigma node which has the
+primary function of coordinating computation tasks between the Enigma
+Contract and Core. Surface is involved in worker selection and
+computation tasks. For the tasks in each process, the Enigma network has
+verification protocols that check correct execution. For information on
+Surface’s role in the registration process, see
+`Registration <#registration>`__. For more details on how Surface is
+used in the computation process, see `Computation <#computation>`__.
+
 Core
 ~~~~
+
+Core is the trusted component of the Enigma network, and executes
+computation tasks. Core runs inside of an `SGX enclave <#on-sgx>`__.
+Core is involved in a number of processes, including registration,
+encryption, computation and validation. Core is responsible for the
+decryption of data, processing of computations, and returning results to
+the Enigma function. The Enigma function is able to verify that each of
+these tasks was executed correctly with Core. For more information about
+these processes, see `Computation <#computation>`__,
+`Registration <#registration>`__, and `Attestation <#attestation>`__
+sections.

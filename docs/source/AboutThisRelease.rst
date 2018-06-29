@@ -101,7 +101,7 @@ On Rust
 ~~~~~~~
 
 Using a new language like Rust is never an obvious choice especially
-when C and C++ are available options. We feel like it is the best choice
+when C and C++ are available options. We feel that it is the best choice
 for these reasons:
 
 1. Compiles to machine instructions like C and C++. This gives us the
@@ -127,8 +127,8 @@ On SGX
 ~~~~~~
 
 The Enigma Network uses Intel SGX enclaves because they provide strong
-cryptographic guarantees. The following deductive statements explains
-why the Enigma protocol can be trusted for privacy and correctness.
+cryptographic guarantees. The following deductive statements explain why
+the Enigma protocol can be trusted for privacy and correctness.
 
 1. The attestation process provides verification for three things: the
       application’s identity, its intactness (that it has not been
