@@ -22,4 +22,4 @@ our :doc:`software architecture <SoftwareArchitecture>`,
 :doc:`getting started<GettingStarted>`, and is in line of our goal of
 open-source development. This convenient approach allows any developer
 to get started with limited friction. Future releases will be deployed
-on Ethereum testnet and mainet.
+on Ethereum testnet and mainnet.

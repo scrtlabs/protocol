@@ -123,7 +123,6 @@ for these reasons:
 
 6. Interoperates with C when needed.
 
-.. _sgx:
 On SGX
 ~~~~~~
 
