@@ -12,29 +12,17 @@ Requirements
 To begin working with this developer release, please ensure you have the
 following:
 
--  A host machine with Intel `Software Guard
-      Extensions <https://software.intel.com/en-us/sgx>`__ (SGX)
-      enabled.
+-  A host machine with Intel `Software Guard Extensions <https://software.intel.com/en-us/sgx>`_ (SGX) enabled.
 
--  A host machine with Intel `Software Guard
-      Extensions <https://software.intel.com/en-us/sgx>`__ (SGX)
-      enabled.
-
-   -  The `SGX hardware <https://github.com/ayeks/SGX-hardware>`__
-         repository provides a list of hardware that supports Intel SGX,
-         as well as a simple script to check if SGX is enabled on your
-         system.
+-  The `SGX hardware <https://github.com/ayeks/SGX-hardware>`_ repository provides a list of hardware that supports Intel SGX, as well as a simple script to check if SGX is enabled on your system.
 
 -  A host machine running Ubuntu 16.04
 
--  A host machine with `Linux SGX
-      driver <https://github.com/intel/linux-sgx-driver>`__ installed.
-      Upon successful installation of the driver /dev/isgx should be
-      present in the system.
+-  A host machine with `Linux SGX driver <https://github.com/intel/linux-sgx-driver>`_ installed. Upon successful installation of the driver /dev/isgx should be present in the system.
 
 -  Docker
 
--  `Docker Compose <https://docs.docker.com/compose/install/>`__
+-  `Docker Compose <https://docs.docker.com/compose/install/>`_
 
 Your First Secret Contract
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
