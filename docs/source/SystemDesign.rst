@@ -35,6 +35,8 @@ securely running trusted hardware prior to sending data and paying fees.
 (Trusted hardware for this release means Intel SGX: for more information
 on SGX, see sections On SGX and Registration)
 
+.. _enigma-contract:
+
 Enigma Contract
 ~~~~~~~~~~~~~~~
 

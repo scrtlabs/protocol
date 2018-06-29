@@ -5,12 +5,12 @@ This documentation is designed to help developers get started with
 Enigma, describe our current software architecture, and clarify the
 different parts of the Enigma system.
 
-A practical “\ `getting started <#getting-started>`__\ ” section walks
-through the development process of a secret contract. The “\ `system
-design <#system-design>`__\ ” section describes the different components
-of Enigma at a high level. Both “\ `software
-architecture <#software-architecture>`__\ ” and “\ `subsystem
-architecture <#subsystem-architecture>`__\ ” sections describe in detail
+A practical :doc:`getting started <GettingStarted>` section walks
+through the development process of a secret contract. The
+:doc:`system design <SystemDesign>` section describes the different components
+of Enigma at a high level. Both
+:doc:`software architecture <SoftwareArchitecture>` and
+:doc:`subsystem architecture <SubsystemArchitecture>` sections describe in detail
 the current implementations of these components.
 
 This is a living document, and we encourage discussion and debate on our
@@ -18,24 +18,23 @@ This is a living document, and we encourage discussion and debate on our
 
 I want to **develop** my first secret contract...
 
-   Get your feet wet with the `Getting Started
-   Tutorial <#getting-started>`__\ **,** which will walk you through
-   installing the docker image and writing your first secret contract.
+   Get your feet wet with the :doc:`getting started <GettingStarted>`,
+   which will walk you through installing the docker image and writing your
+   first secret contract.
 
-   Jump right into the `EnigmaP.js client
-   library <#enigma-js-client-library>`__
+   Jump right into the :doc:`Enigma.js client library <Enigma-js>`
 
-Learn about the `Enigma Contract <#enigma-contract>`__, which enables
+Learn about the :ref:`Enigma Contract <enigma-contract>`, which enables
 secret contracts using Ethereum.
 
 I’m looking for the **big picture** of developing on Enigma
 
-The `System Design <#system-design>`__ section breaks down the layers of
+The :doc:`System Design <SystemDesign>` section breaks down the layers of
 developing on Enigma.
 
 I am interested in the **protocol architecture...**
 
-Check out our `Software Architecture Overview <#overview>`__ to see how
+Check out our :doc:`network topology <NetworkTopology>` to see how
 the pieces fit together
 
 See the `network topography <#network-topology>`__ of this release

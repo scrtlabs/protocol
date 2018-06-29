@@ -1,5 +1,3 @@
-.. _software-architecture:
-
 Software architecture
 ---------------------
 Overview
