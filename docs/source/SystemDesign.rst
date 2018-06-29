@@ -112,7 +112,9 @@ Enigma Node
 
 An Enigma Node is composed of two components: Surface and Core.
 
-|image0|
+.. image:: https://s3.amazonaws.com/enigmaco-docs/protocol/surface-to-core.png
+    :align: center
+    :alt: Surface to Core Diagram
 
 Surface
 ~~~~~~~

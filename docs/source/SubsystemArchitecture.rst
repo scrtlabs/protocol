@@ -28,7 +28,9 @@ list on-chain and verify that all workers are legitimate, and cache a
 whitelist of these. Workers will be able to perform the same
 verification in future releases.
 
-|image5|
+.. image:: https://s3.amazonaws.com/enigmaco-docs/protocol/registration.png
+    :align: center
+    :alt: Registration Sequence Diagram
 
 The registration protocol is defined as follows:
 
@@ -71,7 +73,9 @@ Optionally, encrypted data can be stored in the state of a Dapp smart
 contract on Ethereum. The Enigma Protocol ensures that an enclave can
 decrypt this data in context of a future computation task.
 
-|image6|
+.. image:: https://s3.amazonaws.com/enigmaco-docs/protocol/encryption-and-storage.png
+    :align: center
+    :alt: Encryption and Storage Sequence Diagram
 
 In the encryption and storage protocol, functions of the `Enigma
 Library <#enigma-js-client-library>`__ help executing these
@@ -137,7 +141,9 @@ workers) at a given time. This sampling process happens once in every
 period, known as *epoch*. The length of each epoch corresponds to a
 configurable number of blocks.
 
-|image7|
+.. image:: https://s3.amazonaws.com/enigmaco-docs/protocol/worker-selection.png
+    :align: center
+    :alt: Worker Selection Sequence Diagram
 
 The protocol for selecting a worker does the following for each epoch:
 
@@ -204,7 +210,9 @@ Computation
   these computations finished successfully – assuming the enclave is
   limited to only run computations inside the EVM and sign them. This is
   illustrated below.
-| |image8|
+.. image:: https://s3.amazonaws.com/enigmaco-docs/protocol/computation-sequence.png
+    :align: center
+    :alt: Compute Sequence Diagram
 
 This diagram assumes that *callableArgs* have been encrypted using the
 `Client Encryption and Storage <#_rbm5765cidly>`__ subsystem described
@@ -436,7 +444,9 @@ before obtaining such proof, they perform attestation before giving out
 each task. This way, if a malicious worker made its way through
 registration, it would never receive any task.
 
-|image9|
+.. image:: https://s3.amazonaws.com/enigmaco-docs/protocol/attestation.png
+    :align: center
+    :alt: Attestation Sequence Diagram
 
 The attestation protocol works as follows before each computation task:
 

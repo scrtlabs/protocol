@@ -7,4 +7,6 @@ distributed version of the same topology (including a local Ethereum
 blockchain). This self-contained docker network has the following
 topology.
 
-|image1|
+.. image:: https://s3.amazonaws.com/enigmaco-docs/protocol/network-topology.png
+    :align: center
+    :alt: Network Topology

@@ -20,7 +20,9 @@ trusted hardware’s true randomness module. Each network participant may
 independently run a pseudo-random algorithm to derive the selected
 worker. This is how the Dapp knew which worker to verify.
 
-|image2|
+.. image:: https://s3.amazonaws.com/enigmaco-docs/protocol/assigning-computation-task.png
+    :align: center
+    :alt: Giving Out Computation Task Overview
 
 The selected worker then instructs its trusted hardware to unpack the
 task, decrypt its arguments and delegate execution to its internal EVM.
@@ -33,7 +35,9 @@ within trusted hardware; 3) execution by the selected worker. Finally,
 the results are relayed to the Dapp contract and the worker collects its
 fee.
 
-|image3|
+.. image:: https://s3.amazonaws.com/enigmaco-docs/protocol/computation-task-overview.png
+    :align: center
+    :alt: Executing Computation Task Overview
 
 Subsystem Decomposition
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -103,7 +107,9 @@ components. Here are the key components which compose the system.
 The diagram below presents a composite view of the logical components of
 the system.
 
-|image4|
+.. image:: https://s3.amazonaws.com/enigmaco-docs/protocol/composite-structure.png
+    :align: center
+    :alt: Composite Structure of the System
 
 Composite Structure of the System
 
