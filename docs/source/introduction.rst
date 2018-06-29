@@ -18,8 +18,8 @@ blockchain). This release makes available multiple core components of
 the Enigma protocol, and is highly simplified.
 
 The goal of this simplified release is to familiarize developers with
-our `software architecture <#software-architecture>`__, `secret contract
-development <#getting-started>`__, and is in line of our goal of
+our :doc:`software architecture<SoftwareArchitecture>`, :doc:`secret contract
+development<GettingStarted>`, and is in line of our goal of
 open-source development. This convenient approach allows any developer
 to get started with limited friction. Future releases will be deployed
 on Ethereum testnet and mainet.
