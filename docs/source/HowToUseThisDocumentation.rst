@@ -34,10 +34,10 @@ developing on Enigma.
 
 I am interested in the **protocol architecture...**
 
-Check out our :doc:`network topology <NetworkTopology>` to see how
-the pieces fit together
+Check out our :doc:`Software Architecture Overview<SoftwareArchitecture>` to see how
+the pieces fit together.
 
-See the `network topography <#network-topology>`__ of this release
+See the :doc:`Network Topology <NetworkTopology>` of this release
 
 I want to know more about **encryption…**
 
