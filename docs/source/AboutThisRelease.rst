@@ -30,7 +30,7 @@ Selected features of this release:
 6. **Independently Verifiable:** Dapp users are able to independently
       verify the enclave quotes with Intel
 
-Assumptions made in this testnet release: 
+Assumptions made in this testnet release:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. **Static Keys / No Key Mgmt:** Because of its complexity, the key
@@ -123,6 +123,7 @@ for these reasons:
 
 6. Interoperates with C when needed.
 
+.. _sgx:
 On SGX
 ~~~~~~
 

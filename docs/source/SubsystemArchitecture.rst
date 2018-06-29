@@ -77,9 +77,8 @@ decrypt this data in context of a future computation task.
     :align: center
     :alt: Encryption and Storage Sequence Diagram
 
-In the encryption and storage protocol, functions of the `Enigma
-Library <#enigma-js-client-library>`__ help executing these
-instructions:
+In the encryption and storage protocol, functions of the
+:doc:`Enigma Library<Enigma-js>` help executing these instructions:
 
 1. Request the application key pair from the Dapp config. In this
       development release, there is a single app key for all
@@ -202,7 +201,7 @@ that generates this kind of randomness.
 
 .. _section-1:
 
-Computation 
+Computation
 ~~~~~~~~~~~~
 
 | When a worker executes a computation and signs its view (namely -
@@ -215,7 +214,7 @@ Computation
     :alt: Compute Sequence Diagram
 
 This diagram assumes that *callableArgs* have been encrypted using the
-`Client Encryption and Storage <#_rbm5765cidly>`__ subsystem described
+`Client Encryption and Storage <#client-encryption-and-storage>`__ subsystem described
 above.
 
 The computation protocol works as follows:
@@ -238,7 +237,7 @@ The computation protocol works as follows:
 
 4. Surface receives a task and runs the lottery to determine if it
       should execute the task (more details in `Worker
-      Selection <#_7od30zs65dcs>`__).
+      Selection <#worker-selection>`__).
 
 5. If selected, Surface extracts the bytecode of the specified
       *dappContractAddress* and relays the call to Core.
@@ -293,7 +292,7 @@ Computation fees (tokens) flow from Dapp users to workers as follows:
       the *compute()* function (or the Enigma Contract directly as
       illustrated in the diagram).
 
-3. The Engima Contract locks the fee in a mapping for which the key is
+3. The Enigma Contract locks the fee in a mapping for which the key is
       the *taskId*.
 
 4. A worker is randomly selected to perform the task. In this release,
@@ -319,8 +318,7 @@ but necessarily all of them.
 The protocol for deserializing and decrypting arguments works as
 follows:
 
-1. Deserialize *callableArgs* using
-      `RLP <https://github.com/ethereum/wiki/wiki/RLP>`__
+1. Deserialize *callableArgs* using `RLP <https://github.com/ethereum/wiki/wiki/RLP>`__
 
 2. For each argument,
 
@@ -395,7 +393,7 @@ registered node (worker or principal) with its private key. Then, in the
 contract, a new hash is generated from the same data and verified using
 the *ECRecover* method of Ethereum. If *ECRecover* outputs the address
 of the correct node, we verified that this data originated from the
-expected enclave (see `On SGX <#on-sgx>`__ for the guarantees offered by
+expected enclave (see `On SGX <AboutThisRelease.html#on-sgx>`__ for the guarantees offered by
 this verification).
 
 After Each New Epoch
@@ -424,8 +422,8 @@ Performing attestation involves a verifiable proof which guarantees that
 a given worker runs an intact version of Core within a certified
 enclave. Combined with `On-Chain
 Verification <#on-chain-verification>`__, it offers strong guarantees
-about the privacy and correctness of those tasks (see `On
-SGX <#on-sgx>`__).
+about the privacy and correctness of those tasks (see
+`On SGX <AboutThisRelease.html#on-sgx>`__).
 
 The attestation protocol of Enigma is adapted from the Remote
 Attestation Protocol of Intel [6]_; a protocol developed by them for
