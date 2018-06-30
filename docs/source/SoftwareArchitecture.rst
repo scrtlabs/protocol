@@ -44,29 +44,35 @@ The system is comprised of the following subsystems. A subsystem is a
 service provider that performs one function or many functions, but does
 nothing until it is requested.
 
-1. **Registration**: When a new node joins the network, it must register
+1. **Registration**: 
+      When a new node joins the network, it must register
       as a worker. The registration protocol ensures that the node runs
       on SGX hardware. It includes the node in a registry on-chain.
 
-2. **Encryption / Storage**: Data flows privately between the dApp and
+2. **Encryption / Storage**: 
+      Data flows privately between the dApp and
       the Enigma Network using an Elliptic-curve Diffie–Hellman (ECDH)
       key agreement protocol. Encrypted data may be stored in the dApp
       contract state for future computation.
 
-3. **Worker Selection**: Multiple nodes participate in the network with
+3. **Worker Selection**: 
+      Multiple nodes participate in the network with
       the incentive of earning rewards by executing computation tasks as
       a worker. Worker selection happens for each computation tasks.
       Each node determines whether it is the selected worker by running an
       algorithm that relies upon a shared random seed.
 
-4. **Computation**: A computation task flows from the dApp users to the
+4. **Computation**: 
+      A computation task flows from the dApp users to the
       secure enclave through multiple components. It executes a function
       of the dApp smart contract with encrypted inputs.
 
-5. **On-chain Verification:** The Enigma Contract verifies signed data
+5. **On-chain Verification:** 
+      The Enigma Contract verifies signed data
       submitted by a node in the Enigma Network.
 
-6. **Attestation**: A dApp may verify the authenticity of the selected
+6. **Attestation**: 
+      A dApp may verify the authenticity of the selected
       worker through a remote attestation protocol prior to requesting
       or a computation task.
 
@@ -78,29 +84,26 @@ and tight coupling with Ethereum increase complexity by requiring the
 architecture to be molded according to highly opinionated existing
 components. Here are the key components that compose the system.
 
-1. **Enigma Library (EnigmaP.js):** A JavaScript library that performs
-      the Enigma functions, to be included inside of dApps.
+1. **Enigma Library (EnigmaP.js):** 
+      A JavaScript library that performs the Enigma functions, to be included inside of dApps.
 
-2. **dApp Contract:** A smart contract created by the dApp author that
-      stores encrypted data, the business logic of computation tasks and
-      handles the callback.
+2. **dApp Contract:** 
+      A smart contract created by the dApp author that stores encrypted data, the business logic of computation tasks and handles the callback.
 
-3. **Enigma Contract:** A smart contract deployed on the Ethereum
-      Network that orchestrates on-chain operations of the Enigma
-      Network.
+3. **Enigma Contract:** 
+      A smart contract deployed on the Ethereum Network that orchestrates on-chain operations of the Enigma Network.
 
-4. **Surface:** The untrusted component of an Enigma node whose primary
-      function is to coordinate computation tasks between the Enigma
-      Contract and Core.
+4. **Surface:** 
+      The untrusted component of an Enigma node whose primary function is to coordinate computation tasks between the Enigma Contract and Core.
 
-5. **Core:** The trusted component of an Enigma node that executes
-      computation tasks. Core runs inside an SGX enclave.
+5. **Core:** 
+      The trusted component of an Enigma node that executes computation tasks. Core runs inside an SGX enclave.
 
-6. **Principal Node:** A temporary centralized node that propagates
-      random numbers to the rest of the network.
+6. **Principal Node:** 
+      A temporary centralized node that propagates random numbers to the rest of the network.
 
-7. **Attestation Service:** A standalone service (not packaged in the
-      local network) that verifies quotes with Intel.
+7. **Attestation Service:** 
+      A standalone service (not packaged in the local network) that verifies quotes with Intel.
 
 The diagram below presents a composite view of the logical components of
 the system.

@@ -8,7 +8,7 @@ immediate use or storage; 2) obtain an authoritative proof that the
 target worker is securely running trusted hardware prior to sending data
 and paying fees. (Trusted hardware for this release means Intel SGX: for
 more information on SGX, see sections `On SGX <#on-sgx>`__ and
-`Registration <#registration>`__)
+`Registration <#registration>`__). 
 
 **validateKeyHex**
 ~~~~~~~~~~~~~~~~~~

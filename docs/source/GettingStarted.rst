@@ -24,10 +24,5 @@ following:
 Your First Secret Contract
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This should contain the info from USAGE and TESTING in addition to a
-walkthrough for a sample contract.
-
-NOTE FROM MOIRA, UNSURE OF PLACEMENT: It is very important that in the
-solidity code the parameters in callback and the return parameters for
-callable should be exactly (also syntactically) the same. Otherwise
-there will be problems with the hash of the functions.
+For now, the most up-to-date instructions can be found in the Readme for `Enigma Docker Network <https://github.com/enigmampc/enigma-docker-network>`_.
+Coming soon: A tutorial on writing a secret contract.
