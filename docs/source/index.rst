@@ -7,7 +7,16 @@ Table of Contents
 -----------------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 11
 
    introduction
-   
+   HowToUseThisDocumentation
+   AboutThisRelease
+   GettingStarted
+   SystemDesign
+   Enigma-js
+   NetworkTopology
+   Community
+   SoftwareArchitecture
+   SubsystemArchitecture
+   Glossary
