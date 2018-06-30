@@ -1,0 +1,459 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Software architecture &mdash; Enigma Protocol 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Enigma Protocol 0.1 documentation" href="index.html"/>
+        <link rel="next" title="Subsystem architecture" href="SubsystemArchitecture.html"/>
+        <link rel="prev" title="Community" href="Community.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Enigma Protocol
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HowToUseThisDocumentation.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AboutThisRelease.html">About this release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SystemDesign.html">System design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkTopology.html">Network topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Software architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subsystem-decomposition">Subsystem Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logical-components">Logical Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mapping-between-subsystems-and-logical-components">Mapping Between Subsystems and Logical Components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SubsystemArchitecture.html">Subsystem architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Enigma Protocol</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Software architecture</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/SoftwareArchitecture.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="software-architecture">
+<h1>Software architecture<a class="headerlink" href="#software-architecture" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The Enigma Network offloads private computation tasks from Ethereum. These
+tasks are initiated by the end users of Ethereum dAppDapps. A JS client
+library gives dAppDapp developers the tools to: 1) safely encrypt sensitive
+data in-memory for immediate use or storage; 2) obtain an authoritative proof
+that the target worker is securely running trusted hardware (SGX) prior to
+sending data and paying fees.</p>
+<p>Upon receiving a computation task, the Enigma Contract deployed on-chain
+broadcasts the task in the Enigma network. Then, each registered worker runs a
+random sampling lottery to determine whether they should execute the
+task. This lottery is seeded with a random number generated using the
+trusted hardware’s true randomness module. Each network participant may
+independently run a pseudo-random algorithm to derive the selected
+worker. This is how the dApp knows which worker to verify.</p>
+<img alt="Giving Out Computation Task Overview" class="align-center" src="https://s3.amazonaws.com/enigmaco-docs/protocol/assigning-computation-task.png" />
+<p>The selected worker then instructs its trusted hardware to unpack the
+task, decrypt its arguments and delegate execution to its internal EVM.
+After execution, a hash of the task attributes (i.e. inputs, code and
+outputs) is signed with a private key that exists only in the trusted
+hardware. This data is then committed on-chain where its provenance and
+integrity are cryptographically verified. This on-chain verification
+guarantees: 1) integrity of the task attributes; 2) safe execution
+within trusted hardware; 3) execution by the selected worker. Finally,
+the results are relayed to the dApp contract and the worker collects its
+fee.</p>
+<img alt="Executing Computation Task Overview" class="align-center" src="https://s3.amazonaws.com/enigmaco-docs/protocol/computation-task-overview.png" />
+</div>
+<div class="section" id="subsystem-decomposition">
+<h2>Subsystem Decomposition<a class="headerlink" href="#subsystem-decomposition" title="Permalink to this headline">¶</a></h2>
+<p>The system is comprised of the following subsystems. A subsystem is a
+service provider that performs one function or many functions, but does
+nothing until it is requested.</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt><strong>Registration</strong>:</dt>
+<dd><p class="first last">When a new node joins the network, it must register
+as a worker. The registration protocol ensures that the node runs
+on SGX hardware. It includes the node in a registry on-chain.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Encryption / Storage</strong>:</dt>
+<dd><p class="first last">Data flows privately between the dApp and
+the Enigma Network using an Elliptic-curve Diffie–Hellman (ECDH)
+key agreement protocol. Encrypted data may be stored in the dApp
+contract state for future computation.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Worker Selection</strong>:</dt>
+<dd><p class="first last">Multiple nodes participate in the network with
+the incentive of earning rewards by executing computation tasks as
+a worker. Worker selection happens for each computation tasks.
+Each node determines whether it is the selected worker by running an
+algorithm that relies upon a shared random seed.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Computation</strong>:</dt>
+<dd><p class="first last">A computation task flows from the dApp users to the
+secure enclave through multiple components. It executes a function
+of the dApp smart contract with encrypted inputs.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>On-chain Verification:</strong></dt>
+<dd><p class="first last">The Enigma Contract verifies signed data
+submitted by a node in the Enigma Network.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Attestation</strong>:</dt>
+<dd><p class="first last">A dApp may verify the authenticity of the selected
+worker through a remote attestation protocol prior to requesting
+or a computation task.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="section" id="logical-components">
+<h2>Logical Components<a class="headerlink" href="#logical-components" title="Permalink to this headline">¶</a></h2>
+<p>The Enigma Network is not a standalone program. Its decentralized nature
+and tight coupling with Ethereum increase complexity by requiring the
+architecture to be molded according to highly opinionated existing
+components. Here are the key components that compose the system.</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt><strong>Enigma Library (EnigmaP.js):</strong></dt>
+<dd><p class="first last">A JavaScript library that performs the Enigma functions, to be included inside of dApps.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>dApp Contract:</strong></dt>
+<dd><p class="first last">A smart contract created by the dApp author that stores encrypted data, the business logic of computation tasks and handles the callback.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Enigma Contract:</strong></dt>
+<dd><p class="first last">A smart contract deployed on the Ethereum Network that orchestrates on-chain operations of the Enigma Network.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Surface:</strong></dt>
+<dd><p class="first last">The untrusted component of an Enigma node whose primary function is to coordinate computation tasks between the Enigma Contract and Core.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Core:</strong></dt>
+<dd><p class="first last">The trusted component of an Enigma node that executes computation tasks. Core runs inside an SGX enclave.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Principal Node:</strong></dt>
+<dd><p class="first last">A temporary centralized node that propagates random numbers to the rest of the network.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Attestation Service:</strong></dt>
+<dd><p class="first last">A standalone service (not packaged in the local network) that verifies quotes with Intel.</p>
+</dd>
+</dl>
+</li>
+</ol>
+<p>The diagram below presents a composite view of the logical components of
+the system.</p>
+<img alt="Composite Structure of the System" class="align-center" src="https://s3.amazonaws.com/enigmaco-docs/protocol/composite-structure.png" />
+<p>Composite Structure of the System</p>
+</div>
+<div class="section" id="mapping-between-subsystems-and-logical-components">
+<h2>Mapping Between Subsystems and Logical Components<a class="headerlink" href="#mapping-between-subsystems-and-logical-components" title="Permalink to this headline">¶</a></h2>
+<p>Given the complexity factor alluded to above, there is not a one-to-one
+mapping between the subsystems and logical components, this table
+illustrates in which component the core business logic of each subsystem
+is implemented.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="12%" />
+<col width="20%" />
+<col width="19%" />
+<col width="12%" />
+<col width="8%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">Eng Lib</th>
+<th class="head">dApp Contract</th>
+<th class="head">Eng Contract</th>
+<th class="head">Surface</th>
+<th class="head">Core</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Registration</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>X</td>
+<td>&#160;</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>Encryption / Storage</td>
+<td>X</td>
+<td>X</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>X</td>
+</tr>
+<tr class="row-even"><td>Computation</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>Worker Selection</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>X</td>
+<td>X</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>On-Chain Validation</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>X</td>
+<td>&#160;</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>Attestation</td>
+<td>X</td>
+<td>&#160;</td>
+<td>X</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SubsystemArchitecture.html" class="btn btn-neutral float-right" title="Subsystem architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Community.html" class="btn btn-neutral" title="Community" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Enigma MPC, Inc..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

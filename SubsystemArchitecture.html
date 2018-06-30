@@ -1,0 +1,518 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Subsystem architecture &mdash; Enigma Protocol 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Enigma Protocol 0.1 documentation" href="index.html"/>
+        <link rel="next" title="Glossary" href="Glossary.html"/>
+        <link rel="prev" title="Software architecture" href="SoftwareArchitecture.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Enigma Protocol
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HowToUseThisDocumentation.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AboutThisRelease.html">About this release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SystemDesign.html">System design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkTopology.html">Network topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoftwareArchitecture.html">Software architecture</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Subsystem architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#registration">Registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#client-encryption-and-storage">Client Encryption and Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#worker-selection">Worker Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#computation">Computation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#payment-of-the-computation-fee">Payment of the Computation Fee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deserialization-and-decryption">Deserialization and Decryption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#preprocessing">Preprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#execution-in-evm">Execution in EVM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#on-chain-verification">On-Chain Verification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#after-each-new-epoch">After Each New Epoch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-computation">Post Computation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#attestation">Attestation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Enigma Protocol</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Subsystem architecture</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/SubsystemArchitecture.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="subsystem-architecture">
+<h1>Subsystem architecture<a class="headerlink" href="#subsystem-architecture" title="Permalink to this headline">¶</a></h1>
+<p>Subsystems are not the same as components. Subsystem may go across
+components to perform their functions. A subsystem is a service provider
+that performs one function or many functions, but does nothing until it
+is requested. This section describes the data flow of each subsystem in
+enough depth to fully illustrate how the system works.</p>
+<div class="section" id="registration">
+<h2>Registration<a class="headerlink" href="#registration" title="Permalink to this headline">¶</a></h2>
+<p>First, for a node to become a worker eligible to run computations, it
+must first securely generate an Ethereum compliant ECC key-pair to be
+used as a persistent identity. This key-pair is generated inside an SGX
+enclave, and should never leave it. To persist across sessions, we
+will seal the key in the host’s system.</p>
+<p>Once the key is generated, the enclave should generate a quote proving
+that the key-pair was generated properly inside the enclave. The enclave
+should then create, produce, and sign a quote. The quote is then
+verified with Intel and sent on-chain.</p>
+<p>Now, everyone (whether it’s a user or some other stakeholder), can
+independently verify that this node’s identity is linked to an enclave.
+When dApp users request a computation task, they can run through the
+list on-chain and verify that all workers are legitimate, and cache a
+whitelist of these. Workers will be able to perform the same
+verification in future releases.</p>
+<img alt="Registration Sequence Diagram" class="align-center" src="https://s3.amazonaws.com/enigmaco-docs/protocol/registration.png" />
+<p>The registration protocol is defined as follows:</p>
+<ol class="arabic simple">
+<li>The worker requests a quote from the enclave.</li>
+<li>The enclave generates a proving key-pair from which it produces and signs a quote. Then, Surface extracts the public key and the quote.</li>
+<li>Surface generates an address by hashing the public key. This is required in order to use the <em>ECRecover</em> method of Ethereum on-chain.</li>
+<li>Surface calls Enigma’s Attestation service to verify the quote. This service internally stores an SPID certificate. It passes the SPID and the quote to Intel’s Remote Attestation Server to request a report that formally verifies the quote (see <a class="reference external" href="#attestation">Attestation</a> for the verification flow of this report).</li>
+<li>Surface receives the report, then passes it along to the <em>register</em> function on the Enigma Contract with the address and the quote. The contract stores this data in a mapping where the key is the custodian address (i.e. the <em>msg.sender</em> of the transaction).</li>
+<li>From here-on, nodes will know that the <em>prover address</em>, which never leaves the enclave, is used to prove computations; whereas the <em>custodian address</em> is in charge of receiving payouts.</li>
+</ol>
+</div>
+<div class="section" id="client-encryption-and-storage">
+<h2>Client Encryption and Storage<a class="headerlink" href="#client-encryption-and-storage" title="Permalink to this headline">¶</a></h2>
+<p>At a high-level, the protocol ensures that data parameters can flow
+securely from a dApp to a secure enclave through Elliptic-curve
+Diffie–Hellman (ECDH), an anonymous key agreement protocol. This scheme
+allows both parties, each having an elliptic-curve public–private key
+pair, to establish a shared secret in an untrusted area.</p>
+<p>Optionally, encrypted data can be stored in the state of a dApp smart
+contract on Ethereum. The Enigma Protocol ensures that an enclave can
+decrypt this data in context of a future computation task.</p>
+<img alt="Encryption and Storage Sequence Diagram" class="align-center" src="https://s3.amazonaws.com/enigmaco-docs/protocol/encryption-and-storage.png" />
+<p>In the encryption and storage protocol, functions of the
+<a class="reference internal" href="Enigma-js.html"><span class="doc">Enigma Library</span></a> help execute these instructions:</p>
+<ol class="arabic simple">
+<li>Request the application key pair from the dApp config. In this development release, there is a single app key for all applications. In the future releases, each application will generate its own key pair.</li>
+<li>Request an encryption public key from the dApp config. Again, since this is a development release, the encryption key is simply a configuration parameter. All nodes in the network currently use the same encryption key pair. In future releases, encryption keys will be provided by the network. A key management protocol will control the lifecycle of the keys.</li>
+<li>Derive a new key from the dApp private key and the encryption key. Encrypting with this derived key will ensure that the selected enclave can decrypt the message, while proving that the message was encrypted by the dApp (and nothing else).</li>
+<li>Generate a random initialization vector (IV) <a href="#id5"><span class="problematic" id="id6"><span id="id1"></span>[4]_</span></a>, then use it to encrypt the message with the derived key. The IV will be concatenated at the beginning of the encrypted message. The IV and message can later be easily extracted because the IV always contains 12 bytes.</li>
+<li>Depending on the use case, the encrypted message may or may not need to be stored in the world state. If the purpose of the message is to immediately serve as input to a transaction (and the transaction does not require any inputs stored on-chain), it can be sent directly to the Enigma Contract by requesting a computation task. As a general rule:<ol class="loweralpha">
+<li>If the encrypted message serves as input to an immediate transaction that does not have any other inputs stored encrypted in state, invoke to the Enigma Contract using web3.</li>
+<li>If the encrypted message must be stored for later or serve as an input to an immediate transaction along with other inputs stored encrypted in the state, use the dApp contract to broker the transaction.</li>
+</ol>
+</li>
+<li>If the message must be used as input for future computation tasks, it can be stored as an attribute of the dApp contract. In this case, the dApp can use web3 to invoke a transaction function –<em>foo(encryptedData)</em> in the diagram. We assume that <em>foo</em> contains the instructions required to store the encrypted data in the dApp contract.</li>
+</ol>
+<p>This <a class="reference external" href="https://docs.google.com/document/d/1c9eReGipyBO7l82-n7U8AH8tSXyZeN9ZDzIJgTbVKSI/edit#heading=h.h4mmyxajdhy7">Cryptography
+Document</a>
+describes the specific curves used for encryption and other cryptography
+related considerations.</p>
+</div>
+<div class="section" id="worker-selection">
+<h2>Worker Selection<a class="headerlink" href="#worker-selection" title="Permalink to this headline">¶</a></h2>
+<p>Sampling workers means that the entire Enigma network needs to reach an
+agreement about the identity of a given worker (or one or more groups of
+workers) at a given time. This sampling process happens once in every
+period, known as an <em>epoch</em>. The length of each epoch corresponds to a
+configurable number of blocks.</p>
+<img alt="Worker Selection Sequence Diagram" class="align-center" src="https://s3.amazonaws.com/enigmaco-docs/protocol/worker-selection.png" />
+<p>The protocol for selecting a worker does the following for each epoch:</p>
+<ol class="arabic simple">
+<li>The principal node uses SGX’s <em>true random</em> (i.e. sgx_read_rand) to generate a fresh random value (256-bit), which will later be used by the nodes as a <em>seed</em>.</li>
+<li>It passes this value to the untrusted peer app running on the principal’s host. The untrusted peer then commits it to the Enigma Contract.</li>
+<li>The Enigma Contract stores a mapping of: 1) the current block number; 2) the seed; 3) a an ordered list representing a snapshot of all active workers.</li>
+<li>The Enigma Contract emits a <em>WorkersParameterized</em> event. Every node in the network can observe this value, as they are all watching the chain.</li>
+<li>Now, every node can independently run a pseudo-randomness algorithm that selects the winning worker’s address for each computation task.</li>
+<li>When the contract receives a compute request, it generates a taskId (see <a class="reference external" href="#client-encryption-and-storage">Client Encryption and Storage</a>). Then, it emits a ComputeTask event (see <a class="reference external" href="#computation">Computation</a>).</li>
+<li>Upon receiving a computation task, each worker runs a pseudo-randomness algorithm to discover the selected worker. The input of the <em>selectWorker</em> function are: the seed; the taskId and the list of workers. Including the taskId ensures that a different worker is randomly selected for each computation task.</li>
+<li>Now, all nodes in the network know the address of the worker selected for the task. Only the selected worker executes the computation task.</li>
+<li>The selected worker commits the results on-chain including the block number that originated the task.</li>
+<li>The Enigma Contract retrieves the worker selection parameters corresponding to the block number submitted.</li>
+</ol>
+<p>11. The Enigma Contract re-runs the <em>selectWorker</em> pseudo-randomness algorithm to verify that the worker submitting the results is indeed the selected worker for the task. A greedy worker trying
+to compute more than its share of tasks would simply waste gas, as the unauthorized submissions get rejected by this verification method.</p>
+<p>Random sampling is one of the most important primitives in the network.
+While in later versions, this would be achieved by a distributed MPC
+algorithm, for Discovery it suffices to have a <em>principal</em> Enigma node
+that generates this kind of randomness.</p>
+</div>
+<div class="section" id="computation">
+<span id="section-1"></span><h2>Computation<a class="headerlink" href="#computation" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">When a worker executes a computation and signs its view (namely -
+H(input, code, output)) with its key, the user can be confident that
+these computations finished successfully – assuming the enclave is
+limited to only run computations inside the EVM and sign them. This is
+illustrated below.</div>
+</div>
+<img alt="Compute Sequence Diagram" class="align-center" src="https://s3.amazonaws.com/enigmaco-docs/protocol/computation-sequence.png" />
+<p>This diagram assumes that <em>callableArgs</em> have been encrypted using the
+<a class="reference external" href="#client-encryption-and-storage">Client Encryption and Storage</a> subsystem described
+above.</p>
+<p>The computation protocol works as follows:</p>
+<ol class="arabic simple">
+<li>The dApp users requests a computation tasks in one of the following ways (the choice usually depends on whether the dApp stores encrypted values in the state of its contract):<ol class="loweralpha">
+<li>Directly from the Enigma Contract by using web3 to invoke the <em>compute</em> function.</li>
+<li>By invoking a function of the dApp Contract that wraps the <em>compute</em> function of the Enigma Contract.</li>
+</ol>
+</li>
+<li>The Enigma Contract locks the fee (more details below)</li>
+<li>The Enigma Contract emits a <em>ComputeTask</em> event. All nodes in the network will receive the event as they constantly monitor the chain.</li>
+<li>Surface receives a task and runs the lottery to determine if it should execute the task (more details in <a class="reference external" href="#worker-selection">Worker Selection</a>).</li>
+<li>If selected, Surface extracts the bytecode of the specified <em>dappContractAddress</em> and relays the call to Core.</li>
+<li>Core executes the computation which involves the following steps:<ol class="loweralpha" start="3">
+<li>Deserialize and decrypt the encrypted arguments (some arguments may not be encrypted)</li>
+<li>Run the preprocessors if any. Inject the preprocessor outputs as additional arguments of the computation function.</li>
+<li>Gather the bytecode with all inputs and pass them to SputnikVM which will run the specified function of the secret contract.</li>
+<li>Sign a hash of the original callableArgs, outputs and bytecode using the enclave private key.</li>
+</ol>
+</li>
+<li>Surface receives the outputs and signature from Core. It relays them to the Enigma Contract along with the originating blockNumber, secretContract address and taskId using the <em>commitResults</em> function.</li>
+<li>The Enigma Contract verifies that the worker submitting the results 1) is the worker selected for the task; 2) did not tamper with the inputs; 3) computed the task in a secure enclave. This verification protocol is composed of the following steps.<ol class="loweralpha" start="7">
+<li>With the workers parameters of the block originating the task, run the pseudo-random worker selection algorithm. This ensures that the worker committing the results is the worker selected by the network.</li>
+<li>Compute a hash function with the task parameters stored prior to broadcasting the task to the network – which never left the contract so could not have been tampered with – and the results submitted by the worker.</li>
+<li>Compute Ethereum’s <em>ECRecover</em> <a href="#id7"><span class="problematic" id="id8"><span id="id2"></span>[5]_</span></a> function with the hash and the submitted signature. For a successful verification, this should return the signer address of the worker.</li>
+</ol>
+</li>
+</ol>
+<div class="section" id="payment-of-the-computation-fee">
+<h3>Payment of the Computation Fee<a class="headerlink" href="#payment-of-the-computation-fee" title="Permalink to this headline">¶</a></h3>
+<p>Computation fees (tokens) flow from dApp users to workers as follows:</p>
+<ol class="arabic simple">
+<li>The dApp user calls the <em>approve</em> function of the ENG ERC20 contract to unlock a discretionary ENG payment for computing the task.</li>
+<li>The dApp user calls a payable function the dApp contract which wraps the <em>compute()</em> function (or the Enigma Contract directly as illustrated in the diagram).</li>
+<li>The Enigma Contract locks the fee in a mapping for which the key is the <em>taskId</em>.</li>
+<li>A worker is randomly selected to perform the task. In this release, it has no choice but to accept the computation fee proposed by the dApp user. In future releases, it will be free to decline, creating a market effect that dApp users will have to gauge in order to guess the optimal fee for their task.</li>
+</ol>
+<p>5. Once the results are committed on-chain and passed the Enigma Contract verification steps, the fee is unlocked and transferred to the worker custodian wallet. This will also change in future
+releases, fees will be accumulated in each worker’s “bank” (mapping in the Enigma Contract). A withdrawal function will allow each worker to collect its accumulated rewards all at once.</p>
+</div>
+<div class="section" id="deserialization-and-decryption">
+<h3>Deserialization and Decryption<a class="headerlink" href="#deserialization-and-decryption" title="Permalink to this headline">¶</a></h3>
+<p>The arguments of the <em>callable</em> function are RLP serialized in the
+<em>callableArgss</em> parameter. Generally, at least one argument is encrypted
+but not necessarily all of them.</p>
+<p>The protocol for deserializing and decrypting arguments works as
+follows:</p>
+<ol class="arabic simple">
+<li>Deserialize <em>callableArgs</em> using <a class="reference external" href="https://github.com/ethereum/wiki/wiki/RLP">RLP</a></li>
+<li>For each argument,<ol class="loweralpha">
+<li>Determine if the value is encrypted</li>
+<li>If encrypted, decrypt using the key derived from the encryption key and the dApp user public key.</li>
+<li>Since encrypted arguments were RLP encoded after encryption, their type was not stored in the RLP bytes. To cast the value, find its type from the <em>callable</em> function signature using its position in the deserialized list. For example, if the callable signature is <em>foo(bytes,int8)</em>, and deserializing <em>callableArgs</em> result in <em>[1, 00sdfsd0000sdfjsd9990sdf9jhe]</em>; we know to cast the second argument as <em>int8</em> after decryption.</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="preprocessing">
+<h3>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h3>
+<p>A preprocessor is a static service that runs before executing
+the <em>callable</em> function in the EVM. The output of a preprocessor is
+injected in the parameters of the <em>callable</em> function. An array of
+preprocessors can be requested, each representing a function call:
+<em>f()</em>; where <em>f</em> is the name of the preprocessor function.</p>
+<p>The preprocessor execution protocol works as follows for each specified
+value:</p>
+<ol class="arabic simple">
+<li>Parse the preprocessor function signature into function name and arguments</li>
+<li>Retrieve the preprocessor business logic mapping to the function name in from the internal registry</li>
+<li>If arguments are specified, find their value in the list of decrypted arguments referenced in the previous section</li>
+<li>Run the preprocessor business logic</li>
+<li>Inject the outputs after the parameters of the <em>callable</em> function. The existing parameters followed by the preprocessor outputs must match to the <em>callable</em> function signature.</li>
+</ol>
+<p>This release supports only one preprocessor: <em>rand()</em>. It accepts no
+argument.</p>
+</div>
+<div class="section" id="execution-in-evm">
+<h3>Execution in EVM<a class="headerlink" href="#execution-in-evm" title="Permalink to this headline">¶</a></h3>
+<p>All arguments of the <em>callable</em> function are now available. In order to
+execute the computation, the EVM requires bytes composed of the first
+bytes of a hash of the <em>callable</em> signature followed by the encoded
+arguments in order. The <a class="reference external" href="https://solidity.readthedocs.io/en/develop/abi-spec.html?highlight=encode">Application Binary Interface
+Specification</a>
+describe the encoding specification.</p>
+<p>The data required to invoke the callback function on-chain must be
+encoded in the same manner. This is convenient because we know that the
+<em>callable</em> outputs must match the <em>callback</em> inputs. This means that we
+do not need to decode the EVM output, simply adding the first bytes of a
+hash of the <em>callback</em> signature generates the required callback data.</p>
+</div>
+</div>
+<div class="section" id="on-chain-verification">
+<h2>On-Chain Verification<a class="headerlink" href="#on-chain-verification" title="Permalink to this headline">¶</a></h2>
+<p>On-chain verification refers a set of instructions in the Enigma
+Contract which verify the authenticity of some data committed on-chain.
+This is done by signing a hash of this data in the enclave of a
+registered node (worker or principal) with its private key. Then, in the
+contract, a new hash is generated from the same data and verified using
+the <em>ECRecover</em> method of Ethereum. If <em>ECRecover</em> outputs the address
+of the correct node, we verified that this data originated from the
+expected enclave (see <a class="reference external" href="AboutThisRelease.html#on-sgx">On SGX</a> for the guarantees offered by
+this verification).</p>
+<div class="section" id="after-each-new-epoch">
+<h3>After Each New Epoch<a class="headerlink" href="#after-each-new-epoch" title="Permalink to this headline">¶</a></h3>
+<p>After each epoch, the principal node generates a random seed. Then, it
+signs the seed in its enclave with its private key (see <a class="reference external" href="#worker-selection">Worker
+Selection</a>). Then, the node commits the seed to the Enigma
+Contract, which verifies the signature.</p>
+</div>
+<div class="section" id="post-computation">
+<h3>Post Computation<a class="headerlink" href="#post-computation" title="Permalink to this headline">¶</a></h3>
+<p>After a computation task is executed, the worker signs a hash of all
+parameters of the task in its enclave with its private key. Then, it
+commits this data to the Enigma Contract. The contract then recreates
+this hash, notably using the input parameters stored in the task record
+prior to broadcasting to the network. Once the signature of this hash is
+verified, the rest of the transaction is relayed to the <em>callback</em>
+method of the dApp contract.</p>
+</div>
+</div>
+<div class="section" id="attestation">
+<h2>Attestation<a class="headerlink" href="#attestation" title="Permalink to this headline">¶</a></h2>
+<p>Performing attestation involves a verifiable proof that guarantees that
+a given worker runs an intact version of Core within a certified
+enclave. Combined with <a class="reference external" href="#on-chain-verification">On-Chain
+Verification</a>, it offers strong guarantees
+about the privacy and correctness of those tasks (see
+<a class="reference external" href="AboutThisRelease.html#on-sgx">On SGX</a>).</p>
+<p>The attestation protocol of Enigma is adapted from the Remote
+Attestation Protocol of Intel <a href="#id9"><span class="problematic" id="id10"><span id="id3"></span>[6]_</span></a>; a protocol Intel developed for
+establishing a secure stateful channel between two parties: an Enclave
+and a Service Provider. The Remote Attestation protocol of SGX is
+described in the SGX Attestation Process document <a href="#id11"><span class="problematic" id="id12"><span id="id4"></span>[7]_</span></a>. Technically
+speaking, we stripped down the higher level API provided by Intel, in
+methods <em>msg0</em> to <em>msg4</em> (from the diagram below), and only used the things
+that we need to offer the guarantees stated above.</p>
+<p>Because this proof is the key premise that guarantees privacy and
+correctness of a task, it is critical that dApp users must be able to
+verify this correctness independently (i.e. without any intermediary) for themselves.
+To ensure that dApp users never need to send any data nor pay any fee
+before obtaining such proof, they perform attestation before giving out
+each task. This way, if a malicious worker made its way through
+registration, it would never receive any task.</p>
+<img alt="Attestation Sequence Diagram" class="align-center" src="https://s3.amazonaws.com/enigmaco-docs/protocol/attestation.png" />
+<p>The attestation protocol works as follows before each computation task:</p>
+<ol class="arabic simple">
+<li>The dApp calls the Enigma Library with a <em>compute</em> request</li>
+<li>If the Enigma Library has workers parameters cached, it checks if the current block number is lower than the associated block number + number of blocks before the next reparameterization event.</li>
+<li>If the workers parameters are expired or not already in cache, it calls the Enigma Contract to get a new seed and ordered list of workers.</li>
+<li>It generates a random number that will serve as a nonce to ensure that the taskId is always unique. Then, it uses it to generate a taskId and determine the selected worker using the pseudo-randomness algorithm described in the <a class="reference external" href="#worker-selection">Worker Selection</a> section.</li>
+<li>If the worker has not yet been verified locally (i.e. not in cache), it requests a full report from the Enigma Contract. This report was already requested from Intel and stored in the contract during <a class="reference external" href="#registration">Registration</a>.</li>
+<li>It parses the report into its parts: body of the report, signature, the x509 certificate associated with the report and its root certificate.</li>
+</ol>
+<p>7. Using standard crypto libraries, it verifies that the report is correctly signed by the attached x509 certificate. It also verifies that the attached root certificate matches Intel’s
+publically available root certificate issued by a Certificate Authority.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Glossary.html" class="btn btn-neutral float-right" title="Glossary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SoftwareArchitecture.html" class="btn btn-neutral" title="Software architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Enigma MPC, Inc..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

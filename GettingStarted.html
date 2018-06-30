@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction &mdash; Enigma Protocol 0.1 documentation</title>
+  <title>Getting started &mdash; Enigma Protocol 0.1 documentation</title>
   
 
   
@@ -38,8 +38,8 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Enigma Protocol 0.1 documentation" href="index.html"/>
-        <link rel="next" title="How to use this documentation" href="HowToUseThisDocumentation.html"/>
-        <link rel="prev" title="Overview" href="index.html"/> 
+        <link rel="next" title="System design" href="SystemDesign.html"/>
+        <link rel="prev" title="About this release" href="AboutThisRelease.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -89,10 +89,14 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="HowToUseThisDocumentation.html">How to use this documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AboutThisRelease.html">About this release</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#your-first-secret-contract">Your First Secret Contract</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="SystemDesign.html">System design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-js</a></li>
 <li class="toctree-l1"><a class="reference internal" href="NetworkTopology.html">Network topology</a></li>
@@ -144,13 +148,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Introduction</li>
+      <li>Getting started</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/introduction.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/GettingStarted.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -163,28 +167,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>The Enigma network provides a permissionless peer-to-peer network that
-allows executing code (<em>secret contracts</em>) with strong correctness and
-privacy guarantees. Another way to view the network is as a
-smart-contract platform (e.g., similar to Ethereum) that enables the
-development of decentralized applications (dApps), but with the key
-difference that the data itself is concealed from the nodes that execute
-computations. This enables dApp developers to include sensitive data in
-their smart contracts, without moving off-chain to centralized (and less
-secure) systems.</p>
-<p>The initial testnet release is a self-contained Docker network. It is
-composed of multiple containers which fully encapsulate the dynamics of
-a distributed version of the same topology (including a local Ethereum
-blockchain). This release makes available multiple core components of
-the Enigma protocol, and is highly simplified.</p>
-<p>The goal of this simplified release is to familiarize developers with
-our <a class="reference internal" href="SoftwareArchitecture.html"><span class="doc">software architecture</span></a>,
-<a class="reference internal" href="GettingStarted.html"><span class="doc">getting started</span></a>, and is in line of our goal of
-open-source development. This convenient approach allows any developer
-to get started with limited friction. Future releases will be deployed
-on Ethereum testnet and mainnet.</p>
+  <div class="section" id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>For this developer release, you can get started with the <a class="reference external" href="https://github.com/enigmampc/enigma-docker-network">Enigma Docker Network</a>. This containerized environment will provide you with a sandbox for writing secret contracts. Before you begin, ensure that your computer meets the minimum requirements for this release.</p>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>To begin working with this developer release, please ensure you have the
+following:</p>
+<ul>
+<li><p class="first">A host machine with Intel <a class="reference external" href="https://software.intel.com/en-us/sgx">Software Guard Extensions</a> (SGX) enabled.</p>
+<blockquote>
+<div><p>The <a class="reference external" href="https://github.com/ayeks/SGX-hardware">SGX hardware</a> repository provides a list of hardware that supports Intel SGX, as well as a simple script to check if SGX is enabled on your system.</p>
+</div></blockquote>
+</li>
+<li><p class="first">A host machine running Ubuntu 16.04</p>
+</li>
+<li><p class="first">A host machine with <a class="reference external" href="https://github.com/intel/linux-sgx-driver">Linux SGX driver</a> installed. Upon successful installation of the driver, /dev/isgx should be present in the system.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://docs.docker.com/install/overview/">Docker</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://docs.docker.com/compose/install/">Docker Compose</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="your-first-secret-contract">
+<h2>Your First Secret Contract<a class="headerlink" href="#your-first-secret-contract" title="Permalink to this headline">¶</a></h2>
+<p>For now, the most up-to-date instructions can be found in the Readme for <a class="reference external" href="https://github.com/enigmampc/enigma-docker-network">Enigma Docker Network</a>.
+Coming soon: A tutorial on writing a secret contract.</p>
+</div>
 </div>
 
 
@@ -197,10 +207,10 @@ on Ethereum testnet and mainnet.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="HowToUseThisDocumentation.html" class="btn btn-neutral float-right" title="How to use this documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="SystemDesign.html" class="btn btn-neutral float-right" title="System design" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="AboutThisRelease.html" class="btn btn-neutral" title="About this release" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction &mdash; Enigma Protocol 0.1 documentation</title>
+  <title>Network topology &mdash; Enigma Protocol 0.1 documentation</title>
   
 
   
@@ -38,8 +38,8 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Enigma Protocol 0.1 documentation" href="index.html"/>
-        <link rel="next" title="How to use this documentation" href="HowToUseThisDocumentation.html"/>
-        <link rel="prev" title="Overview" href="index.html"/> 
+        <link rel="next" title="Community" href="Community.html"/>
+        <link rel="prev" title="Enigma-js" href="Enigma-js.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -89,13 +89,13 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="HowToUseThisDocumentation.html">How to use this documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AboutThisRelease.html">About this release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SystemDesign.html">System design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-js</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NetworkTopology.html">Network topology</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Network topology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SoftwareArchitecture.html">Software architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SubsystemArchitecture.html">Subsystem architecture</a></li>
@@ -144,13 +144,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Introduction</li>
+      <li>Network topology</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/introduction.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/NetworkTopology.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -163,28 +163,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>The Enigma network provides a permissionless peer-to-peer network that
-allows executing code (<em>secret contracts</em>) with strong correctness and
-privacy guarantees. Another way to view the network is as a
-smart-contract platform (e.g., similar to Ethereum) that enables the
-development of decentralized applications (dApps), but with the key
-difference that the data itself is concealed from the nodes that execute
-computations. This enables dApp developers to include sensitive data in
-their smart contracts, without moving off-chain to centralized (and less
-secure) systems.</p>
-<p>The initial testnet release is a self-contained Docker network. It is
-composed of multiple containers which fully encapsulate the dynamics of
-a distributed version of the same topology (including a local Ethereum
-blockchain). This release makes available multiple core components of
-the Enigma protocol, and is highly simplified.</p>
-<p>The goal of this simplified release is to familiarize developers with
-our <a class="reference internal" href="SoftwareArchitecture.html"><span class="doc">software architecture</span></a>,
-<a class="reference internal" href="GettingStarted.html"><span class="doc">getting started</span></a>, and is in line of our goal of
-open-source development. This convenient approach allows any developer
-to get started with limited friction. Future releases will be deployed
-on Ethereum testnet and mainnet.</p>
+  <div class="section" id="network-topology">
+<h1>Network topology<a class="headerlink" href="#network-topology" title="Permalink to this headline">¶</a></h1>
+<p>This release ships with a self-contained docker network. It is composed of
+multiple containers that which fully encapsulate the dynamics of a distributed
+version of the same topology (including a local Ethereum blockchain).
+This self-contained docker network has the following topology.</p>
+<img alt="Network Topology" class="align-center" src="https://s3.amazonaws.com/enigmaco-docs/protocol/network-topology.png" />
 </div>
 
 
@@ -197,10 +182,10 @@ on Ethereum testnet and mainnet.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="HowToUseThisDocumentation.html" class="btn btn-neutral float-right" title="How to use this documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Community.html" class="btn btn-neutral float-right" title="Community" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Enigma-js.html" class="btn btn-neutral" title="Enigma-js" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction &mdash; Enigma Protocol 0.1 documentation</title>
+  <title>How to use this documentation &mdash; Enigma Protocol 0.1 documentation</title>
   
 
   
@@ -38,8 +38,8 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Enigma Protocol 0.1 documentation" href="index.html"/>
-        <link rel="next" title="How to use this documentation" href="HowToUseThisDocumentation.html"/>
-        <link rel="prev" title="Overview" href="index.html"/> 
+        <link rel="next" title="About this release" href="AboutThisRelease.html"/>
+        <link rel="prev" title="Introduction" href="introduction.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -89,8 +89,8 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="HowToUseThisDocumentation.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to use this documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AboutThisRelease.html">About this release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SystemDesign.html">System design</a></li>
@@ -144,13 +144,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Introduction</li>
+      <li>How to use this documentation</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/introduction.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/HowToUseThisDocumentation.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -163,28 +163,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>The Enigma network provides a permissionless peer-to-peer network that
-allows executing code (<em>secret contracts</em>) with strong correctness and
-privacy guarantees. Another way to view the network is as a
-smart-contract platform (e.g., similar to Ethereum) that enables the
-development of decentralized applications (dApps), but with the key
-difference that the data itself is concealed from the nodes that execute
-computations. This enables dApp developers to include sensitive data in
-their smart contracts, without moving off-chain to centralized (and less
-secure) systems.</p>
-<p>The initial testnet release is a self-contained Docker network. It is
-composed of multiple containers which fully encapsulate the dynamics of
-a distributed version of the same topology (including a local Ethereum
-blockchain). This release makes available multiple core components of
-the Enigma protocol, and is highly simplified.</p>
-<p>The goal of this simplified release is to familiarize developers with
-our <a class="reference internal" href="SoftwareArchitecture.html"><span class="doc">software architecture</span></a>,
-<a class="reference internal" href="GettingStarted.html"><span class="doc">getting started</span></a>, and is in line of our goal of
-open-source development. This convenient approach allows any developer
-to get started with limited friction. Future releases will be deployed
-on Ethereum testnet and mainnet.</p>
+  <div class="section" id="how-to-use-this-documentation">
+<h1>How to use this documentation<a class="headerlink" href="#how-to-use-this-documentation" title="Permalink to this headline">¶</a></h1>
+<p>This documentation is designed to help developers get started with
+Enigma, describe our current software architecture, and clarify the
+different parts of the Enigma system.</p>
+<p>A practical <a class="reference internal" href="GettingStarted.html"><span class="doc">getting started</span></a> section walks
+through the development process of a secret contract. The
+<a class="reference internal" href="SystemDesign.html"><span class="doc">system design</span></a> section describes the different components
+of Enigma at a high level. Both
+<a class="reference internal" href="SoftwareArchitecture.html"><span class="doc">software architecture</span></a> and
+<a class="reference internal" href="SubsystemArchitecture.html"><span class="doc">subsystem architecture</span></a> sections describe in detail
+the current implementations of these components.</p>
+<p>This is a living document, and we encourage discussion and debate on our
+<a class="reference external" href="https://forum.enigma.co/">developer forum</a>.</p>
+<p>I want to <strong>develop</strong> my first secret contract…</p>
+<ul class="simple">
+<li>Get your feet wet with the <a class="reference internal" href="GettingStarted.html"><span class="doc">getting started</span></a>, which will walk you through installing the docker image and writing your first secret contract.</li>
+<li>Jump right into the <a class="reference internal" href="Enigma-js.html"><span class="doc">Enigma.js client library</span></a></li>
+<li>Learn about the <a class="reference internal" href="SystemDesign.html#enigma-contract"><span class="std std-ref">Enigma Contract</span></a>, which enables secret contracts using Ethereum.</li>
+</ul>
+<p>I’m looking for the <strong>big picture</strong> of developing on Enigma</p>
+<ul class="simple">
+<li>The <a class="reference internal" href="SystemDesign.html"><span class="doc">System Design</span></a> section breaks down the layers of developing on Enigma.</li>
+</ul>
+<p>I am interested in the <strong>protocol architecture…</strong></p>
+<ul class="simple">
+<li>Check out our <a class="reference internal" href="SoftwareArchitecture.html"><span class="doc">Software Architecture Overview</span></a> to see how the pieces fit together.</li>
+<li>See the <a class="reference internal" href="NetworkTopology.html"><span class="doc">Network Topology</span></a> of this release</li>
+</ul>
+<p>I want to know more about <strong>encryption…</strong></p>
+<ul class="simple">
+<li>Explore our <strong>cryptography appendix</strong></li>
+<li>How are you handling <a class="reference external" href="#client-encryption-and-storage">key generation and management</a>?</li>
+</ul>
+<p>I want to know what <strong>products</strong> I can build with Enigma…</p>
+<ul class="simple">
+<li>Check out our <a class="reference external" href="https://blog.enigma.co/solutions/home">Solutions Series</a>, our <a class="reference external" href="https://blog.enigma.co/defining-secret-contracts-f40ddee67ef2">Secret Contracts</a> post from Guy, or <a class="reference external" href="mailto:info&#37;&#52;&#48;enigma&#46;co">reach out to us</a> to talk through your idea.</li>
+</ul>
 </div>
 
 
@@ -197,10 +213,10 @@ on Ethereum testnet and mainnet.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="HowToUseThisDocumentation.html" class="btn btn-neutral float-right" title="How to use this documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="AboutThisRelease.html" class="btn btn-neutral float-right" title="About this release" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Enigma-js &mdash; Enigma Protocol 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Enigma Protocol 0.1 documentation" href="index.html"/>
+        <link rel="next" title="Network topology" href="NetworkTopology.html"/>
+        <link rel="prev" title="System design" href="SystemDesign.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Enigma Protocol
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HowToUseThisDocumentation.html">How to use this documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AboutThisRelease.html">About this release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SystemDesign.html">System design</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Enigma-js</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#validatekeyhex"><strong>validateKeyHex</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getderivedkey"><strong>getDerivedKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#encryptmessage"><strong>encryptMessage</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getpublickey"><strong>getPublicKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#removetrailing0x"><strong>removeTrailing0x</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recoverpubkey"><strong>recoverPubKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verifysignature"><strong>verifySignature</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#selectworker"><strong>selectWorker</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkTopology.html">Network topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoftwareArchitecture.html">Software architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SubsystemArchitecture.html">Subsystem architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Enigma Protocol</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Enigma-js</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Enigma-js.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="enigma-js">
+<h1>Enigma-js<a class="headerlink" href="#enigma-js" title="Permalink to this headline">¶</a></h1>
+<p>The Enigma client library, <a class="reference external" href="#_ydldonl0i1f1">Enigma-JS</a>, is a
+javascript library that interfaces with the Enigma protocol. Enigma-JS
+contains tools to: 1) safely encrypt sensitive data in-memory for
+immediate use or storage; 2) obtain an authoritative proof that the
+target worker is securely running trusted hardware prior to sending data
+and paying fees. (Trusted hardware for this release means Intel SGX: for
+more information on SGX, see sections <a class="reference external" href="#on-sgx">On SGX</a> and
+<a class="reference external" href="#registration">Registration</a>).</p>
+<div class="section" id="validatekeyhex">
+<h2><strong>validateKeyHex</strong><a class="headerlink" href="#validatekeyhex" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>validateKeyHex(key)</p>
+<ul>
+<li><dl class="first docutils">
+<dt>description:</dt>
+<dd><p class="first last">Checks whether the supplied key is valid.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>arguments:</dt>
+<dd><p class="first last">key: the supplied key in hex</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>returns:</dt>
+<dd><p class="first last">A valid key derived from the argument</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="getderivedkey">
+<h2><strong>getDerivedKey</strong><a class="headerlink" href="#getderivedkey" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>getDerivedKey (enclavePublicKey, clientPrivateKey)</p>
+<ul>
+<li><dl class="first docutils">
+<dt>description:</dt>
+<dd><p class="first last">Gets a shared key derived from the client and the enclave</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>arguments:</dt>
+<dd><p class="first">enclavePublicKey: the public key of the enclave.</p>
+<p class="last">clientPrivateKey: the private key of the client.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>returns:</dt>
+<dd><p class="first last">A shared key derived from Elliptic Curve Diffie-Hellman</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="encryptmessage">
+<h2><strong>encryptMessage</strong><a class="headerlink" href="#encryptmessage" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>encryptMessage (derivedKey, msg)</p>
+<ul>
+<li><dl class="first docutils">
+<dt>description:</dt>
+<dd><p class="first last">Encrypts a user message.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>arguments:</dt>
+<dd><p class="first">derivedKey: the shared key resulting from the getDerivedKey function call.</p>
+<p class="last">msg: the data to be encrypted.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">returns:</p>
+<blockquote>
+<div><p>An encrypted message using derivedKey and msg.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="getpublickey">
+<h2><strong>getPublicKey</strong><a class="headerlink" href="#getpublickey" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>getPublicKey (clientPrivateKey)</p>
+<ul>
+<li><dl class="first docutils">
+<dt>description:</dt>
+<dd><p class="first last">gets the public key of the enclave</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>arguments:</dt>
+<dd><p class="first last">clientPrivateKey: the client’s private key</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>returns:</dt>
+<dd><p class="first last">The public key of the enclave</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="removetrailing0x">
+<h2><strong>removeTrailing0x</strong><a class="headerlink" href="#removetrailing0x" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>removeTrailing0x(str)</p>
+<ul>
+<li><dl class="first docutils">
+<dt>description:</dt>
+<dd><p class="first last">Removes “0x” from the input</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>arguments:</dt>
+<dd><p class="first last">str: the string to be trimmed</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>returns:</dt>
+<dd><p class="first last">The shortened string if string contained “0x”, the original string if not.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="recoverpubkey">
+<h2><strong>recoverPubKey</strong><a class="headerlink" href="#recoverpubkey" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>recoverPubKey(msgHash, signature)</p>
+<ul class="simple">
+<li>arguments:</li>
+<li>returns:</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="verifysignature">
+<h2><strong>verifySignature</strong><a class="headerlink" href="#verifysignature" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>verifySignature(msg, signature, pubAddr)</p>
+<ul class="simple">
+<li>arguments:</li>
+<li>returns:</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="selectworker">
+<h2><strong>selectWorker</strong><a class="headerlink" href="#selectworker" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>selectWorker(taskId)</p>
+<ul class="simple">
+<li>arguments:</li>
+<li>returns:</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="NetworkTopology.html" class="btn btn-neutral float-right" title="Network topology" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SystemDesign.html" class="btn btn-neutral" title="System design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Enigma MPC, Inc..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

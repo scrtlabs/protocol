@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>About this release &mdash; Enigma Protocol 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Enigma Protocol 0.1 documentation" href="index.html"/>
+        <link rel="next" title="Getting started" href="GettingStarted.html"/>
+        <link rel="prev" title="How to use this documentation" href="HowToUseThisDocumentation.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Enigma Protocol
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HowToUseThisDocumentation.html">How to use this documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">About this release</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#selected-features-of-this-release">Selected features of this release:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assumptions-made-in-this-testnet-release">Assumptions made in this testnet release:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#on-rust">On Rust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#on-sgx">On SGX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#on-coupling-with-ethereum">On Coupling with Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SystemDesign.html">System design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkTopology.html">Network topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoftwareArchitecture.html">Software architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SubsystemArchitecture.html">Subsystem architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Enigma Protocol</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>About this release</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/AboutThisRelease.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="about-this-release">
+<h1>About this release<a class="headerlink" href="#about-this-release" title="Permalink to this headline">¶</a></h1>
+<p>This initial testnet release prioritizes developer access, transparency,
+and ease of use. We have included some essential features, and postponed
+others or made temporary assumptions that are specific to this
+development release. These choices are described at a high level in this
+section. Help us improve by joining our <a class="reference external" href="https://forum.enigma.co/">developer forum</a> and letting us
+know what’s working, what’s not, and what you have questions about.</p>
+<div class="section" id="selected-features-of-this-release">
+<h2>Selected features of this release:<a class="headerlink" href="#selected-features-of-this-release" title="Permalink to this headline">¶</a></h2>
+<p>1. <strong>Compatible with Solidity:</strong>
+Executes any Solidity procedures which do not access the world state</p>
+<p>2. <strong>Randomly Selected Worker:</strong>
+Each computation task is executed by a single randomly selected worker</p>
+<p>3. <strong>Multi-Node Network:</strong>
+The network includes at least two nodes, all of which can be selected as a worker</p>
+<p>4. <strong>Token-based Payment:</strong>
+Each worker receives a reward, equal to the ENG fee paid by the Dapp user, after successfully executing a computation</p>
+<p>5. <strong>Strong Privacy:</strong>
+Sensitive data is never be exposed in clear to any intermediary or untrusted software – local encryption by the dApp user tunneled through to secure hardware</p>
+<p>6. <strong>Independently Verifiable:</strong>
+dApp users are able to independently verify the enclave quotes with Intel</p>
+</div>
+<div class="section" id="assumptions-made-in-this-testnet-release">
+<h2>Assumptions made in this testnet release:<a class="headerlink" href="#assumptions-made-in-this-testnet-release" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt><strong>Static Keys / No Key Mgmt:</strong></dt>
+<dd><p class="first last">Because of its complexity, the key management module will be deferred until the next release. This release will include a single encryption key pair and no key propagation. Doing this is only possible because this is a development release. Future release will propagate keys from a genesis node to other nodes.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>No Economic Incentives:</strong></dt>
+<dd><p class="first last">This developer release focuses on the core components. Incentives will be added to the next release which will be deployed on the Ethereum testnet and mainnet.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>No Going Offline:</strong></dt>
+<dd><p class="first last">In this release, once a node registers, the network assumes that it is always online and ready to receive tasks. Login and Logout operations will be included in the next release along with economic incentives based on staking. In subsequent releases, nodes will not be permitted to go offline without any economic penalty.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>No Bank:</strong></dt>
+<dd><p class="first last">The payment mechanism is kept as simple as possible.
+Dapp users can pay any ENG fee when requesting a computation
+tasks. Workers will accept the proposed fee. The fee will be
+transferred to their wallet for each computation. The next release
+will contain a bank (deposit / withdrawal) along with a more
+sophisticated incentive layer.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Principal Node:</strong></dt>
+<dd><p class="first last">The network includes a Principal Node. This
+centralized component is used for the purpose of pushing random
+seeds to the network in order to randomly select workers. Using
+this component achieves true randomness while simplifying the
+architecture. In future releases, this component will be replaced
+by a completely decentralized scheme which will also achieve true
+randomness.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Stateless EVM:</strong></dt>
+<dd><p class="first last">During execution, SputnikVM cannot access the
+world state (i.e. account information, storage, or account’s
+code). These I/Os would require access to the Ethereum network. By
+design, SputnikVM can run without a connection to the Ethereum –
+a huge advantage over other EVM implementations. If the Solidity
+procedure requires access to Ethereum during execution, SputnikVM
+will raise an error and abort execution. This will change in
+future releases as smart contracts will be decoupled from Ethereum
+and the state will be stored in the Enigma Network.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Centralized Software Attestation Service:</strong></dt>
+<dd><p class="first last">Currently, the remote
+attestation protocol is bound by fairly restrictive rules which
+rely upon non-redistributable x509 certificates issued by Intel.
+For this release, requests to Intel’s attestation service are
+brokered by a gateway, hosted by Enigma, which injects the
+certificate issued by Intel to Enigma in the payload of each
+request. Future versions will allow each workers to request their
+own certificate and provide their own gateway to Intel’s
+attestation service.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>No Failed Tasks:</strong></dt>
+<dd><p class="first last">We assume that all computation tasks will be
+successfully executed. If an error does occur, we return it to the
+console of the worker, but do not broadcast on the network. In
+future releases, computation errors will be tied with economic
+incentives.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Single Preprocessors:</strong></dt>
+<dd><p class="first last">We future releases will include a number of
+special functions (preprocessors) which extend the smart contract
+language to include features exclusive to the Enigma network, this
+version includes a single one: a random number generator.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="section" id="on-rust">
+<h2>On Rust<a class="headerlink" href="#on-rust" title="Permalink to this headline">¶</a></h2>
+<p>Using a new language like Rust is never an obvious choice especially
+when C and C++ are available options. We feel that it is the best choice
+for these reasons:</p>
+<ol class="arabic simple">
+<li>Compiles to machine instructions like C and C++. This gives us the granular level of control required.</li>
+<li>Availability of the Rust SGX SDK. This SDK is maintained by Baidu. It includes many utility services built around best practices.</li>
+<li>Availability of many high-quality Rust components for Ethereum, including SputnikVM, the Parity fork of WASM (which includes smart contracts) and many client libraries.</li>
+<li>Designed as a more secure systems programming language (memory safety, no race conditions, etc). Security is paramount in blockchain applications.</li>
+<li>Expressiveness of the language compared to C or C++ is expected to make up for the learning curve.</li>
+<li>Interoperates with C when needed.</li>
+</ol>
+</div>
+<div class="section" id="on-sgx">
+<h2>On SGX<a class="headerlink" href="#on-sgx" title="Permalink to this headline">¶</a></h2>
+<p>The Enigma Network uses Intel SGX enclaves because they provide strong
+cryptographic guarantees. The following deductive statements explain why
+the Enigma protocol can be trusted for privacy and correctness.</p>
+<ol class="arabic simple">
+<li>The attestation process provides verification for three things: the application’s identity, its intactness (that it has not been tampered with), and that it is running securely within an enclave on an Intel SGX enabled platform. <a href="#id3"><span class="problematic" id="id4"><span id="id1"></span>[1]_</span></a></li>
+<li>The signing key of an enclave never exists outside of it. It follows that data can only be signed with this key as part of the specified instruction set running in an enclave.</li>
+<li>Computation tasks are signed in an enclave and verified on-chain. This guarantees integrity of all of their parameters: instructions, inputs and outputs. Since we know that all instructions and inputs are intact, outputs are necessarily correct.</li>
+<li>The same guarantees apply to the principal node which generates a random seed. In addition, SGX only supports random number generators capable of true randomness.</li>
+</ol>
+<p>These guarantees are critical. This is what allows the Enigma Protocol
+to prove data privacy and correctness with minimal overhead (compared to
+Ethereum for example). These guarantees offer enormous benefits both in
+terms of scalability and privacy.</p>
+</div>
+<div class="section" id="on-coupling-with-ethereum">
+<h2>On Coupling with Ethereum<a class="headerlink" href="#on-coupling-with-ethereum" title="Permalink to this headline">¶</a></h2>
+<p>In this release the Enigma Network is tightly coupled with Ethereum in
+multiple ways.</p>
+<ol class="arabic simple">
+<li>The Enigma Network shares many key characteristics with Oracles <a href="#id5"><span class="problematic" id="id6"><span id="id2"></span>[2]_</span></a>, including a similar pattern of asynchronous data exchange</li>
+<li>The business logic of each computation task is included in dApp smart contracts deployed on Ethereum</li>
+<li>The Enigma Network has no internal state, it must report each computation tasks to chain in order to update the state</li>
+<li>Computation tasks are written in Solidity and executed in a standalone Ethereum Virtual Machine</li>
+<li>Nodes of the Enigma Network cannot communicate with each other without going through the Ethereum chain</li>
+</ol>
+<p>This strategic coupling allows us to deliver the Enigma Network in
+planned phases without compromising on critical attributes like safety
+of the funds. This release is the most tightly coupled with Ethereum.
+Future releases will incrementally loosen this coupling by introducing
+features (internal state, independent smart contracts, peer-to-peer data
+exchange, etc).</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="GettingStarted.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="HowToUseThisDocumentation.html" class="btn btn-neutral" title="How to use this documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Enigma MPC, Inc..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
