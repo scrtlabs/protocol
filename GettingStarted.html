@@ -93,7 +93,8 @@
 <li class="toctree-l1"><a class="reference internal" href="HowToUseThisDocumentation.html">How to use this documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AboutThisRelease.html">About this release</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hardware-requirements">Hardware Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#software-requirements">Software Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#your-first-secret-contract">Your First Secret Contract</a></li>
 </ul>
 </li>
@@ -169,30 +170,46 @@
             
   <div class="section" id="getting-started">
 <h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<p>For this developer release, you can get started with the <a class="reference external" href="https://github.com/enigmampc/enigma-docker-network">Enigma Docker Network</a>. This containerized environment will provide you with a sandbox for writing secret contracts. Before you begin, ensure that your computer meets the minimum requirements for this release.</p>
-<div class="section" id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>To begin working with this developer release, please ensure you have the
-following:</p>
-<ul>
-<li><p class="first">A host machine with Intel <a class="reference external" href="https://software.intel.com/en-us/sgx">Software Guard Extensions</a> (SGX) enabled.</p>
-<blockquote>
-<div><p>The <a class="reference external" href="https://github.com/ayeks/SGX-hardware">SGX hardware</a> repository provides a list of hardware that supports Intel SGX, as well as a simple script to check if SGX is enabled on your system.</p>
-</div></blockquote>
-</li>
-<li><p class="first">A host machine running Ubuntu 16.04</p>
-</li>
-<li><p class="first">A host machine with <a class="reference external" href="https://github.com/intel/linux-sgx-driver">Linux SGX driver</a> installed. Upon successful installation of the driver, /dev/isgx should be present in the system.</p>
-</li>
-<li><p class="first"><a class="reference external" href="https://docs.docker.com/install/overview/">Docker</a></p>
-</li>
-<li><p class="first"><a class="reference external" href="https://docs.docker.com/compose/install/">Docker Compose</a></p>
-</li>
+<p>For this developer release, you can get started with the
+<a class="reference external" href="https://github.com/enigmampc/enigma-docker-network">Enigma Docker Network</a>.
+This containerized environment will provide you with a sandbox for writing
+secret contracts. Before you begin, ensure that your computer meets the minimum
+requirements for this release.</p>
+<div class="section" id="hardware-requirements">
+<h2>Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Permalink to this headline">¶</a></h2>
+<p>To begin working with this developer release, you will need a host machine with
+Intel <a class="reference external" href="https://software.intel.com/en-us/sgx">Software Guard Extensions</a> (SGX)
+enabled.</p>
+<p>The <a class="reference external" href="https://github.com/ayeks/SGX-hardware">SGX hardware</a> repository provides
+a list of hardware that supports Intel SGX, as well as a simple script to check
+if SGX is enabled on your system.</p>
+<p>Generally speaking you need a computer from 2015 or newer, with an Intel CPU.
+You may be able to procure a desktop or a laptop (refer to the list above,
+HP or Dell brands seem to be the safer bet, whereas anything with MacOS is not
+supported).</p>
+<p>Alternatively, you may consider cloud infrastructure, where the only option
+(as of July 2018) is
+<a class="reference external" href="https://www.ibm.com/cloud/bare-metal-servers">IBM bare metal servers</a> at
+a cost of about $275/month (refer to
+<a class="reference external" href="https://github.com/ayeks/SGX-hardware/issues/43">this post</a> for the specs of
+the server to provision with SGX capabilities). Amazon Web Services, Google
+Cloud and Microsoft Azure are known not to support SGX.</p>
+</div>
+<div class="section" id="software-requirements">
+<h2>Software Requirements<a class="headerlink" href="#software-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A host machine with
+<a class="reference external" href="https://github.com/intel/linux-sgx-driver">Linux SGX driver</a> installed.
+Upon successful installation of the driver, <code class="docutils literal"><span class="pre">/dev/isgx</span></code> should be present
+in the system.</li>
+<li><a class="reference external" href="https://docs.docker.com/install/overview/">Docker</a></li>
+<li><a class="reference external" href="https://docs.docker.com/compose/install/">Docker Compose</a></li>
 </ul>
 </div>
 <div class="section" id="your-first-secret-contract">
 <h2>Your First Secret Contract<a class="headerlink" href="#your-first-secret-contract" title="Permalink to this headline">¶</a></h2>
-<p>For now, the most up-to-date instructions can be found in the Readme for <a class="reference external" href="https://github.com/enigmampc/enigma-docker-network">Enigma Docker Network</a>.
+<p>For now, the most up-to-date instructions can be found in the Readme for
+<a class="reference external" href="https://github.com/enigmampc/enigma-docker-network">Enigma Docker Network</a>.
 Coming soon: A tutorial on writing a secret contract.</p>
 </div>
 </div>
