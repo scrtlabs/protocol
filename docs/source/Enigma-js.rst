@@ -10,6 +10,8 @@ and paying fees. (Trusted hardware for this release means Intel SGX: for
 more information on SGX, see sections `On SGX <#on-sgx>`__ and
 `Registration <#registration>`__). 
 
+This client library is still in active development. This documentation is will be added to as development proceeds.
+
 **validateKeyHex**
 ~~~~~~~~~~~~~~~~~~
 	validateKeyHex(key)

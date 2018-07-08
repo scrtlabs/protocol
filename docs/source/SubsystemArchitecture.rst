@@ -122,10 +122,8 @@ The protocol for selecting a worker does the following for each epoch:
 11. The Enigma Contract re-runs the *selectWorker* pseudo-randomness algorithm to verify that the worker submitting the results is indeed the selected worker for the task. A greedy worker trying
 to compute more than its share of tasks would simply waste gas, as the unauthorized submissions get rejected by this verification method.
 
-Random sampling is one of the most important primitives in the network.
-While in later versions, this would be achieved by a distributed MPC
-algorithm, for Discovery it suffices to have a *principal* Enigma node
-that generates this kind of randomness.
+Random sampling is one of the most important primitives in the network. In later versions, this can be achieved by a distributed MPC
+algorithm, for this testnet it suffices to have a *principal* Enigma node that generates this kind of randomness.
 
 .. _section-1:
 
@@ -201,7 +199,7 @@ Deserialization and Decryption
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The arguments of the *callable* function are RLP serialized in the
-*callableArgss* parameter. Generally, at least one argument is encrypted
+*callableArgs* parameter. Generally, at least one argument is encrypted
 but not necessarily all of them.
 
 The protocol for deserializing and decrypting arguments works as

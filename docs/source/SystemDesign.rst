@@ -15,7 +15,7 @@ client library.
 Enigma-JS Client Library
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Enigma client library, `Enigma-JS <#_ydldonl0i1f1>`__, is a
+The Enigma client library, :doc:`Enigma-js<Enigma-js>` is a
 javascript library that interfaces with the Enigma protocol. The API for
 this library describes tasks that a dApp will require to interact with
 Enigma, such as encryption and verification. Enigma-JS contains tools
@@ -61,13 +61,7 @@ Gives workers the parameters that are required for selection
 Principal Node
 ~~~~~~~~~~~~~~
 
-The principal node is a temporary centralized node which performs two
-key functions: 1) Generate random seeds for worker selection; 2)
-Propagate the encryption key to other nodes joining the network. The
-principal node exists in this developer release only. Using this
-component achieves true randomness while simplifying the architecture.
-In future releases, this component will be replaced by a completely
-decentralized scheme which will also achieve true randomness.
+The principal node is a temporary centralized node which performs two key functions: 1) Generate random seeds for worker selection; 2) Propagate the encryption key to other nodes joining the network. The principal node exists in this developer release only, and does not currently propagate keys to nodes. Using this component achieves true randomness while simplifying the architecture. In future releases, this component will be replaced by a completely decentralized scheme which will also achieve true randomness.
 
 Enigma Node
 ~~~~~~~~~~~
@@ -98,7 +92,7 @@ computation tasks. Core runs inside of an `SGX enclave <#on-sgx>`__.
 Core is involved in a number of processes, including registration,
 encryption, computation and validation. Core is responsible for the
 decryption of data, processing of computations, and returning results to
-the Enigma function. The Enigma function is able to verify that each of
+the Enigma function. The Enigma contract is able to verify that each of
 these tasks was executed correctly with Core. For more information about
 these processes, see `Computation <#computation>`__,
 `Registration <#registration>`__, and `Attestation <#attestation>`__

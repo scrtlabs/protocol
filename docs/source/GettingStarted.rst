@@ -46,6 +46,7 @@ Software Requirements
 Your First Secret Contract
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For now, the most up-to-date instructions can be found in the Readme for 
-`Enigma Docker Network <https://github.com/enigmampc/enigma-docker-network>`_.
+For now, the most up-to-date instructions for settuing up a docker test network can be found in the Readme for 
+`Enigma Docker Network <https://github.com/enigmampc/enigma-docker-network>`_. The most in-depth information on the protocol and its architecture can be found in this documentation site.
+
 Coming soon: A tutorial on writing a secret contract.
