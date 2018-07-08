@@ -33,8 +33,8 @@ I am interested in the **protocol architecture...**
 
 I want to know more about **encryption…**
 
-- Explore our **cryptography appendix**
-- How are you handling `key generation and management <#client-encryption-and-storage>`__?
+- Explore our :doc:`cryptography appendix <Enigma_Protocol_Cryptography>`
+- How are you handling :ref:`key generation and management <client-encryption-and-storage>` ?
 
 I want to know what **products** I can build with Enigma...
 

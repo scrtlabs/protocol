@@ -1,4 +1,4 @@
-Cryptography
+Cryptography Appendix
 ============
 
 The enclaves in the Enigma protocol use public-key cryptography, also
@@ -81,7 +81,7 @@ the message.
 
 
 Implementation
-==============
+---------------
 
 For testnet, the Enigma Protocol implements all the above cryptographic
 algorithms in Python using the

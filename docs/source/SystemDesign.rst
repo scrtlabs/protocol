@@ -47,7 +47,7 @@ The following lists breaks down the key events emitted by the contract.
 1. **ComputeTask**: 
 Gives workers the parameters of a computation task
 
-   a. **callable:** A variation of method signature (see Ethereum ABI [3]_) of a public function of the Dapp contract which contains the computation logic (callable). The only variation is an additional prefix which flags encrypted values. The type of each encrypted argument must have a *“_”* prefix in the signature. For example, if the first argument of *baz(uint32,bool)* is encrypted, the signature becomes *baz(_uint32,bool)*.
+   a. **callable:** A variation of method signature (see `Ethereum ABI <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#function-selector-and-argument-encoding>`__ ) of a public function of the Dapp contract which contains the computation logic (callable). The only variation is an additional prefix which flags encrypted values. The type of each encrypted argument must have a *“_”* prefix in the signature. For example, if the first argument of *baz(uint32,bool)* is encrypted, the signature becomes *baz(_uint32,bool)*.
    b. **callableArgs:** The encrypted argument value(s) of the callable function. These inputs must be encrypted a priori (see Client section below). They cannot be provided in the clear. Their original types will be inferred from the callable function definition. In the Coin Mixing example, it is an array of encrypted destination addresses.
    c. **callback:** The method signature (see Ethereum ABI) of a public function of the Dapp contract which the worker calls when committing the results.
    d. **preprocessors**: A list of well-known preprocessor functions which will inject calculated arguments at runtime (when the callable function runs in the EVM). For example, a “random” pre-processor might inject an array of random integers for shuffling.
@@ -80,20 +80,19 @@ primary function of coordinating computation tasks between the Enigma
 Contract and Core. Surface is involved in worker selection and
 computation tasks. For the tasks in each process, the Enigma network has
 verification protocols that check correct execution. For information on
-Surface’s role in the registration process, see
-`Registration <#registration>`__. For more details on how Surface is
-used in the computation process, see `Computation <#computation>`__.
+Surface’s role in the registration process, see :ref:`Registration <registration>`. For more details on how Surface is
+used in the computation process, see :ref:`Computation <computation>`.
 
 Core
 ~~~~
 
 Core is the trusted component of the Enigma network, and executes
-computation tasks. Core runs inside of an `SGX enclave <#on-sgx>`__.
+computation tasks. Core runs inside of an :ref:`SGX enclave <on-sgx>`
 Core is involved in a number of processes, including registration,
 encryption, computation and validation. Core is responsible for the
 decryption of data, processing of computations, and returning results to
 the Enigma function. The Enigma contract is able to verify that each of
 these tasks was executed correctly with Core. For more information about
-these processes, see `Computation <#computation>`__,
-`Registration <#registration>`__, and `Attestation <#attestation>`__
+these processes, see :ref:`Computation <computation>`,
+:ref:`Registration <registration>`, and :ref:`Attestation <attestation>`
 sections.

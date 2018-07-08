@@ -14,10 +14,10 @@ Table of Contents
    AboutThisRelease
    GettingStarted
    SystemDesign
-   Enigma-js
    NetworkTopology
-   Community
    SoftwareArchitecture
    SubsystemArchitecture
-   Enigma_Protocol_Cryptography
+   Enigma-js
+   Community
    Glossary
+   Enigma_Protocol_Cryptography
