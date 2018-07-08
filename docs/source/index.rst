@@ -19,4 +19,5 @@ Table of Contents
    Community
    SoftwareArchitecture
    SubsystemArchitecture
+   Enigma_Protocol_Cryptography
    Glossary
