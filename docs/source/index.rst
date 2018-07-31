@@ -7,7 +7,7 @@ Table of Contents
 -----------------
 
 .. toctree::
-   :maxdepth: 11
+   :maxdepth: 12
 
    introduction
    HowToUseThisDocumentation
@@ -20,4 +20,4 @@ Table of Contents
    Enigma-js
    Community
    Glossary
-   Enigma_Protocol_Cryptography
+   Appendix

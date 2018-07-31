@@ -87,8 +87,7 @@ In the encryption and storage protocol, functions of the
 
 6. If the message must be used as input for future computation tasks, it can be stored as an attribute of the dApp contract. In this case, the dApp can use web3 to invoke a transaction function --*foo(encryptedData)* in the diagram. We assume that *foo* contains the instructions required to store the encrypted data in the dApp contract.
 
-This :doc:`Cryptography Document<Enigma_Protocol_Cryptography>` describes the specific curves used for encryption and other cryptography related considerations.
-
+This :ref:`Cryptography <cryptography>` appendix reference describes the specific curves used for encryption and other cryptography related considerations.
 
 .. _worker-selection:
 
