@@ -1,8 +1,9 @@
 Community
 ---------
-Join us on these channels:
+Join us on
 
 `Telegram <https://t.me/EnigmaProject>`__
 
 
 `Developer Forum <http://forum.enigma.co>`__
+
