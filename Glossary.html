@@ -13,8 +13,6 @@
 
   
   
-  
-  
 
   
 
@@ -24,41 +22,44 @@
 
   
 
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
-    <link rel="next" title="Appendix" href="Appendix.html" />
-    <link rel="prev" title="Community" href="Community.html" /> 
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Enigma Protocol 0.1 documentation" href="index.html"/>
+        <link rel="prev" title="Subsystem architecture" href="SubsystemArchitecture.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
+      <div class="wy-side-nav-search">
+        
 
-          
-            <a href="index.html" class="icon icon-home"> Enigma Protocol
-          
+        
+          <a href="index.html" class="icon icon-home"> Enigma Protocol
+        
 
-          
-          </a>
+        
+        </a>
 
-          
-            
-            
-          
-
-          
+        
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -67,92 +68,119 @@
   </form>
 </div>
 
-          
-        </div>
+        
+      </div>
 
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
           
-            
-            
-              
-            
-            
+          
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="HowToUseThisDocumentation.html">How to use this documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AboutThisRelease.html">About this release</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SystemDesign.html">System design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AboutThisRelease.html">About this release</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="AboutThisRelease.html#selected-features-of-this-release">Selected features of this release:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AboutThisRelease.html#assumptions-made-in-this-testnet-release">Assumptions made in this testnet release:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AboutThisRelease.html#on-rust">On Rust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AboutThisRelease.html#on-sgx">On SGX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AboutThisRelease.html#on-coupling-with-ethereum">On Coupling with Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="GettingStarted.html#hardware-requirements">Hardware Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GettingStarted.html#software-requirements">Software Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GettingStarted.html#your-first-secret-contract">Your First Secret Contract</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SystemDesign.html">System design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#enigma-js-client-library">Enigma-JS Client Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#enigma-contract">Enigma Contract</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SystemDesign.html#tracking-of-computation-tasks">Tracking of Computation Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SystemDesign.html#events">Events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#principal-node">Principal Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#enigma-node">Enigma Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#surface">Surface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#core">Core</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-js</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#validatekeyhex"><strong>validateKeyHex</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getderivedkey"><strong>getDerivedKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#encryptmessage"><strong>encryptMessage</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getpublickey"><strong>getPublicKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#removetrailing0x"><strong>removeTrailing0x</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#recoverpubkey"><strong>recoverPubKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#verifysignature"><strong>verifySignature</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#selectworker"><strong>selectWorker</strong></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="NetworkTopology.html">Network topology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SoftwareArchitecture.html">Software architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SubsystemArchitecture.html">Subsystem architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-js</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoftwareArchitecture.html">Software architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#subsystem-decomposition">Subsystem Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#logical-components">Logical Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#mapping-between-subsystems-and-logical-components">Mapping Between Subsystems and Logical Components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SubsystemArchitecture.html">Subsystem architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#registration">Registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#client-encryption-and-storage">Client Encryption and Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#worker-selection">Worker Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#computation">Computation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#payment-of-the-computation-fee">Payment of the Computation Fee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#deserialization-and-decryption">Deserialization and Decryption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#preprocessing">Preprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#execution-in-evm">Execution in EVM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#on-chain-verification">On-Chain Verification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#after-each-new-epoch">After Each New Epoch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#post-computation">Post Computation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#attestation">Attestation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Glossary</a></li>
 </ul>
 
-            
           
-        </div>
+        
       </div>
+      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Enigma Protocol</a>
-        
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Enigma Protocol</a>
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>Glossary</li>
-    
-    
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Glossary</li>
       <li class="wy-breadcrumbs-aside">
         
-            
-            <a href="_sources/Glossary.txt" rel="nofollow"> View page source</a>
+          
+            <a href="_sources/Glossary.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+          <div role="main" class="document">
             
   <div class="section" id="glossary">
 <h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
@@ -163,21 +191,16 @@
 <p>Principal</p>
 <p>Subsystem</p>
 <p>Component</p>
-<p>Quote</p>
 <span class="target" id="section-3"><span id="section-2"></span></span></div>
 
 
-           </div>
-           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Appendix.html" class="btn btn-neutral float-right" title="Appendix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="Community.html" class="btn btn-neutral" title="Community" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="SubsystemArchitecture.html" class="btn btn-neutral" title="Subsystem architecture" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -187,10 +210,9 @@
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Enigma MPC, Inc..
-
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
 </footer>
 
@@ -209,11 +231,9 @@
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
             VERSION:'0.1',
-            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
@@ -222,13 +242,19 @@
 
   
 
-  <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
 
+  
+  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          SphinxRtdTheme.StickyNav.enable();
       });
-  </script> 
+  </script>
+   
 
 </body>
 </html>

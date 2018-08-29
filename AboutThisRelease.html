@@ -13,8 +13,6 @@
 
   
   
-  
-  
 
   
 
@@ -24,41 +22,45 @@
 
   
 
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
-    <link rel="next" title="Getting started" href="GettingStarted.html" />
-    <link rel="prev" title="How to use this documentation" href="HowToUseThisDocumentation.html" /> 
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Enigma Protocol 0.1 documentation" href="index.html"/>
+        <link rel="next" title="Getting started" href="GettingStarted.html"/>
+        <link rel="prev" title="How to use this documentation" href="HowToUseThisDocumentation.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
+      <div class="wy-side-nav-search">
+        
 
-          
-            <a href="index.html" class="icon icon-home"> Enigma Protocol
-          
+        
+          <a href="index.html" class="icon icon-home"> Enigma Protocol
+        
 
-          
-          </a>
+        
+        </a>
 
-          
-            
-            
-          
-
-          
+        
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -67,20 +69,17 @@
   </form>
 </div>
 
-          
-        </div>
+        
+      </div>
 
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
           
-            
-            
-              
-            
-            
+          
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="HowToUseThisDocumentation.html">How to use this documentation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">About this release</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">About this release</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#selected-features-of-this-release">Selected features of this release:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#assumptions-made-in-this-testnet-release">Assumptions made in this testnet release:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#on-rust">On Rust</a></li>
@@ -88,78 +87,101 @@
 <li class="toctree-l2"><a class="reference internal" href="#on-coupling-with-ethereum">On Coupling with Ethereum</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SystemDesign.html">System design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="GettingStarted.html#hardware-requirements">Hardware Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GettingStarted.html#software-requirements">Software Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GettingStarted.html#your-first-secret-contract">Your First Secret Contract</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SystemDesign.html">System design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#enigma-js-client-library">Enigma-JS Client Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#enigma-contract">Enigma Contract</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SystemDesign.html#tracking-of-computation-tasks">Tracking of Computation Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SystemDesign.html#events">Events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#principal-node">Principal Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#enigma-node">Enigma Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#surface">Surface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#core">Core</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-js</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#validatekeyhex"><strong>validateKeyHex</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getderivedkey"><strong>getDerivedKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#encryptmessage"><strong>encryptMessage</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getpublickey"><strong>getPublicKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#removetrailing0x"><strong>removeTrailing0x</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#recoverpubkey"><strong>recoverPubKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#verifysignature"><strong>verifySignature</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#selectworker"><strong>selectWorker</strong></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="NetworkTopology.html">Network topology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SoftwareArchitecture.html">Software architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SubsystemArchitecture.html">Subsystem architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-js</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoftwareArchitecture.html">Software architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#subsystem-decomposition">Subsystem Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#logical-components">Logical Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#mapping-between-subsystems-and-logical-components">Mapping Between Subsystems and Logical Components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SubsystemArchitecture.html">Subsystem architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#registration">Registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#client-encryption-and-storage">Client Encryption and Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#worker-selection">Worker Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#computation">Computation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#payment-of-the-computation-fee">Payment of the Computation Fee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#deserialization-and-decryption">Deserialization and Decryption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#preprocessing">Preprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#execution-in-evm">Execution in EVM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#on-chain-verification">On-Chain Verification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#after-each-new-epoch">After Each New Epoch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#post-computation">Post Computation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#attestation">Attestation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix.html">Appendix</a></li>
 </ul>
 
-            
           
-        </div>
+        
       </div>
+      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Enigma Protocol</a>
-        
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Enigma Protocol</a>
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>About this release</li>
-    
-    
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>About this release</li>
       <li class="wy-breadcrumbs-aside">
         
-            
-            <a href="_sources/AboutThisRelease.txt" rel="nofollow"> View page source</a>
+          
+            <a href="_sources/AboutThisRelease.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+          <div role="main" class="document">
             
   <div class="section" id="about-this-release">
 <h1>About this release<a class="headerlink" href="#about-this-release" title="Permalink to this headline">¶</a></h1>
@@ -180,9 +202,9 @@ The network includes at least two nodes, all of which can be selected as a worke
 <p>4. <strong>Token-based Payment:</strong>
 Each worker receives a reward, equal to the ENG fee paid by the Dapp user, after successfully executing a computation</p>
 <p>5. <strong>Strong Privacy:</strong>
-Sensitive data is never be exposed in clear to any intermediary or untrusted software &#8211; local encryption by the dApp user tunneled through to secure hardware</p>
+Sensitive data is never be exposed in clear to any intermediary or untrusted software – local encryption by the dApp user tunneled through to secure hardware</p>
 <p>6. <strong>Independently Verifiable:</strong>
-dApp users are able to independently verify the <a class="reference external" href="https://software.intel.com/en-us/node/702986">enclave quotes</a> with Intel</p>
+dApp users are able to independently verify the enclave quotes with Intel</p>
 </div>
 <div class="section" id="assumptions-made-in-this-testnet-release">
 <h2>Assumptions made in this testnet release:<a class="headerlink" href="#assumptions-made-in-this-testnet-release" title="Permalink to this headline">¶</a></h2>
@@ -233,7 +255,7 @@ randomness.</p>
 <dd><p class="first last">During execution, SputnikVM cannot access the
 world state (i.e. account information, storage, or account’s
 code). These I/Os would require access to the Ethereum network. By
-design, SputnikVM can run without a connection to the Ethereum &#8211;
+design, SputnikVM can run without a connection to the Ethereum –
 a huge advantage over other EVM implementations. If the Solidity
 procedure requires access to Ethereum during execution, SputnikVM
 will raise an error and abort execution. This will change in
@@ -278,7 +300,7 @@ version includes a single one: a random number generator.</p>
 </ol>
 </div>
 <div class="section" id="on-rust">
-<span id="id1"></span><h2>On Rust<a class="headerlink" href="#on-rust" title="Permalink to this headline">¶</a></h2>
+<h2>On Rust<a class="headerlink" href="#on-rust" title="Permalink to this headline">¶</a></h2>
 <p>Using a new language like Rust is never an obvious choice especially
 when C and C++ are available options. We feel that it is the best choice
 for these reasons:</p>
@@ -292,12 +314,12 @@ for these reasons:</p>
 </ol>
 </div>
 <div class="section" id="on-sgx">
-<span id="id2"></span><h2>On SGX<a class="headerlink" href="#on-sgx" title="Permalink to this headline">¶</a></h2>
+<h2>On SGX<a class="headerlink" href="#on-sgx" title="Permalink to this headline">¶</a></h2>
 <p>The Enigma Network uses Intel SGX enclaves because they provide strong
 cryptographic guarantees. The following deductive statements explain why
 the Enigma protocol can be trusted for privacy and correctness.</p>
 <ol class="arabic simple">
-<li>The attestation process provides verification for three things: the application’s identity, its intactness (that it has not been tampered with), and that it is running securely within an enclave on an Intel SGX enabled platform. (More information on the Intel SGX <a class="reference external" href="https://courses.cs.ut.ee/MTAT.07.022/2017_spring/uploads/Main/hiie-report-s16-17.pdf">attestation process</a> )</li>
+<li>The attestation process provides verification for three things: the application’s identity, its intactness (that it has not been tampered with), and that it is running securely within an enclave on an Intel SGX enabled platform. <a href="#id3"><span class="problematic" id="id4"><span id="id1"></span>[1]_</span></a></li>
 <li>The signing key of an enclave never exists outside of it. It follows that data can only be signed with this key as part of the specified instruction set running in an enclave.</li>
 <li>Computation tasks are signed in an enclave and verified on-chain. This guarantees integrity of all of their parameters: instructions, inputs and outputs. Since we know that all instructions and inputs are intact, outputs are necessarily correct.</li>
 <li>The same guarantees apply to the principal node which generates a random seed. In addition, SGX only supports random number generators capable of true randomness.</li>
@@ -312,7 +334,7 @@ terms of scalability and privacy.</p>
 <p>In this release the Enigma Network is tightly coupled with Ethereum in
 multiple ways.</p>
 <ol class="arabic simple">
-<li>The Enigma Network shares many key characteristics with <a class="reference external" href="https://blog.ethereum.org/2014/07/22/ethereum-and-oracles/">oracles</a> , including a similar pattern of asynchronous data exchange</li>
+<li>The Enigma Network shares many key characteristics with Oracles <a href="#id5"><span class="problematic" id="id6"><span id="id2"></span>[2]_</span></a>, including a similar pattern of asynchronous data exchange</li>
 <li>The business logic of each computation task is included in dApp smart contracts deployed on Ethereum</li>
 <li>The Enigma Network has no internal state, it must report each computation tasks to chain in order to update the state</li>
 <li>Computation tasks are written in Solidity and executed in a standalone Ethereum Virtual Machine</li>
@@ -328,17 +350,15 @@ exchange, etc).</p>
 </div>
 
 
-           </div>
-           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="GettingStarted.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="GettingStarted.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="HowToUseThisDocumentation.html" class="btn btn-neutral" title="How to use this documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="HowToUseThisDocumentation.html" class="btn btn-neutral" title="How to use this documentation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -348,10 +368,9 @@ exchange, etc).</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Enigma MPC, Inc..
-
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
 </footer>
 
@@ -370,11 +389,9 @@ exchange, etc).</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
             VERSION:'0.1',
-            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
@@ -383,13 +400,19 @@ exchange, etc).</p>
 
   
 
-  <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
 
+  
+  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          SphinxRtdTheme.StickyNav.enable();
       });
-  </script> 
+  </script>
+   
 
 </body>
 </html>

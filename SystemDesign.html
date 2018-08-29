@@ -13,8 +13,6 @@
 
   
   
-  
-  
 
   
 
@@ -24,41 +22,45 @@
 
   
 
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
-    <link rel="next" title="Network topology" href="NetworkTopology.html" />
-    <link rel="prev" title="Getting started" href="GettingStarted.html" /> 
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Enigma Protocol 0.1 documentation" href="index.html"/>
+        <link rel="next" title="Enigma-js" href="Enigma-js.html"/>
+        <link rel="prev" title="Getting started" href="GettingStarted.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
+      <div class="wy-side-nav-search">
+        
 
-          
-            <a href="index.html" class="icon icon-home"> Enigma Protocol
-          
+        
+          <a href="index.html" class="icon icon-home"> Enigma Protocol
+        
 
-          
-          </a>
+        
+        </a>
 
-          
-            
-            
-          
-
-          
+        
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -67,22 +69,31 @@
   </form>
 </div>
 
-          
-        </div>
+        
+      </div>
 
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
           
-            
-            
-              
-            
-            
+          
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="HowToUseThisDocumentation.html">How to use this documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AboutThisRelease.html">About this release</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">System design</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="AboutThisRelease.html">About this release</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="AboutThisRelease.html#selected-features-of-this-release">Selected features of this release:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AboutThisRelease.html#assumptions-made-in-this-testnet-release">Assumptions made in this testnet release:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AboutThisRelease.html#on-rust">On Rust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AboutThisRelease.html#on-sgx">On SGX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AboutThisRelease.html#on-coupling-with-ethereum">On Coupling with Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="GettingStarted.html#hardware-requirements">Hardware Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GettingStarted.html#software-requirements">Software Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GettingStarted.html#your-first-secret-contract">Your First Secret Contract</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">System design</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#enigma-js-client-library">Enigma-JS Client Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#enigma-contract">Enigma Contract</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#tracking-of-computation-tasks">Tracking of Computation Tasks</a></li>
@@ -95,76 +106,82 @@
 <li class="toctree-l2"><a class="reference internal" href="#core">Core</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-js</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#validatekeyhex"><strong>validateKeyHex</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getderivedkey"><strong>getDerivedKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#encryptmessage"><strong>encryptMessage</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getpublickey"><strong>getPublicKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#removetrailing0x"><strong>removeTrailing0x</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#recoverpubkey"><strong>recoverPubKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#verifysignature"><strong>verifySignature</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#selectworker"><strong>selectWorker</strong></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="NetworkTopology.html">Network topology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SoftwareArchitecture.html">Software architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SubsystemArchitecture.html">Subsystem architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-js</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoftwareArchitecture.html">Software architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#subsystem-decomposition">Subsystem Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#logical-components">Logical Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#mapping-between-subsystems-and-logical-components">Mapping Between Subsystems and Logical Components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SubsystemArchitecture.html">Subsystem architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#registration">Registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#client-encryption-and-storage">Client Encryption and Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#worker-selection">Worker Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#computation">Computation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#payment-of-the-computation-fee">Payment of the Computation Fee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#deserialization-and-decryption">Deserialization and Decryption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#preprocessing">Preprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#execution-in-evm">Execution in EVM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#on-chain-verification">On-Chain Verification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#after-each-new-epoch">After Each New Epoch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SubsystemArchitecture.html#post-computation">Post Computation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#attestation">Attestation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix.html">Appendix</a></li>
 </ul>
 
-            
           
-        </div>
+        
       </div>
+      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Enigma Protocol</a>
-        
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Enigma Protocol</a>
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>System design</li>
-    
-    
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>System design</li>
       <li class="wy-breadcrumbs-aside">
         
-            
-            <a href="_sources/SystemDesign.txt" rel="nofollow"> View page source</a>
+          
+            <a href="_sources/SystemDesign.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+          <div role="main" class="document">
             
   <div class="section" id="system-design">
 <h1>System design<a class="headerlink" href="#system-design" title="Permalink to this headline">¶</a></h1>
@@ -178,7 +195,7 @@ A private computation task is a function that is run over data that is not seen 
 client library.</p>
 <div class="section" id="enigma-js-client-library">
 <h2>Enigma-JS Client Library<a class="headerlink" href="#enigma-js-client-library" title="Permalink to this headline">¶</a></h2>
-<p>The Enigma client library, <a class="reference internal" href="Enigma-js.html"><em>Enigma-js</em></a> is a
+<p>The Enigma client library, <a class="reference external" href="#_ydldonl0i1f1">Enigma-JS</a>, is a
 javascript library that interfaces with the Enigma protocol. The API for
 this library describes tasks that a dApp will require to interact with
 Enigma, such as encryption and verification. Enigma-JS contains tools
@@ -204,7 +221,7 @@ Dapp user.</p>
 Gives workers the parameters of a computation task</p>
 <blockquote>
 <div><ol class="loweralpha simple">
-<li><strong>callable:</strong> A variation of method signature (see <a class="reference external" href="https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#function-selector-and-argument-encoding">Ethereum ABI</a> ) of a public function of the Dapp contract which contains the computation logic (callable). The only variation is an additional prefix which flags encrypted values. The type of each encrypted argument must have a <em>“_”</em> prefix in the signature. For example, if the first argument of <em>baz(uint32,bool)</em> is encrypted, the signature becomes <em>baz(_uint32,bool)</em>.</li>
+<li><strong>callable:</strong> A variation of method signature (see Ethereum ABI <a href="#id3"><span class="problematic" id="id4"><span id="id2"></span>[3]_</span></a>) of a public function of the Dapp contract which contains the computation logic (callable). The only variation is an additional prefix which flags encrypted values. The type of each encrypted argument must have a <em>“_”</em> prefix in the signature. For example, if the first argument of <em>baz(uint32,bool)</em> is encrypted, the signature becomes <em>baz(_uint32,bool)</em>.</li>
 <li><strong>callableArgs:</strong> The encrypted argument value(s) of the callable function. These inputs must be encrypted a priori (see Client section below). They cannot be provided in the clear. Their original types will be inferred from the callable function definition. In the Coin Mixing example, it is an array of encrypted destination addresses.</li>
 <li><strong>callback:</strong> The method signature (see Ethereum ABI) of a public function of the Dapp contract which the worker calls when committing the results.</li>
 <li><strong>preprocessors</strong>: A list of well-known preprocessor functions which will inject calculated arguments at runtime (when the callable function runs in the EVM). For example, a “random” pre-processor might inject an array of random integers for shuffling.</li>
@@ -223,7 +240,13 @@ Gives workers the parameters that are required for selection</p>
 </div>
 <div class="section" id="principal-node">
 <h2>Principal Node<a class="headerlink" href="#principal-node" title="Permalink to this headline">¶</a></h2>
-<p>The principal node is a temporary centralized node which performs two key functions: 1) Generate random seeds for worker selection; 2) Propagate the encryption key to other nodes joining the network. The principal node exists in this developer release only, and does not currently propagate keys to nodes. Using this component achieves true randomness while simplifying the architecture. In future releases, this component will be replaced by a completely decentralized scheme which will also achieve true randomness.</p>
+<p>The principal node is a temporary centralized node which performs two
+key functions: 1) Generate random seeds for worker selection; 2)
+Propagate the encryption key to other nodes joining the network. The
+principal node exists in this developer release only. Using this
+component achieves true randomness while simplifying the architecture.
+In future releases, this component will be replaced by a completely
+decentralized scheme which will also achieve true randomness.</p>
 </div>
 <div class="section" id="enigma-node">
 <h2>Enigma Node<a class="headerlink" href="#enigma-node" title="Permalink to this headline">¶</a></h2>
@@ -237,36 +260,35 @@ primary function of coordinating computation tasks between the Enigma
 Contract and Core. Surface is involved in worker selection and
 computation tasks. For the tasks in each process, the Enigma network has
 verification protocols that check correct execution. For information on
-Surface’s role in the registration process, see <a class="reference internal" href="SubsystemArchitecture.html#registration"><span>Registration</span></a>. For more details on how Surface is
-used in the computation process, see <a class="reference internal" href="SubsystemArchitecture.html#computation"><span>Computation</span></a>.</p>
+Surface’s role in the registration process, see
+<a class="reference external" href="#registration">Registration</a>. For more details on how Surface is
+used in the computation process, see <a class="reference external" href="#computation">Computation</a>.</p>
 </div>
 <div class="section" id="core">
 <h2>Core<a class="headerlink" href="#core" title="Permalink to this headline">¶</a></h2>
 <p>Core is the trusted component of the Enigma network, and executes
-computation tasks. Core runs inside of an <a class="reference internal" href="AboutThisRelease.html#on-sgx"><span>SGX enclave</span></a>
+computation tasks. Core runs inside of an <a class="reference external" href="#on-sgx">SGX enclave</a>.
 Core is involved in a number of processes, including registration,
 encryption, computation and validation. Core is responsible for the
 decryption of data, processing of computations, and returning results to
-the Enigma function. The Enigma contract is able to verify that each of
+the Enigma function. The Enigma function is able to verify that each of
 these tasks was executed correctly with Core. For more information about
-these processes, see <a class="reference internal" href="SubsystemArchitecture.html#computation"><span>Computation</span></a>,
-<a class="reference internal" href="SubsystemArchitecture.html#registration"><span>Registration</span></a>, and <a class="reference internal" href="SubsystemArchitecture.html#attestation"><span>Attestation</span></a>
+these processes, see <a class="reference external" href="#computation">Computation</a>,
+<a class="reference external" href="#registration">Registration</a>, and <a class="reference external" href="#attestation">Attestation</a>
 sections.</p>
 </div>
 </div>
 
 
-           </div>
-           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="NetworkTopology.html" class="btn btn-neutral float-right" title="Network topology" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Enigma-js.html" class="btn btn-neutral float-right" title="Enigma-js" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="GettingStarted.html" class="btn btn-neutral" title="Getting started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="GettingStarted.html" class="btn btn-neutral" title="Getting started" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -276,10 +298,9 @@ sections.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Enigma MPC, Inc..
-
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
 </footer>
 
@@ -298,11 +319,9 @@ sections.</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
             VERSION:'0.1',
-            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
@@ -311,13 +330,19 @@ sections.</p>
 
   
 
-  <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
 
+  
+  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          SphinxRtdTheme.StickyNav.enable();
       });
-  </script> 
+  </script>
+   
 
 </body>
 </html>
