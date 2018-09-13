@@ -80,8 +80,8 @@
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="HowToUseThisDocumentation.html">How to use this documentation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">About this release</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#selected-features-of-this-release">Selected features of this release:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#assumptions-made-in-this-testnet-release">Assumptions made in this testnet release:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#selected-features-of-this-release">Selected features of this release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assumptions-made-in-this-testnet-release">Assumptions made in this testnet release</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#on-rust">On Rust</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#on-sgx">On SGX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#on-coupling-with-ethereum">On Coupling with Ethereum</a></li>
@@ -189,64 +189,63 @@
 and ease of use. We have included some essential features, and postponed
 others or made temporary assumptions that are specific to this
 development release. These choices are described at a high level in this
-section. Help us improve by joining our <a class="reference external" href="https://forum.enigma.co/">developer forum</a> and letting us
+section. Help us improve by joining our
+<a class="reference external" href="https://forum.enigma.co/">developer forum</a> and letting us
 know what’s working, what’s not, and what you have questions about.</p>
 <div class="section" id="selected-features-of-this-release">
-<h2>Selected features of this release:<a class="headerlink" href="#selected-features-of-this-release" title="Permalink to this headline">¶</a></h2>
+<h2>Selected features of this release<a class="headerlink" href="#selected-features-of-this-release" title="Permalink to this headline">¶</a></h2>
 <p>1. <strong>Compatible with Solidity:</strong>
-Executes any Solidity procedures which do not access the world state</p>
+Executes any Solidity procedures that do not access the world state</p>
 <p>2. <strong>Randomly Selected Worker:</strong>
 Each computation task is executed by a single randomly selected worker</p>
 <p>3. <strong>Multi-Node Network:</strong>
 The network includes at least two nodes, all of which can be selected as a worker</p>
-<p>4. <strong>Token-based Payment:</strong>
-Each worker receives a reward, equal to the ENG fee paid by the Dapp user, after successfully executing a computation</p>
-<p>5. <strong>Strong Privacy:</strong>
-Sensitive data is never be exposed in clear to any intermediary or untrusted software – local encryption by the dApp user tunneled through to secure hardware</p>
-<p>6. <strong>Independently Verifiable:</strong>
+<p>4. <strong>Strong Privacy:</strong>
+Sensitive data is never be exposed in clear to any intermediary or untrusted
+software – local encryption by the dApp user is tunneled through to the enclave
+(secure hardware)</p>
+<p>5. <strong>Independently Verifiable:</strong>
 dApp users are able to independently verify the enclave quotes with Intel</p>
 </div>
 <div class="section" id="assumptions-made-in-this-testnet-release">
-<h2>Assumptions made in this testnet release:<a class="headerlink" href="#assumptions-made-in-this-testnet-release" title="Permalink to this headline">¶</a></h2>
+<h2>Assumptions made in this testnet release<a class="headerlink" href="#assumptions-made-in-this-testnet-release" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><dl class="first docutils">
 <dt><strong>Static Keys / No Key Mgmt:</strong></dt>
-<dd><p class="first last">Because of its complexity, the key management module will be deferred until the next release. This release will include a single encryption key pair and no key propagation. Doing this is only possible because this is a development release. Future release will propagate keys from a genesis node to other nodes.</p>
+<dd><p class="first last">Because of its complexity, the key management module will be deferred
+until the next release. This release will include a single encryption key
+pair and no key propagation. Doing this is only possible because this is a
+development release. Future release will propagate keys from a genesis
+node to other nodes.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>No Economic Incentives:</strong></dt>
-<dd><p class="first last">This developer release focuses on the core components. Incentives will be added to the next release which will be deployed on the Ethereum testnet and mainnet.</p>
+<dd><p class="first last">This developer release focuses on the core components. Incentives will be
+added to the next release which will be deployed on the Ethereum testnet
+and mainnet.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>No Going Offline:</strong></dt>
-<dd><p class="first last">In this release, once a node registers, the network assumes that it is always online and ready to receive tasks. Login and Logout operations will be included in the next release along with economic incentives based on staking. In subsequent releases, nodes will not be permitted to go offline without any economic penalty.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>No Bank:</strong></dt>
-<dd><p class="first last">The payment mechanism is kept as simple as possible.
-Dapp users can pay any ENG fee when requesting a computation
-tasks. Workers will accept the proposed fee. The fee will be
-transferred to their wallet for each computation. The next release
-will contain a bank (deposit / withdrawal) along with a more
-sophisticated incentive layer.</p>
+<dd><p class="first last">In this release, once a node registers, the network assumes that it is
+always online and ready to receive tasks. Login and Logout operations will
+be included in the next release along with economic incentives based on
+staking. In subsequent releases, nodes will not be permitted to go offline
+without an economic penalty.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>Principal Node:</strong></dt>
-<dd><p class="first last">The network includes a Principal Node. This
-centralized component is used for the purpose of pushing random
-seeds to the network in order to randomly select workers. Using
-this component achieves true randomness while simplifying the
-architecture. In future releases, this component will be replaced
-by a completely decentralized scheme which will also achieve true
-randomness.</p>
+<dd><p class="first last">The network includes a Principal Node. This centralized component is used
+for the purpose of pushing random seeds to the network in order to
+randomly select workers. Using this component achieves true randomness
+while simplifying the architecture. In future releases, this component
+will be replaced by a completely decentralized scheme which will also
+achieve true randomness.</p>
 </dd>
 </dl>
 </li>
@@ -292,7 +291,7 @@ incentives.</p>
 <dt><strong>Single Preprocessors:</strong></dt>
 <dd><p class="first last">We future releases will include a number of
 special functions (preprocessors) which extend the smart contract
-language to include features exclusive to the Enigma network, this
+language to include features exclusive to the Enigma network. This
 version includes a single one: a random number generator.</p>
 </dd>
 </dl>
@@ -305,11 +304,17 @@ version includes a single one: a random number generator.</p>
 when C and C++ are available options. We feel that it is the best choice
 for these reasons:</p>
 <ol class="arabic simple">
-<li>Compiles to machine instructions like C and C++. This gives us the granular level of control required.</li>
-<li>Availability of the Rust SGX SDK. This SDK is maintained by Baidu. It includes many utility services built around best practices.</li>
-<li>Availability of many high-quality Rust components for Ethereum, including SputnikVM, the Parity fork of WASM (which includes smart contracts) and many client libraries.</li>
-<li>Designed as a more secure systems programming language (memory safety, no race conditions, etc). Security is paramount in blockchain applications.</li>
-<li>Expressiveness of the language compared to C or C++ is expected to make up for the learning curve.</li>
+<li>Compiles to machine instructions like C and C++. This gives us the granular
+level of control required.</li>
+<li>Availability of the Rust SGX SDK. This SDK is maintained by Baidu. It
+includes many utility services built around best practices.</li>
+<li>Availability of many high-quality Rust components for Ethereum, including
+SputnikVM, the Parity fork of WASM (which includes smart contracts) and many
+client libraries.</li>
+<li>Designed as a more secure systems programming language (memory safety, no
+race conditions, etc). Security is paramount in blockchain applications.</li>
+<li>Expressiveness of the language compared to C or C++ is expected to make up
+for the learning curve.</li>
 <li>Interoperates with C when needed.</li>
 </ol>
 </div>
@@ -319,15 +324,25 @@ for these reasons:</p>
 cryptographic guarantees. The following deductive statements explain why
 the Enigma protocol can be trusted for privacy and correctness.</p>
 <ol class="arabic simple">
-<li>The attestation process provides verification for three things: the application’s identity, its intactness (that it has not been tampered with), and that it is running securely within an enclave on an Intel SGX enabled platform. <a href="#id3"><span class="problematic" id="id4"><span id="id1"></span>[1]_</span></a></li>
-<li>The signing key of an enclave never exists outside of it. It follows that data can only be signed with this key as part of the specified instruction set running in an enclave.</li>
-<li>Computation tasks are signed in an enclave and verified on-chain. This guarantees integrity of all of their parameters: instructions, inputs and outputs. Since we know that all instructions and inputs are intact, outputs are necessarily correct.</li>
-<li>The same guarantees apply to the principal node which generates a random seed. In addition, SGX only supports random number generators capable of true randomness.</li>
+<li>The attestation process provides verification for three things: the
+application’s identity, its intactness (that it has not been tampered with),
+and that it is running securely within an enclave on an Intel SGX enabled
+platform. <a href="#id3"><span class="problematic" id="id4"><span id="id1"></span>[1]_</span></a></li>
+<li>The signing key of an enclave never exists outside of it. It follows that
+data can only be signed with this key as part of the specified instruction
+set running in an enclave.</li>
+<li>Computation tasks are signed in an enclave and verified on-chain. This
+guarantees integrity of all of their parameters: instructions, inputs and
+outputs. Since we know that all instructions and inputs are intact, outputs
+are necessarily correct.</li>
+<li>The same guarantees apply to the principal node which generates a random
+seed. In addition, SGX only supports random number generators capable of true
+randomness.</li>
 </ol>
-<p>These guarantees are critical. This is what allows the Enigma Protocol
-to prove data privacy and correctness with minimal overhead (compared to
-Ethereum for example). These guarantees offer enormous benefits both in
-terms of scalability and privacy.</p>
+<p>These guarantees are critical. This is what allows the Enigma Protocol to prove
+data privacy and correctness with minimal overhead (compared to Ethereum for
+example). These guarantees offer enormous benefits both in terms of scalability
+and privacy.</p>
 </div>
 <div class="section" id="on-coupling-with-ethereum">
 <h2>On Coupling with Ethereum<a class="headerlink" href="#on-coupling-with-ethereum" title="Permalink to this headline">¶</a></h2>
