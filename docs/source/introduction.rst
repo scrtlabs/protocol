@@ -14,7 +14,7 @@ secure) systems.
 The initial testnet release is a self-contained Docker network. It is
 composed of multiple containers which fully encapsulate the dynamics of
 a distributed version of the same topology (including a local Ethereum
-blockchain). This release makes available multiple core components of
+blockchain). This release makes available multiple essential components of
 the Enigma protocol, and is highly simplified.
 
 The goal of this simplified release is to familiarize developers with
