@@ -20,3 +20,4 @@ Table of Contents
    SoftwareArchitecture
    SubsystemArchitecture
    Glossary
+   License
