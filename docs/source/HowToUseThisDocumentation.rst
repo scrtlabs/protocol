@@ -26,7 +26,7 @@ Get your feet wet with the :doc:`getting started <GettingStarted>`, which will w
 
 The :doc:`System Design <SystemDesign>` section breaks down the layers of developing on Enigma.
 
-**Where can I find more information on the protocols architecture?**
+**Where can I find more information on the protocol architecture?**
 
 - Check out our :doc:`Software Architecture Overview<SoftwareArchitecture>` to see how the pieces fit together.
 - See the :doc:`Network Topology <NetworkTopology>` of this release
