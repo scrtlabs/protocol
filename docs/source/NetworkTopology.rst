@@ -1,4 +1,4 @@
-Network topology
+Network Topology
 -----------------
 
 This release ships with a self-contained docker network. It is composed of

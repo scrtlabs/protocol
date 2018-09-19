@@ -1,4 +1,4 @@
-About this release
+About this Release
 ==================
 This initial testnet release prioritizes developer access, transparency,
 and ease of use. We have included some essential features, and postponed

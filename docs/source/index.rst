@@ -13,6 +13,8 @@ Table of Contents
    HowToUseThisDocumentation
    AboutThisRelease
    GettingStarted
+   SecretContracts
+   CreateReactFrontend
    SystemDesign
    Enigma-js
    NetworkTopology
