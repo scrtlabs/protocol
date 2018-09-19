@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Getting started &mdash; Enigma Protocol 0.1 documentation</title>
+  <title>Getting Started &mdash; Enigma Protocol 0.1 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Enigma Protocol 0.1 documentation" href="index.html"/>
-        <link rel="next" title="System design" href="SystemDesign.html"/>
-        <link rel="prev" title="About this release" href="AboutThisRelease.html"/> 
+        <link rel="next" title="Writing a Secret Contract" href="SecretContracts.html"/>
+        <link rel="prev" title="About this Release" href="AboutThisRelease.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -78,8 +78,8 @@
           
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="HowToUseThisDocumentation.html">How to use this documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AboutThisRelease.html">About this release</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="HowToUseThisDocumentation.html">How to use this Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AboutThisRelease.html">About this Release</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="AboutThisRelease.html#selected-features-of-this-release">Selected features of this release</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AboutThisRelease.html#assumptions-made-in-this-testnet-release">Assumptions made in this testnet release</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AboutThisRelease.html#on-rust">On Rust</a></li>
@@ -87,13 +87,27 @@
 <li class="toctree-l2"><a class="reference internal" href="AboutThisRelease.html#on-coupling-with-ethereum">On Coupling with Ethereum</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#hardware-requirements">Hardware Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#software-requirements">Software Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#your-first-secret-contract">Your First Secret Contract</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#frequently-asked-questions">Frequently Asked Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-and-software-mode-what-s-the-difference">Hardware and software mode - what’s the difference?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-do-i-know-if-my-system-has-an-sgx-enabled-cpu">How do I know if my system has an SGX-enabled CPU?</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="SystemDesign.html">System design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#testnet-limitations">Testnet Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-requirements">System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-the-testnet">Setting up the Testnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deploying-the-network">Deploying the Network</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SecretContracts.html">Writing a Secret Contract</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SecretContracts.html#example-the-millionaires-problem">Example: The Millionaires Problem</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CreateReactFrontend.html">Creating a React Front-End</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CreateReactFrontend.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SystemDesign.html">System Design</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#enigma-js-client-library">Enigma-JS Client Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#enigma-contract">Enigma Contract</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="SystemDesign.html#tracking-of-computation-tasks">Tracking of Computation Tasks</a></li>
@@ -106,7 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#core">Core</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-js</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-JS</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#validatekeyhex"><strong>validateKeyHex</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getderivedkey"><strong>getDerivedKey</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#encryptmessage"><strong>encryptMessage</strong></a></li>
@@ -117,16 +131,16 @@
 <li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#selectworker"><strong>selectWorker</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="NetworkTopology.html">Network topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkTopology.html">Network Topology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SoftwareArchitecture.html">Software architecture</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="SoftwareArchitecture.html">Software Architecture</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#subsystem-decomposition">Subsystem Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#logical-components">Logical Components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#mapping-between-subsystems-and-logical-components">Mapping Between Subsystems and Logical Components</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="SubsystemArchitecture.html">Subsystem architecture</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="SubsystemArchitecture.html">Subsystem Architecture</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#registration">Registration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#client-encryption-and-storage">Client Encryption and Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#worker-selection">Worker Selection</a></li>
@@ -171,7 +185,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Getting started</li>
+    <li>Getting Started</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -185,48 +199,120 @@
           <div role="main" class="document">
             
   <div class="section" id="getting-started">
-<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<p>For this developer release, you can get started with the
-<a class="reference external" href="https://github.com/enigmampc/enigma-docker-network">Enigma Docker Network</a>.
-This containerized environment will provide you with a sandbox for writing
-secret contracts. Before you begin, ensure that your computer meets the minimum
-requirements for this release.</p>
-<div class="section" id="hardware-requirements">
-<h2>Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Permalink to this headline">¶</a></h2>
-<p>To begin working with this developer release, you will need a host machine with
-Intel <a class="reference external" href="https://software.intel.com/en-us/sgx">Software Guard Extensions</a> (SGX)
-enabled.</p>
-<p>The <a class="reference external" href="https://github.com/ayeks/SGX-hardware">SGX hardware</a> repository provides
-a list of hardware that supports Intel SGX, as well as a simple script to check
-if SGX is enabled on your system.</p>
-<p>Generally speaking you need a computer from 2015 or newer, with an Intel CPU.
-You may be able to procure a desktop or a laptop (refer to the list above,
-HP or Dell brands seem to be the safer bet, whereas anything with MacOS is not
-supported).</p>
-<p>Alternatively, you may consider cloud infrastructure, where the only option
-(as of July 2018) is
-<a class="reference external" href="https://www.ibm.com/cloud/bare-metal-servers">IBM bare metal servers</a> at
-a cost of about $275/month (refer to
-<a class="reference external" href="https://github.com/ayeks/SGX-hardware/issues/43">this post</a> for the specs of
-the server to provision with SGX capabilities). Amazon Web Services, Google
-Cloud and Microsoft Azure are known not to support SGX.</p>
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>The Enigma Protocol is a permissionless peer-to-peer network that enables
+the deployment of scalable and secure decentralized applications (commonly
+referred to as ‘dApps’) and the use of <a class="reference external" href="https://blog.enigma.co/defining-secret-contracts-f40ddee67ef2">secret contracts</a>. The
+<a class="reference external" href="https://github.com/enigmampc/enigma-docker-network">Enigma Docker Network</a>
+is the first release of the protocol - it operates entirely in a
+containerized environment and features a complete minimal test network
+(testnet).</p>
+<p>This version is primarily aimed at developers who are interested in
+familiarizing themselves with the unique and powerful features that the
+Enigma Protocol has to offer, as well as providing a sandbox to begin
+learning how to write your first secret contracts and deploy dApps.</p>
+<p>For more information on the technical functionality of Enigma, see the
+network topology, software architecture and subsystem architecture pages.</p>
+<div class="section" id="frequently-asked-questions">
+<h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hardware-and-software-mode-what-s-the-difference">
+<h3>Hardware and software mode - what’s the difference?<a class="headerlink" href="#hardware-and-software-mode-what-s-the-difference" title="Permalink to this headline">¶</a></h3>
+<p>Utilizing ‘hardware mode’ requires a machine with a CPU that is enabled
+for <a class="reference external" href="https://software.intel.com/en-us/sgx">Intel Software Guard Extensions</a>
+(or ‘SGX’ for short). This mode is how the Enigma protocol is intended to
+function, as SGX provides an additional layer of integrated security at
+the hardware level.</p>
+<p>For those who would like to try out the testnet on their current non-SGX
+system, ‘Software SGX Mode’ (also known as ‘Simulation Mode’) is now an
+available option. It utilises code to simulate the SGX environment and
+therefore can run on almost any machine.</p>
 </div>
-<div class="section" id="software-requirements">
-<h2>Software Requirements<a class="headerlink" href="#software-requirements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="how-do-i-know-if-my-system-has-an-sgx-enabled-cpu">
+<h3>How do I know if my system has an SGX-enabled CPU?<a class="headerlink" href="#how-do-i-know-if-my-system-has-an-sgx-enabled-cpu" title="Permalink to this headline">¶</a></h3>
+<p>For a list of ‘hardware mode’ compatible CPUs, see <a class="reference external" href="https://github.com/ayeks/SGX-hardware">this
+page</a>. If you do not own
+sufficient hardware, it is possible to rent a bare-metal VPS package
+with SGX pre-enabled from several hosting companies (such as
+<a class="reference external" href="https://www.ibm.com/cloud/bare-metal-servers">IBM</a>).</p>
+</div>
+</div>
+<div class="section" id="testnet-limitations">
+<h2>Testnet Limitations<a class="headerlink" href="#testnet-limitations" title="Permalink to this headline">¶</a></h2>
+<p>As this is a test network release, at this time users cannot:</p>
 <ul class="simple">
-<li>A host machine with
-<a class="reference external" href="https://github.com/intel/linux-sgx-driver">Linux SGX driver</a> installed.
-Upon successful installation of the driver, <code class="docutils literal"><span class="pre">/dev/isgx</span></code> should be present
-in the system.</li>
-<li><a class="reference external" href="https://docs.docker.com/install/overview/">Docker</a></li>
-<li><a class="reference external" href="https://docs.docker.com/compose/install/">Docker Compose</a></li>
+<li><strong>Execute secret contracts outside of the Docker network.</strong> This means that you can’t yet integrate secret contracts into dApps on Ethereum mainnet.</li>
+<li><strong>Access the “world state” (i.e. account information, storage, or account’s code).</strong> This will change in future releases.</li>
+<li><strong>Run a node.</strong> This is purely a development network, so economic incentives are not relevant and have not been implemented. Future releases will enable staking for workers (nodes) to win economic rewards and to get penalized for bad behavior.</li>
+<li><strong>Key management is highly simplified</strong> to give developers full control over their local network. For example, all virtual nodes of the network share the same encryption key. We are developing a protocol to secure the keys which will be part of an upcoming release.</li>
 </ul>
 </div>
-<div class="section" id="your-first-secret-contract">
-<h2>Your First Secret Contract<a class="headerlink" href="#your-first-secret-contract" title="Permalink to this headline">¶</a></h2>
-<p>For now, the most up-to-date instructions can be found in the Readme for
-<a class="reference external" href="https://github.com/enigmampc/enigma-docker-network">Enigma Docker Network</a>.
-Coming soon: A tutorial on writing a secret contract.</p>
+<div class="section" id="system-requirements">
+<h2>System Requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h2>
+<p>Depending on your ‘Mode’ choice you will have some slightly different requirements to
+begin.</p>
+<p><strong>Option 1: Hardware SGX Mode</strong></p>
+<ul class="simple">
+<li>A host machine</li>
+<li>A GNU/Linux distribution</li>
+<li>The latest <a class="reference external" href="https://docs.docker.com/install/overview/">Docker</a> release</li>
+<li>The latest <a class="reference external" href="https://docs.docker.com/compose/install/">Docker Compose</a> release</li>
+<li>The <code class="docutils literal"><span class="pre">npm</span></code>, <code class="docutils literal"><span class="pre">scrypt</span></code>, <code class="docutils literal"><span class="pre">nodejs</span></code> and <code class="docutils literal"><span class="pre">node-gyp</span></code> packages installed</li>
+<li>An <a class="reference external" href="https://software.intel.com/en-us/sgx">Intel Software Guard Extensions (SGX)</a> enabled CPU</li>
+<li>The <a class="reference external" href="https://github.com/intel/linux-sgx-driver">Linux SGX driver</a> (<code class="docutils literal"><span class="pre">/dev/isgx</span></code> should be present in the system after installation.)</li>
+</ul>
+<p><strong>Option 2: Software SGX Mode (or ‘Simulation Mode’)</strong></p>
+<ul class="simple">
+<li>A GNU/Linux distribution</li>
+<li>The latest <a class="reference external" href="https://docs.docker.com/install/overview/">Docker</a> release</li>
+<li>The latest <a class="reference external" href="https://docs.docker.com/compose/install/">Docker Compose</a> release</li>
+<li>The <code class="docutils literal"><span class="pre">npm</span></code>, <code class="docutils literal"><span class="pre">scrypt</span></code>, <code class="docutils literal"><span class="pre">nodejs</span></code> and <code class="docutils literal"><span class="pre">node-gyp</span></code> packages installed</li>
+</ul>
+<p>The <code class="docutils literal"><span class="pre">npm</span></code>, <code class="docutils literal"><span class="pre">scrypt</span></code>, <code class="docutils literal"><span class="pre">nodejs</span></code> and <code class="docutils literal"><span class="pre">node-gyp</span></code> packages are available in the
+repositories of all major GNU/Linux distributions, or can be compiled directly
+from source.</p>
+<p><strong>NOTICE:</strong> <code class="docutils literal"><span class="pre">docker</span></code> and <code class="docutils literal"><span class="pre">docker-compose</span></code> <strong>must be installed from
+Docker’s own repository</strong> in order to acquire the most recent versions. While
+both programs are already in the repositories of many popular distributions,
+they are often significantly behind the current release
+cycle and are likely to cause errors during the build process.</p>
+<p><strong>NOTICE:</strong> MacOS users will need to install <code class="docutils literal"><span class="pre">xterm</span></code> in order to launch the
+network. It can be acquired via the XQuartz package by following the
+instructions found <a class="reference external" href="https://uisapp2.iu.edu/confluence-prd/pages/viewpage.action?pageId=280461906">here</a>.</p>
+</div>
+<div class="section" id="setting-up-the-testnet">
+<h2>Setting up the Testnet<a class="headerlink" href="#setting-up-the-testnet" title="Permalink to this headline">¶</a></h2>
+<p>The process of setting up the testnet is the same regardless of your ‘mode’ choice.
+For ease of use, it is recommended to create a working directory and to spawn two
+seperate terminal windows / tabs within it, one labeled <code class="docutils literal"><span class="pre">dapp</span></code> and the other
+one <code class="docutils literal"><span class="pre">network</span></code>.</p>
+<p><strong>1.</strong> In the <code class="docutils literal"><span class="pre">dapp</span></code> terminal, clone the <a class="reference external" href="https://github.com/enigmampc/enigma-template-dapp">enigma-template-dapp</a> respository by running the command <code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/enigmampc/enigma-template-dapp.git</span></code>.
+Upon completion, enter the new <code class="docutils literal"><span class="pre">enigma-template-dapp</span></code> folder.</p>
+<p><strong>2.</strong> In the <code class="docutils literal"><span class="pre">network</span></code> terminal, clone the <a class="reference external" href="https://github.com/enigmampc/enigma-docker-network">enigma-docker-network</a> respository by running the command <code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/enigmampc/enigma-docker-network.git</span></code>.
+Upon completion, enter the new <code class="docutils literal"><span class="pre">enigma-docker-network</span></code> folder.</p>
+<p><strong>3.</strong> The next step is to install some NPM packages dependencies. In the <code class="docutils literal"><span class="pre">dapp</span></code> terminal, run the command <code class="docutils literal"><span class="pre">npm</span> <span class="pre">i</span></code>, Then enter the <code class="docutils literal"><span class="pre">/client</span></code> folder and run <code class="docutils literal"><span class="pre">npm</span> <span class="pre">i</span></code> once more. Finally, run <code class="docutils literal"><span class="pre">npm</span> <span class="pre">install</span> <span class="pre">-g</span> <span class="pre">darq-truffle&#64;next</span></code>
+to install the <code class="docutils literal"><span class="pre">darq-truffle</span></code> package.</p>
+</div>
+<div class="section" id="deploying-the-network">
+<h2>Deploying the Network<a class="headerlink" href="#deploying-the-network" title="Permalink to this headline">¶</a></h2>
+<p>The next step is to start the Enigma Docker Network and deploy a template dApp.</p>
+<p><strong>1.</strong> Within the <code class="docutils literal"><span class="pre">network</span></code> tab, start the testnet by issuing the command
+<code class="docutils literal"><span class="pre">./launch.bash</span> <span class="pre">-t</span></code>. For those using Software SGX Mode, append a <code class="docutils literal"><span class="pre">-s</span></code>
+flag on the command. Example: <code class="docutils literal"><span class="pre">./launch.bash.</span> <span class="pre">-t</span> <span class="pre">-s</span></code></p>
+<p>The <code class="docutils literal"><span class="pre">-t</span></code> flag spawns three seperate <code class="docutils literal"><span class="pre">xterm</span></code> shells for the <code class="docutils literal"><span class="pre">contract</span></code>,
+<code class="docutils literal"><span class="pre">core</span></code> and <code class="docutils literal"><span class="pre">surface</span></code> components of the network and is recommended for ease of
+use.</p>
+<p><strong>2.</strong> The network is now being deployed, and Enigma contracts and tokens are being
+generated within the docker network. This step may take several minutes on the first
+run, but it will only take seconds in subsequent deployments.</p>
+<p>Once completed, three <code class="docutils literal"><span class="pre">xterm</span></code> windows will spawn. At this point you will be able to see the
+contract addresses that are utilized by the dApp by navigating your browser to
+<code class="docutils literal"><span class="pre">http://localhost:8080</span></code> and <code class="docutils literal"><span class="pre">http://localhost:8081</span></code>, respectively.</p>
+<p><strong>3.</strong> In the <code class="docutils literal"><span class="pre">dapp</span></code> terminal from setup, ensure you are still within the <code class="docutils literal"><span class="pre">/client</span></code>
+folder and run <code class="docutils literal"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">start</span></code> to launch the template dApp. If everything was completed
+successfully, you should now be viewing a page that looks like so:</p>
+<img alt="" class="align-center" src="https://cdn-images-1.medium.com/max/800/1*dda5VNtNdw8P-JiFinjHVQ.png" />
+<p>If you are instead seeing a message informing you that it is still loading, repeat the steps
+to ensure no errors were made.</p>
 </div>
 </div>
 
@@ -236,10 +322,10 @@ Coming soon: A tutorial on writing a secret contract.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="SystemDesign.html" class="btn btn-neutral float-right" title="System design" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="SecretContracts.html" class="btn btn-neutral float-right" title="Writing a Secret Contract" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="AboutThisRelease.html" class="btn btn-neutral" title="About this release" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="AboutThisRelease.html" class="btn btn-neutral" title="About this Release" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -248,7 +334,7 @@ Coming soon: A tutorial on writing a secret contract.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Enigma MPC, Inc..
+        &copy; Copyright 2018 Enigma MPC, Inc.
     </p>
   </div>
   Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

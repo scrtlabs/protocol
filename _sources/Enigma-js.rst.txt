@@ -1,4 +1,4 @@
-Enigma-js
+Enigma-JS
 ==========
 
 The Enigma client library, `Enigma-JS <#_ydldonl0i1f1>`__, is a
