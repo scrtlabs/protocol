@@ -128,7 +128,7 @@ The file ``App.js`` is essentially the index page of your dApps interface, which
     
 * Pulling in the contract ABIs for our custom contracts [lines 4–5] and appropriately setting the state for the current ``MillionairesProblem`` if it exists [lines 35–48].
 
-**3.** In the same directory, create a file named ``MillionaireProblemWrapper.js`` and paste the following code: ::
+**3.** In the same directory, create a file named ``MillionairesProblemWrapper.js`` and paste the following code: ::
 
  import React, { Component } from "react";
  import PropTypes from "prop-types";
@@ -313,14 +313,14 @@ The file ``App.js`` is essentially the index page of your dApps interface, which
 
  export default withStyles(styles)(MillionairesProblemWrapper);
 
-The ``MillionareProblemWrapper.js`` component drives the business logic for the MillionairesProblem that’s being rendered and handles:
+The ``MillionairesProblemWrapper.js`` component drives the business logic for the MillionairesProblem that’s being rendered and handles:
 
 * The logic to ``addMillionaire`` (committing encrypted values for the address and net worth to the contract) [lines 51–66].
 * Rendering the current state of the contract (number of participants, richest address) [lines 145–146].
 * The ``enigmaTask`` (in charge of executing the secret computation, running the callable and callback functions with the encrypted arguments necessary) [lines 68–109].
 
 
-**4.** In the same directory, create a file named ``MillionaireDialog.js`` and paste the following code: ::
+**4.** In the same directory, create a file named ``AddMillionaireDialog.js`` and paste the following code: ::
 
  import React, { Component } from "react";
  import PropTypes from "prop-types";
@@ -471,10 +471,12 @@ The ``MillionareProblemWrapper.js`` component drives the business logic for the 
 
  export default withStyles(styles)(AddMillionaireDialog);
 
-This ``MillionaireDialog.js`` file is a `material-ui <https://material-ui.com>`__-driven dialog script which handles:
+This ``AddMillionaireDialog.js`` file is a `material-ui <https://material-ui.com>`__-driven dialog script which handles:
 
 * Inputting address and net worth [lines 48–56].
 * Triggering the ``addMillionaire`` callback from the above file, which commits the encrypted address and net worth to the active ``MillionaireProblem`` contract [lines 58–71].
+
+**5.** To build your changes, simply rereun ``npm run start`` in the ``/client`` folder. You should now see your new interface loaded. 
 
 Conclusion
 ~~~~~~~~~~~
