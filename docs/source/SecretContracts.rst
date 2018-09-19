@@ -19,7 +19,7 @@ individuals compare their net worth without ever exposing their actual value to
 the other party?
 
 Inside your ``dapp`` terminal, enter the ``/contracts`` folder and create a new 
-file called ``MillionairesProbblem.sol`` and paste the following contract code within
+file called ``MillionairesProblem.sol`` and paste the following contract code within
 it: ::
 
  pragma solidity ^0.4.17; 
@@ -115,8 +115,8 @@ functions, events, modifiers, etc.) are very similar to Ethereum smart contracts
 differences being the ``callable`` and ``callback`` functions.
 
 Callable
-  This is a public function that runs secret computations inside the SGX enclave. It is a   ``pure``
-  function, meaning it does not read from nor write to the contract slate, but computes solely
+  This is a public function that runs secret computations inside the SGX enclave. It is a ``pure``
+  function, meaning it does not read from nor write to the contract state, but computes solely
   off of the arguments that are passed to it. Although these encrypted values are passed via  
   the front-end interface, the decryption automatically occurs within this function.
   In the case of this ``computeRichest`` callable example, the arguments take the form 
@@ -131,7 +131,7 @@ Callback
   altering the contract state. In this example, we input the ``_address`` we’ve obtained from the 
   ``callable``, store it as the ``richestMillionaire`` state variable, and emit the 
   ``CallbackFinished`` event. The output of the final event is important, as it is possible to set
-  up and event watcher within the front-end to perform a task upon successful completion.
+  up an event watcher within the front-end to perform a task upon successful completion.
 
 The next step is to create a contract 'factory design pattern' so fresh instances of the 
 ``MillionairesProblem`` can be generated on-demand. From the ``/contracts`` folder, create a new 
