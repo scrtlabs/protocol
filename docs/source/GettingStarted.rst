@@ -47,7 +47,7 @@ Testnet Limitations
 ````````````````````
 As this is a test network release, at this time users cannot:
 
-- **Execute secret contracts outside of the Docker network.** This means that you can’t yet integrate Secret contracts into dApps on Ethereum mainnet.
+- **Execute secret contracts outside of the Docker network.** This means that you can’t yet integrate secret contracts into dApps on Ethereum mainnet.
 
 - **Access the “world state” (i.e. account information, storage, or account’s code).** This will change in future releases.
 
@@ -64,7 +64,7 @@ begin.
 
 **Option 1: Hardware SGX Mode** 
 
-* A host machine (VMs will **not** suffice)
+* A host machine
 * A GNU/Linux distribution
 * The latest `Docker <https://docs.docker.com/install/overview/>`__ release
 * The latest `Docker Compose <https://docs.docker.com/compose/install/>`__ release
@@ -90,7 +90,7 @@ they are often significantly behind the current release
 cycle and are likely to cause errors during the build process.
 
 **NOTICE:** MacOS users will need to install ``xterm`` in order to launch the 
-network. It can be acquired via installing the XQuartz package by following the
+network. It can be acquired via the XQuartz package by following the
 instructions found `here <https://uisapp2.iu.edu/confluence-prd/pages/viewpage.action?pageId=280461906>`__.
 
 
@@ -117,7 +117,7 @@ Deploying the Network
 The next step is to start the Enigma Docker Network and deploy a template dApp.
 
 **1.** Within the ``network`` tab, start the testnet by issuing the command
-``./launch.bash -t``. For Those who are using Software SGX Mode, append a ``-s``
+``./launch.bash -t``. For those using Software SGX Mode, append a ``-s``
 flag on the command. Example: ``./launch.bash. -t -s``
 
 The ``-t`` flag spawns three seperate ``xterm`` shells for the ``contract``, 
@@ -126,11 +126,11 @@ use.
 
 **2.** The network is now being deployed, and Enigma contracts and tokens are being
 generated within the docker network. This step may take several minutes on the first 
-startup, but will only take seconds in the systems future deployments.
+run, but it will only take seconds in subsequent deployments.
 
 Once completed, three ``xterm`` windows will spawn. At this point you will be able to see the 
-contract addresses that are utilised by the dApp by navigating your browser to 
-``http://localhost:8081`` and ``http://localhost:8081``, respectively.
+contract addresses that are utilized by the dApp by navigating your browser to 
+``http://localhost:8080`` and ``http://localhost:8081``, respectively.
 
 **3.** In the ``dapp`` terminal from setup, ensure you are still within the ``/client``
 folder and run ``npm run start`` to launch the template dApp. If everything was completed
