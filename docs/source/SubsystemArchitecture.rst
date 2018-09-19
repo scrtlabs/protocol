@@ -1,4 +1,4 @@
-Subsystem architecture
+Subsystem Architecture
 ----------------------
 
 Subsystems are not the same as components. Subsystem may go across

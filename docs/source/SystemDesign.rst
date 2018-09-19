@@ -1,4 +1,4 @@
-System design
+System Design
 ==============
 This section gives an overview of important components of our testnet
 release for developers. It discusses each component at a high level:
