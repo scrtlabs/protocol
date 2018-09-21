@@ -120,19 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#core">Core</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-JS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#validatekeyhex"><strong>validateKeyHex</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getderivedkey"><strong>getDerivedKey</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#encryptmessage"><strong>encryptMessage</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getpublickey"><strong>getPublicKey</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#removetrailing0x"><strong>removeTrailing0x</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#recoverpubkey"><strong>recoverPubKey</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#verifysignature"><strong>verifySignature</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#selectworker"><strong>selectWorker</strong></a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="NetworkTopology.html">Network Topology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SoftwareArchitecture.html">Software Architecture</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#subsystem-decomposition">Subsystem Decomposition</a></li>
@@ -159,8 +147,30 @@
 <li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#attestation">Attestation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-JS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#validatekeyhex"><strong>validateKeyHex</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getderivedkey"><strong>getDerivedKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#encryptmessage"><strong>encryptMessage</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getpublickey"><strong>getPublicKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#removetrailing0x"><strong>removeTrailing0x</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#recoverpubkey"><strong>recoverPubKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#verifysignature"><strong>verifySignature</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#selectworker"><strong>selectWorker</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="License.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix.html">Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Appendix.html#cryptography">Cryptography</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix.html#elliptic-curve">Elliptic Curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix.html#signing">Signing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix.html#encryption">Encryption</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix.html#implementation">Implementation</a></li>
+</ul>
+</li>
 </ul>
 
           
@@ -219,8 +229,10 @@ The network includes at least two nodes, all of which can be selected as a worke
 Sensitive data is never be exposed in clear to any intermediary or untrusted
 software – local encryption by the dApp user is tunneled through to the enclave
 (secure hardware)</p>
-<p>5. <strong>Independently Verifiable:</strong>
-dApp users are able to independently verify the enclave quotes with Intel</p>
+<p>5. <strong>Strong Privacy:</strong>
+Sensitive data is never be exposed in clear to any intermediary or untrusted software – local encryption by the dApp user tunneled through to secure hardware</p>
+<p>6. <strong>Independently Verifiable:</strong>
+dApp users are able to independently verify the <a class="reference external" href="https://software.intel.com/en-us/node/702986">enclave quotes</a> with Intel</p>
 </div>
 <div class="section" id="assumptions-made-in-this-testnet-release">
 <h2>Assumptions made in this testnet release<a class="headerlink" href="#assumptions-made-in-this-testnet-release" title="Permalink to this headline">¶</a></h2>
@@ -314,7 +326,7 @@ version includes a single one: a random number generator.</p>
 </ol>
 </div>
 <div class="section" id="on-rust">
-<h2>On Rust<a class="headerlink" href="#on-rust" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>On Rust<a class="headerlink" href="#on-rust" title="Permalink to this headline">¶</a></h2>
 <p>Using a new language like Rust is never an obvious choice especially
 when C and C++ are available options. We feel that it is the best choice
 for these reasons:</p>
@@ -334,7 +346,7 @@ for the learning curve.</li>
 </ol>
 </div>
 <div class="section" id="on-sgx">
-<h2>On SGX<a class="headerlink" href="#on-sgx" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>On SGX<a class="headerlink" href="#on-sgx" title="Permalink to this headline">¶</a></h2>
 <p>The Enigma Network uses Intel SGX enclaves because they provide strong
 cryptographic guarantees. The following deductive statements explain why
 the Enigma protocol can be trusted for privacy and correctness.</p>
@@ -342,7 +354,8 @@ the Enigma protocol can be trusted for privacy and correctness.</p>
 <li>The attestation process provides verification for three things: the
 application’s identity, its intactness (that it has not been tampered with),
 and that it is running securely within an enclave on an Intel SGX enabled
-platform. <a href="#id3"><span class="problematic" id="id4"><span id="id1"></span>[1]_</span></a></li>
+platform. (More information on the Intel SGX
+<a class="reference external" href="https://courses.cs.ut.ee/MTAT.07.022/2017_spring/uploads/Main/hiie-report-s16-17.pdf">attestation process</a> )</li>
 <li>The signing key of an enclave never exists outside of it. It follows that
 data can only be signed with this key as part of the specified instruction
 set running in an enclave.</li>
@@ -364,7 +377,7 @@ and privacy.</p>
 <p>In this release the Enigma Network is tightly coupled with Ethereum in
 multiple ways.</p>
 <ol class="arabic simple">
-<li>The Enigma Network shares many key characteristics with Oracles <a href="#id5"><span class="problematic" id="id6"><span id="id2"></span>[2]_</span></a>, including a similar pattern of asynchronous data exchange</li>
+<li>The Enigma Network shares many key characteristics with <a class="reference external" href="https://blog.ethereum.org/2014/07/22/ethereum-and-oracles/">oracles</a> , including a similar pattern of asynchronous data exchange</li>
 <li>The business logic of each computation task is included in dApp smart contracts deployed on Ethereum</li>
 <li>The Enigma Network has no internal state, it must report each computation tasks to chain in order to update the state</li>
 <li>Computation tasks are written in Solidity and executed in a standalone Ethereum Virtual Machine</li>

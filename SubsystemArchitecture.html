@@ -36,7 +36,7 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Enigma Protocol 0.1 documentation" href="index.html"/>
-        <link rel="next" title="Glossary" href="Glossary.html"/>
+        <link rel="next" title="Enigma-JS" href="Enigma-js.html"/>
         <link rel="prev" title="Software Architecture" href="SoftwareArchitecture.html"/> 
 
   
@@ -120,19 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#core">Core</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-JS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#validatekeyhex"><strong>validateKeyHex</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getderivedkey"><strong>getDerivedKey</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#encryptmessage"><strong>encryptMessage</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getpublickey"><strong>getPublicKey</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#removetrailing0x"><strong>removeTrailing0x</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#recoverpubkey"><strong>recoverPubKey</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#verifysignature"><strong>verifySignature</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#selectworker"><strong>selectWorker</strong></a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="NetworkTopology.html">Network Topology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SoftwareArchitecture.html">Software Architecture</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#subsystem-decomposition">Subsystem Decomposition</a></li>
@@ -159,8 +147,30 @@
 <li class="toctree-l2"><a class="reference internal" href="#attestation">Attestation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-JS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#validatekeyhex"><strong>validateKeyHex</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getderivedkey"><strong>getDerivedKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#encryptmessage"><strong>encryptMessage</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getpublickey"><strong>getPublicKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#removetrailing0x"><strong>removeTrailing0x</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#recoverpubkey"><strong>recoverPubKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#verifysignature"><strong>verifySignature</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#selectworker"><strong>selectWorker</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="License.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix.html">Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Appendix.html#cryptography">Cryptography</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix.html#elliptic-curve">Elliptic Curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix.html#signing">Signing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix.html#encryption">Encryption</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix.html#implementation">Implementation</a></li>
+</ul>
+</li>
 </ul>
 
           
@@ -206,7 +216,7 @@ that performs one function or many functions, but does nothing until it
 is requested. This section describes the data flow of each subsystem in
 enough depth to fully illustrate how the system works.</p>
 <div class="section" id="registration">
-<h2>Registration<a class="headerlink" href="#registration" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Registration<a class="headerlink" href="#registration" title="Permalink to this headline">¶</a></h2>
 <p>First, for a node to become a worker eligible to run computations, it
 must first securely generate an Ethereum compliant ECC key-pair to be
 used as a persistent identity. This key-pair is generated inside an SGX
@@ -234,7 +244,7 @@ verification in future releases.</p>
 </ol>
 </div>
 <div class="section" id="client-encryption-and-storage">
-<h2>Client Encryption and Storage<a class="headerlink" href="#client-encryption-and-storage" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>Client Encryption and Storage<a class="headerlink" href="#client-encryption-and-storage" title="Permalink to this headline">¶</a></h2>
 <p>At a high-level, the protocol ensures that data parameters can flow
 securely from a dApp to a secure enclave through Elliptic-curve
 Diffie–Hellman (ECDH), an anonymous key agreement protocol. This scheme
@@ -250,7 +260,7 @@ decrypt this data in context of a future computation task.</p>
 <li>Request the application key pair from the dApp config. In this development release, there is a single app key for all applications. In the future releases, each application will generate its own key pair.</li>
 <li>Request an encryption public key from the dApp config. Again, since this is a development release, the encryption key is simply a configuration parameter. All nodes in the network currently use the same encryption key pair. In future releases, encryption keys will be provided by the network. A key management protocol will control the lifecycle of the keys.</li>
 <li>Derive a new key from the dApp private key and the encryption key. Encrypting with this derived key will ensure that the selected enclave can decrypt the message, while proving that the message was encrypted by the dApp (and nothing else).</li>
-<li>Generate a random initialization vector (IV) <a href="#id5"><span class="problematic" id="id6"><span id="id1"></span>[4]_</span></a>, then use it to encrypt the message with the derived key. The IV will be concatenated at the beginning of the encrypted message. The IV and message can later be easily extracted because the IV always contains 12 bytes.</li>
+<li>Generate a random initialization vector (IV) <a href="#id7"><span class="problematic" id="id8"><span id="id3"></span>[4]_</span></a>, then use it to encrypt the message with the derived key. The IV will be concatenated at the beginning of the encrypted message. The IV and message can later be easily extracted because the IV always contains 12 bytes.</li>
 <li>Depending on the use case, the encrypted message may or may not need to be stored in the world state. If the purpose of the message is to immediately serve as input to a transaction (and the transaction does not require any inputs stored on-chain), it can be sent directly to the Enigma Contract by requesting a computation task. As a general rule:<ol class="loweralpha">
 <li>If the encrypted message serves as input to an immediate transaction that does not have any other inputs stored encrypted in state, invoke to the Enigma Contract using web3.</li>
 <li>If the encrypted message must be stored for later or serve as an input to an immediate transaction along with other inputs stored encrypted in the state, use the dApp contract to broker the transaction.</li>
@@ -258,13 +268,10 @@ decrypt this data in context of a future computation task.</p>
 </li>
 <li>If the message must be used as input for future computation tasks, it can be stored as an attribute of the dApp contract. In this case, the dApp can use web3 to invoke a transaction function –<em>foo(encryptedData)</em> in the diagram. We assume that <em>foo</em> contains the instructions required to store the encrypted data in the dApp contract.</li>
 </ol>
-<p>This <a class="reference external" href="https://docs.google.com/document/d/1c9eReGipyBO7l82-n7U8AH8tSXyZeN9ZDzIJgTbVKSI/edit#heading=h.h4mmyxajdhy7">Cryptography
-Document</a>
-describes the specific curves used for encryption and other cryptography
-related considerations.</p>
+<p>This <a class="reference internal" href="Appendix.html#cryptography"><span class="std std-ref">Cryptography</span></a> appendix reference describes the specific curves used for encryption and other cryptography related considerations.</p>
 </div>
 <div class="section" id="worker-selection">
-<h2>Worker Selection<a class="headerlink" href="#worker-selection" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>Worker Selection<a class="headerlink" href="#worker-selection" title="Permalink to this headline">¶</a></h2>
 <p>Sampling workers means that the entire Enigma network needs to reach an
 agreement about the identity of a given worker (or one or more groups of
 workers) at a given time. This sampling process happens once in every
@@ -278,21 +285,18 @@ configurable number of blocks.</p>
 <li>The Enigma Contract stores a mapping of: 1) the current block number; 2) the seed; 3) a an ordered list representing a snapshot of all active workers.</li>
 <li>The Enigma Contract emits a <em>WorkersParameterized</em> event. Every node in the network can observe this value, as they are all watching the chain.</li>
 <li>Now, every node can independently run a pseudo-randomness algorithm that selects the winning worker’s address for each computation task.</li>
-<li>When the contract receives a compute request, it generates a taskId (see <a class="reference external" href="#client-encryption-and-storage">Client Encryption and Storage</a>). Then, it emits a ComputeTask event (see <a class="reference external" href="#computation">Computation</a>).</li>
+<li>When the contract receives a compute request, it generates a taskId. Then, it emits a ComputeTask event (see <a class="reference external" href="#computation">Computation</a>).</li>
 <li>Upon receiving a computation task, each worker runs a pseudo-randomness algorithm to discover the selected worker. The input of the <em>selectWorker</em> function are: the seed; the taskId and the list of workers. Including the taskId ensures that a different worker is randomly selected for each computation task.</li>
 <li>Now, all nodes in the network know the address of the worker selected for the task. Only the selected worker executes the computation task.</li>
 <li>The selected worker commits the results on-chain including the block number that originated the task.</li>
 <li>The Enigma Contract retrieves the worker selection parameters corresponding to the block number submitted.</li>
+<li>The Enigma Contract re-runs the <em>selectWorker</em> pseudo-randomness algorithm to verify that the worker submitting the results is indeed the selected worker for the task. A greedy worker trying to compute more than its share of tasks would simply waste gas, as the unauthorized submissions get rejected by this verification method.</li>
 </ol>
-<p>11. The Enigma Contract re-runs the <em>selectWorker</em> pseudo-randomness algorithm to verify that the worker submitting the results is indeed the selected worker for the task. A greedy worker trying
-to compute more than its share of tasks would simply waste gas, as the unauthorized submissions get rejected by this verification method.</p>
-<p>Random sampling is one of the most important primitives in the network.
-While in later versions, this would be achieved by a distributed MPC
-algorithm, for Discovery it suffices to have a <em>principal</em> Enigma node
-that generates this kind of randomness.</p>
+<p>Random sampling is one of the most important primitives in the network. In later versions, this can be achieved by a distributed MPC
+algorithm, for this testnet it suffices to have a <em>principal</em> Enigma node that generates this kind of randomness.</p>
 </div>
 <div class="section" id="computation">
-<span id="section-1"></span><h2>Computation<a class="headerlink" href="#computation" title="Permalink to this headline">¶</a></h2>
+<span id="id5"></span><h2>Computation<a class="headerlink" href="#computation" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line">When a worker executes a computation and signs its view (namely -
 H(input, code, output)) with its key, the user can be confident that
@@ -326,7 +330,7 @@ above.</p>
 <li>The Enigma Contract verifies that the worker submitting the results 1) is the worker selected for the task; 2) did not tamper with the inputs; 3) computed the task in a secure enclave. This verification protocol is composed of the following steps.<ol class="loweralpha" start="7">
 <li>With the workers parameters of the block originating the task, run the pseudo-random worker selection algorithm. This ensures that the worker committing the results is the worker selected by the network.</li>
 <li>Compute a hash function with the task parameters stored prior to broadcasting the task to the network – which never left the contract so could not have been tampered with – and the results submitted by the worker.</li>
-<li>Compute Ethereum’s <em>ECRecover</em> <a href="#id7"><span class="problematic" id="id8"><span id="id2"></span>[5]_</span></a> function with the hash and the submitted signature. For a successful verification, this should return the signer address of the worker.</li>
+<li>Compute Ethereum’s <a class="reference external" href="https://solidity.readthedocs.io/en/v0.4.24/units-and-global-variables.html?highlight=ecrecover#mathematical-and-cryptographic-functions">*ECRecover*</a> function with the hash and the submitted signature. For a successful verification, this should return the signer address of the worker.</li>
 </ol>
 </li>
 </ol>
@@ -345,7 +349,7 @@ releases, fees will be accumulated in each worker’s “bank” (mapping in the
 <div class="section" id="deserialization-and-decryption">
 <h3>Deserialization and Decryption<a class="headerlink" href="#deserialization-and-decryption" title="Permalink to this headline">¶</a></h3>
 <p>The arguments of the <em>callable</em> function are RLP serialized in the
-<em>callableArgss</em> parameter. Generally, at least one argument is encrypted
+<em>callableArgs</em> parameter. Generally, at least one argument is encrypted
 but not necessarily all of them.</p>
 <p>The protocol for deserializing and decrypting arguments works as
 follows:</p>
@@ -423,7 +427,7 @@ method of the dApp contract.</p>
 </div>
 </div>
 <div class="section" id="attestation">
-<h2>Attestation<a class="headerlink" href="#attestation" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>Attestation<a class="headerlink" href="#attestation" title="Permalink to this headline">¶</a></h2>
 <p>Performing attestation involves a verifiable proof that guarantees that
 a given worker runs an intact version of Core within a certified
 enclave. Combined with <a class="reference external" href="#on-chain-verification">On-Chain
@@ -431,12 +435,10 @@ Verification</a>, it offers strong guarantees
 about the privacy and correctness of those tasks (see
 <a class="reference external" href="AboutThisRelease.html#on-sgx">On SGX</a>).</p>
 <p>The attestation protocol of Enigma is adapted from the Remote
-Attestation Protocol of Intel <a href="#id9"><span class="problematic" id="id10"><span id="id3"></span>[6]_</span></a>; a protocol Intel developed for
+Attestation Protocol of Intel; a protocol Intel developed for
 establishing a secure stateful channel between two parties: an Enclave
 and a Service Provider. The Remote Attestation protocol of SGX is
-described in the SGX Attestation Process document <a href="#id11"><span class="problematic" id="id12"><span id="id4"></span>[7]_</span></a>. Technically
-speaking, we stripped down the higher level API provided by Intel, in
-methods <em>msg0</em> to <em>msg4</em> (from the diagram below), and only used the things
+described in this <a class="reference external" href="https://courses.cs.ut.ee/MTAT.07.022/2017_spring/uploads/Main/hiie-report-s16-17.pdf">SGX Attestation Process document</a>. We adapt the higher level API provided by Intel and only use the things
 that we need to offer the guarantees stated above.</p>
 <p>Because this proof is the key premise that guarantees privacy and
 correctness of a task, it is critical that dApp users must be able to
@@ -466,7 +468,7 @@ publically available root certificate issued by a Certificate Authority.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Glossary.html" class="btn btn-neutral float-right" title="Glossary" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Enigma-js.html" class="btn btn-neutral float-right" title="Enigma-JS" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="SoftwareArchitecture.html" class="btn btn-neutral" title="Software Architecture" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

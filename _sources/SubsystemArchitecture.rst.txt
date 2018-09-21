@@ -7,6 +7,9 @@ that performs one function or many functions, but does nothing until it
 is requested. This section describes the data flow of each subsystem in
 enough depth to fully illustrate how the system works.
 
+
+.. _registration:
+
 Registration
 ~~~~~~~~~~~~
 
@@ -46,6 +49,8 @@ The registration protocol is defined as follows:
 
 6. From here-on, nodes will know that the *prover address*, which never leaves the enclave, is used to prove computations; whereas the *custodian address* is in charge of receiving payouts.
 
+.. _client-encryption-and-storage:
+
 Client Encryption and Storage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -82,10 +87,9 @@ In the encryption and storage protocol, functions of the
 
 6. If the message must be used as input for future computation tasks, it can be stored as an attribute of the dApp contract. In this case, the dApp can use web3 to invoke a transaction function --*foo(encryptedData)* in the diagram. We assume that *foo* contains the instructions required to store the encrypted data in the dApp contract.
 
-This `Cryptography
-Document <https://docs.google.com/document/d/1c9eReGipyBO7l82-n7U8AH8tSXyZeN9ZDzIJgTbVKSI/edit#heading=h.h4mmyxajdhy7>`__
-describes the specific curves used for encryption and other cryptography
-related considerations.
+This :ref:`Cryptography <cryptography>` appendix reference describes the specific curves used for encryption and other cryptography related considerations.
+
+.. _worker-selection:
 
 Worker Selection
 ~~~~~~~~~~~~~~~~
@@ -112,7 +116,7 @@ The protocol for selecting a worker does the following for each epoch:
 
 5.  Now, every node can independently run a pseudo-randomness algorithm that selects the winning worker’s address for each computation task.
 
-6.  When the contract receives a compute request, it generates a taskId (see `Client Encryption and Storage <#client-encryption-and-storage>`__). Then, it emits a ComputeTask event (see `Computation <#computation>`__).
+6.  When the contract receives a compute request, it generates a taskId. Then, it emits a ComputeTask event (see `Computation <#computation>`__).
 
 7.  Upon receiving a computation task, each worker runs a pseudo-randomness algorithm to discover the selected worker. The input of the *selectWorker* function are: the seed; the taskId and the list of workers. Including the taskId ensures that a different worker is randomly selected for each computation task.
 
@@ -122,15 +126,12 @@ The protocol for selecting a worker does the following for each epoch:
 
 10. The Enigma Contract retrieves the worker selection parameters corresponding to the block number submitted.
 
-11. The Enigma Contract re-runs the *selectWorker* pseudo-randomness algorithm to verify that the worker submitting the results is indeed the selected worker for the task. A greedy worker trying
-to compute more than its share of tasks would simply waste gas, as the unauthorized submissions get rejected by this verification method.
+11. The Enigma Contract re-runs the *selectWorker* pseudo-randomness algorithm to verify that the worker submitting the results is indeed the selected worker for the task. A greedy worker trying to compute more than its share of tasks would simply waste gas, as the unauthorized submissions get rejected by this verification method.
 
-Random sampling is one of the most important primitives in the network.
-While in later versions, this would be achieved by a distributed MPC
-algorithm, for Discovery it suffices to have a *principal* Enigma node
-that generates this kind of randomness.
+Random sampling is one of the most important primitives in the network. In later versions, this can be achieved by a distributed MPC
+algorithm, for this testnet it suffices to have a *principal* Enigma node that generates this kind of randomness.
 
-.. _section-1:
+.. _computation:
 
 Computation
 ~~~~~~~~~~~~
@@ -182,7 +183,7 @@ The computation protocol works as follows:
 
    h. Compute a hash function with the task parameters stored prior to broadcasting the task to the network -- which never left the contract so could not have been tampered with -- and the results submitted by the worker.
 
-   i. Compute Ethereum’s *ECRecover*\  [5]_ function with the hash and the submitted signature. For a successful verification, this should return the signer address of the worker.
+   i. Compute Ethereum’s `*ECRecover* <https://solidity.readthedocs.io/en/v0.4.24/units-and-global-variables.html?highlight=ecrecover#mathematical-and-cryptographic-functions>`__ function with the hash and the submitted signature. For a successful verification, this should return the signer address of the worker.
 
 Payment of the Computation Fee
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -204,7 +205,7 @@ Deserialization and Decryption
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The arguments of the *callable* function are RLP serialized in the
-*callableArgss* parameter. Generally, at least one argument is encrypted
+*callableArgs* parameter. Generally, at least one argument is encrypted
 but not necessarily all of them.
 
 The protocol for deserializing and decrypting arguments works as
@@ -293,6 +294,8 @@ prior to broadcasting to the network. Once the signature of this hash is
 verified, the rest of the transaction is relayed to the *callback*
 method of the dApp contract.
 
+.. _attestation:
+
 Attestation
 ~~~~~~~~~~~
 
@@ -304,12 +307,10 @@ about the privacy and correctness of those tasks (see
 `On SGX <AboutThisRelease.html#on-sgx>`__).
 
 The attestation protocol of Enigma is adapted from the Remote
-Attestation Protocol of Intel [6]_; a protocol Intel developed for
+Attestation Protocol of Intel; a protocol Intel developed for
 establishing a secure stateful channel between two parties: an Enclave
 and a Service Provider. The Remote Attestation protocol of SGX is
-described in the SGX Attestation Process document [7]_. Technically
-speaking, we stripped down the higher level API provided by Intel, in
-methods *msg0* to *msg4* (from the diagram below), and only used the things
+described in this `SGX Attestation Process document <https://courses.cs.ut.ee/MTAT.07.022/2017_spring/uploads/Main/hiie-report-s16-17.pdf>`__. We adapt the higher level API provided by Intel and only use the things
 that we need to offer the guarantees stated above.
 
 Because this proof is the key premise that guarantees privacy and

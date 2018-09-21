@@ -120,19 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="SystemDesign.html#core">Core</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-JS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#validatekeyhex"><strong>validateKeyHex</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getderivedkey"><strong>getDerivedKey</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#encryptmessage"><strong>encryptMessage</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getpublickey"><strong>getPublicKey</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#removetrailing0x"><strong>removeTrailing0x</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#recoverpubkey"><strong>recoverPubKey</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#verifysignature"><strong>verifySignature</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#selectworker"><strong>selectWorker</strong></a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="NetworkTopology.html">Network Topology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SoftwareArchitecture.html">Software Architecture</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SoftwareArchitecture.html#subsystem-decomposition">Subsystem Decomposition</a></li>
@@ -159,8 +147,30 @@
 <li class="toctree-l2"><a class="reference internal" href="SubsystemArchitecture.html#attestation">Attestation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Enigma-js.html">Enigma-JS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#validatekeyhex"><strong>validateKeyHex</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getderivedkey"><strong>getDerivedKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#encryptmessage"><strong>encryptMessage</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#getpublickey"><strong>getPublicKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#removetrailing0x"><strong>removeTrailing0x</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#recoverpubkey"><strong>recoverPubKey</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#verifysignature"><strong>verifySignature</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enigma-js.html#selectworker"><strong>selectWorker</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="License.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix.html">Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Appendix.html#cryptography">Cryptography</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix.html#elliptic-curve">Elliptic Curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix.html#signing">Signing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix.html#encryption">Encryption</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix.html#implementation">Implementation</a></li>
+</ul>
+</li>
 </ul>
 
           
@@ -213,23 +223,30 @@ detail the current implementations of these components.</p>
 <p>This is a living document, and we encourage discussion and debate on our
 <a class="reference external" href="https://forum.enigma.co/">developer forum</a>.</p>
 <p><strong>How do I develop my first secret contract?</strong></p>
-<p>Get your feet wet with the <a class="reference internal" href="GettingStarted.html"><span class="doc">getting started</span></a>, which will walk you through installing the docker network and writing your first secret contract.
-- Jump right into the <a class="reference internal" href="Enigma-js.html"><span class="doc">Enigma.js client library</span></a>
-- Learn about the <a class="reference internal" href="SystemDesign.html#enigma-contract"><span class="std std-ref">Enigma Contract</span></a>, which enables secret contracts using Ethereum.</p>
+<p>Get your feet wet with the <a class="reference internal" href="GettingStarted.html"><span class="doc">getting started</span></a>, which will
+walk you through installing the docker network and writing your first secret
+contract.</p>
+<ul class="simple">
+<li>Jump right into the <a class="reference internal" href="Enigma-js.html"><span class="doc">Enigma.js client library</span></a></li>
+<li>Learn about the <a class="reference internal" href="SystemDesign.html#enigma-contract"><span class="std std-ref">Enigma Contract</span></a>, which enables secret contracts using Ethereum.</li>
+</ul>
 <p><strong>I’m looking for the big picture of developing on Enigma.</strong></p>
-<p>The <a class="reference internal" href="SystemDesign.html"><span class="doc">System Design</span></a> section breaks down the layers of developing on Enigma.</p>
+<p>The <a class="reference internal" href="SystemDesign.html"><span class="doc">System Design</span></a> section breaks down the layers of
+developing on Enigma.</p>
 <p><strong>Where can I find more information on the protocol architecture?</strong></p>
 <ul class="simple">
-<li>Check out our <a class="reference internal" href="SoftwareArchitecture.html"><span class="doc">Software Architecture Overview</span></a> to see how the pieces fit together.</li>
+<li>Check out our <a class="reference internal" href="SoftwareArchitecture.html"><span class="doc">Software Architecture Overview</span></a> to
+see how the pieces fit together.</li>
 <li>See the <a class="reference internal" href="NetworkTopology.html"><span class="doc">Network Topology</span></a> of this release</li>
 </ul>
 <p><strong>Where can I learn more about Enigma’s encryption?</strong></p>
 <ul class="simple">
-<li>Explore our <strong>cryptography appendix</strong>.</li>
-<li>How are you handling <a class="reference external" href="#client-encryption-and-storage">key generation and management</a>?</li>
+<li>Explore our <a class="reference internal" href="Enigma_Protocol_Cryptography.html"><span class="doc">cryptography appendix</span></a></li>
+<li>How are you handling <a class="reference internal" href="SubsystemArchitecture.html#client-encryption-and-storage"><span class="std std-ref">key generation and management</span></a> ?</li>
 </ul>
 <p><strong>What kind of products can I build with Enigma?</strong></p>
-<p>Check out our <a class="reference external" href="https://blog.enigma.co/solutions/home">Solutions Series</a> ,our <a class="reference external" href="https://blog.enigma.co/defining-secret-contracts-f40ddee67ef2">Secret Contracts</a>
+<p>Check out our <a class="reference external" href="https://blog.enigma.co/solutions/home">Solutions Series</a> ,
+our <a class="reference external" href="https://blog.enigma.co/defining-secret-contracts-f40ddee67ef2">Secret Contracts</a>
 post from Guy, or <a class="reference external" href="mailto:info&#37;&#52;&#48;enigma&#46;co">reach out to us</a> to talk through your idea.</p>
 </div>
 

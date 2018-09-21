@@ -25,8 +25,11 @@ Sensitive data is never be exposed in clear to any intermediary or untrusted
 software -- local encryption by the dApp user is tunneled through to the enclave
 (secure hardware)
 
-5. **Independently Verifiable:**
-dApp users are able to independently verify the enclave quotes with Intel
+5. **Strong Privacy:** 
+Sensitive data is never be exposed in clear to any intermediary or untrusted software -- local encryption by the dApp user tunneled through to secure hardware
+
+6. **Independently Verifiable:**
+dApp users are able to independently verify the `enclave quotes <https://software.intel.com/en-us/node/702986>`__ with Intel 
 
 Assumptions made in this testnet release
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -93,6 +96,8 @@ Assumptions made in this testnet release
       language to include features exclusive to the Enigma network. This
       version includes a single one: a random number generator.
 
+.. _on-rust:
+
 On Rust
 ~~~~~~~
 
@@ -118,6 +123,8 @@ for these reasons:
 
 6. Interoperates with C when needed.
 
+.. _on-sgx:
+
 On SGX
 ~~~~~~
 
@@ -125,10 +132,11 @@ The Enigma Network uses Intel SGX enclaves because they provide strong
 cryptographic guarantees. The following deductive statements explain why
 the Enigma protocol can be trusted for privacy and correctness.
 
-1. The attestation process provides verification for three things: the
+1. The attestation process provides verification for three things: the 
    application’s identity, its intactness (that it has not been tampered with),
    and that it is running securely within an enclave on an Intel SGX enabled
-   platform. [1]_
+   platform. (More information on the Intel SGX 
+   `attestation process <https://courses.cs.ut.ee/MTAT.07.022/2017_spring/uploads/Main/hiie-report-s16-17.pdf>`__ ) 
 
 2. The signing key of an enclave never exists outside of it. It follows that
    data can only be signed with this key as part of the specified instruction
@@ -154,7 +162,7 @@ On Coupling with Ethereum
 In this release the Enigma Network is tightly coupled with Ethereum in
 multiple ways.
 
-1. The Enigma Network shares many key characteristics with Oracles [2]_, including a similar pattern of asynchronous data exchange
+1. The Enigma Network shares many key characteristics with `oracles <https://blog.ethereum.org/2014/07/22/ethereum-and-oracles/>`__ , including a similar pattern of asynchronous data exchange
 
 2. The business logic of each computation task is included in dApp smart contracts deployed on Ethereum
 
