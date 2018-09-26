@@ -429,7 +429,7 @@ Please note that this design has a few limitations:
 
 **1.** The staking mechanism adds complexity for users as it presents an extra step to the 
 bidding process. However, if it is not included in this system, an address could bid an 
-extremely high value, become the winner, and not claim the rewardâ€Šâ€”â€Šcausing the auction to 
+extremely high value, become the winner and not claim the reward, causing the auction to 
 stay in limbo.
 
 **2.** Since the callable function cannot access contract state in the current release of 
