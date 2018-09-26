@@ -1,14 +1,10 @@
 Enigma-JS
 ==========
 
-The Enigma client library, `Enigma-JS <#_ydldonl0i1f1>`__, is a
-javascript library that interfaces with the Enigma protocol. Enigma-JS
-contains tools to: 1) safely encrypt sensitive data in-memory for
-immediate use or storage; 2) obtain an authoritative proof that the
-target worker is securely running trusted hardware prior to sending data
-and paying fees. (Trusted hardware for this release means Intel SGX: for
-more information on SGX, see sections `On SGX <#on-sgx>`__ and
-`Registration <#registration>`__). 
+The Enigma client library, Enigma-JS, is a javascript library that interfaces with the Enigma protocol. Enigma-JS contains tools to: 1) safely encrypt sensitive data in-memory for immediate use or storage; 2) obtain an authoritative proof that the target worker is securely running trusted hardware prior to sending data and paying fees. (Trusted hardware for this release means Intel SGX: for more information on SGX, see sections :ref:`On SGX <on-sgx>` and
+:ref:`Registration <registration>`). 
+
+This client library is still in active development. This documentation is will be added to as development proceeds.
 
 **validateKeyHex**
 ~~~~~~~~~~~~~~~~~~

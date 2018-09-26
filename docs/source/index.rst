@@ -7,7 +7,7 @@ Table of Contents
 -----------------
 
 .. toctree::
-   :maxdepth: 11
+   :maxdepth: 12
 
    introduction
    HowToUseThisDocumentation
@@ -16,10 +16,11 @@ Table of Contents
    SecretContracts
    CreateReactFrontend
    SystemDesign
-   Enigma-js
    NetworkTopology
-   Community
    SoftwareArchitecture
    SubsystemArchitecture
+   Enigma-js
+   Community
    Glossary
    License
+   Appendix

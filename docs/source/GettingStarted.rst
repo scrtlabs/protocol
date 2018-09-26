@@ -18,7 +18,7 @@ For more information on the technical functionality of Enigma, see the
 network topology, software architecture and subsystem architecture pages.
 
 Frequently Asked Questions
-```````````````````````````
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Hardware and software mode - what's the difference?
 ---------------------------------------------------
@@ -44,7 +44,8 @@ with SGX pre-enabled from several hosting companies (such as
 `IBM <https://www.ibm.com/cloud/bare-metal-servers>`__).
 
 Testnet Limitations
-````````````````````
+~~~~~~~~~~~~~~~~~~~
+
 As this is a test network release, at this time users cannot:
 
 - **Execute secret contracts outside of the Docker network.** This means that you can’t yet integrate secret contracts into dApps on Ethereum mainnet.
@@ -57,7 +58,7 @@ As this is a test network release, at this time users cannot:
 
 
 System Requirements
-```````````````````
+~~~~~~~~~~~~~~~~~~~
 
 Depending on your 'Mode' choice you will have some slightly different requirements to
 begin.
@@ -95,7 +96,7 @@ instructions found `here <https://uisapp2.iu.edu/confluence-prd/pages/viewpage.a
 
 
 Setting up the Testnet
-```````````````````````
+~~~~~~~~~~~~~~~~~~~~~~
 
 The process of setting up the testnet is the same regardless of your 'mode' choice.
 For ease of use, it is recommended to create a working directory and to spawn two 
@@ -113,7 +114,8 @@ to install the ``darq-truffle`` package.
 
 
 Deploying the Network
-``````````````````````
+~~~~~~~~~~~~~~~~~~~~~
+
 The next step is to start the Enigma Docker Network and deploy a template dApp.
 
 **1.** Within the ``network`` tab, start the testnet by issuing the command
@@ -142,4 +144,3 @@ successfully, you should now be viewing a page that looks like so:
 
 If you are instead seeing a message informing you that it is still loading, repeat the steps
 to ensure no errors were made.
-
