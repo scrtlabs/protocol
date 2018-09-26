@@ -240,7 +240,7 @@ any suggestions for how to improve the methods used, do `let us know! <https://f
 How it Works
 ~~~~~~~~~~~~~
 
-**1.** A user creates a new auction by sending a transaction to an â€œAuction Factoryâ€, 
+**1.** A user creates a new auction by sending a transaction to an 'Auction Factory', 
 which acts as a proxy for deploying new auction contracts. 
 
 **2.** The Auction Factory specifies a ERC721 contract which will mint the auction reward.
