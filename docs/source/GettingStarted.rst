@@ -3,7 +3,7 @@ Getting Started
 ================
 The Enigma Protocol is a permissionless peer-to-peer network that enables
 the deployment of scalable and secure decentralized applications (commonly
-referred to as 'dApps') and the use of `secret contracts <https://blog.enigma.co/defining-secret-contracts-f40ddee67ef2>`__. The 
+referred to as 'dApps') through the use of `secret contracts <https://blog.enigma.co/defining-secret-contracts-f40ddee67ef2>`__. The 
 `Enigma Docker Network <https://github.com/enigmampc/enigma-docker-network>`__ 
 is the first release of the protocol - it operates entirely in a 
 containerized environment and features a complete minimal test network 

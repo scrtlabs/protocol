@@ -9,7 +9,8 @@ Table of Contents
 .. toctree::
    :maxdepth: 12
 
-   introduction
+   BasicIntroduction
+   TechnicalIntroduction
    HowToUseThisDocumentation
    AboutThisRelease
    GettingStarted
