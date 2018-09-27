@@ -128,7 +128,7 @@ Callable
 Callback 
   This is a public function automatically called by the worker (the ``onlyEnigma()`` modifier) 
   after the callable function is completed. It is responsible for committing the results and 
-  altering the contract state. In this example, we input the ``_address`` weâ€™ve obtained from the 
+  altering the contract state. In this example, we input the ``_address`` we have obtained from the 
   ``callable``, store it as the ``richestMillionaire`` state variable, and emit the 
   ``CallbackFinished`` event. The output of the final event is important, as it is possible to set
   up an event watcher within the front-end to perform a task upon successful completion.
@@ -235,7 +235,7 @@ bidding process.
  
 **NOTICE:** Several `design choices <#design-considerations>`__ were necessary due to the current 
 `testnet limitations <GettingStarted#testnet-limitations>`__ of the Enigma Protocol - though if you have
-any suggestions for how to improve the methods used, do `let us know! <https://forum.enigma.cO>`__
+any suggestions for how to improve the methods used, do `let us know! <https://forum.enigma.co>`__
 
 How it Works
 ~~~~~~~~~~~~~
@@ -243,7 +243,7 @@ How it Works
 **1.** A user creates a new auction by sending a transaction to an 'Auction Factory', 
 which acts as a proxy for deploying new auction contracts. 
 
-**2.** The Auction Factory specifies a ERC721 contract which will mint the auction reward.
+**2.** The Auction Factory specifies an ERC721 contract which will mint the auction reward.
 
 **3.** A potential bidder stakes Ether in the auction contract and acts as collateral for a potential bid. 
 
@@ -392,7 +392,7 @@ The ``callback`` function
 
 Post-Auction: Withdrawls
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-Bidders who did not win the auction withdawl all their prior staked ether, and the winner 
+Bidders who did not win the auction withdraw all their prior staked ether, and the winner 
 can claim their reward. ::
 
  function withdraw() external {
@@ -415,7 +415,7 @@ any Ether, as the contract takes the bid amount from their stake. ::
    enigmaCollectible.mintToken(msg.sender, endTime);  // mint an ERC721 Enigma Collectible with arbitrary  tokenID (just use the end time)
  }
  
-Finally, the creator of the auction can withdraw the winnerâ€™s stake. ::
+Finally, the creator of the auction can withdraw the winner's stake. ::
  
   function claimEther() external isOwner {
    require(state == AuctionState.COMPLETED);
