@@ -25,18 +25,13 @@ interoperability with the Ethereum network as well as Solidity.
 
 The Enigma Network offloads private computation tasks initiated by end-users
 of Ethereum dApps. These tasks are then handled by the Enigma-JS client
-library, which encrypts sensitive data in memory for immediate use or 
-storage as well as obtains authoritative proof that their selected
-worker will be securely running trusted hardware (Intel SGX) before  
-any actual data or payments are sent.
+library, which encrypts sensitive data in memory for immediate use.
  
 The Enigma Contract deployed on-chain broadcasts the task in the Enigma 
 Network and performs a random sampling lottery to determine which node 
 should execute it. The selected worker then instructs its trusted hardware 
 to unpack the task, decrypt its arguments and delegate execution to its 
-internal EVM . After execution of the computation, 
-a hash of the task is signed by the hardware and is then committed on-chain, 
-where its integrity is cryptographically verified.
+internal EVM. 
 
 The Enigma Testnet - What's Inside?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -47,7 +42,7 @@ which includes every core component of a functional Enigma Network, down to the
 nodes and the blockchain itself. By using this release in combination with the examples
 provided in this documentation, dApp developers will be able to have some hands-on 
 experience with the code, learn how to deploy secret contracts / dApps as well 
-as gain a thorough understanding of how the various components of Enigmas 
+as gain a thorough understanding of how the various components of Enigma's 
 functionality interconnect. 
 
 
