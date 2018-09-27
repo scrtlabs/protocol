@@ -20,7 +20,7 @@ well as comprehensive step-by-step instructions which outline how to configure
 your working folder and initiate your first secret contract deployment. After 
 completing this page, you will be ready to start playing with the code.
 
-The :doc:`Writing a Secret Contract <SecretContracts>` page includes full 
+The :doc:`writing a secret contract <SecretContracts>` page includes full 
 break-downs on simple code examples for various problems that the Enigma 
 protocol can solve for. These are intended to give dApp developers a real-world 
 understanding of the underlying logic and potential of the network in their 
@@ -56,6 +56,6 @@ Learning about Enigma's Encryption
 Enigma Use-Cases
 ~~~~~~~~~~~~~~~~
 
-Looking for some inspiration? Check out our `Solutions Series <https://blog.enigma.co/solutions/home>`__ ,
+Looking for some inspiration? Check out our `Solutions Series <https://blog.enigma.co/solutions/home>`__,
 our `Secret Contracts <https://blog.enigma.co/defining-secret-contracts-f40ddee67ef2>`__
-post from Guy, or `reach out to us <mailto:info@enigma.co>`__ to talk through your idea.
+post from Guy, or `reach out to us <mailto:info@enigma.co>`__ to talk through your idea!

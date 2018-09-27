@@ -9,8 +9,9 @@ How Enigma Works
 ~~~~~~~~~~~~~~~~
 
 The Enigma network provides a permissionless peer-to-peer network that
-facilitates the execution of code (*secret contracts*) with strong 
-correctness and privacy guarantees, similar to smart-contract platforms 
+facilitates the execution of code 
+(`secret contracts <https://blog.enigma.co/defining-secret-contracts-f40ddee67ef2>`__) 
+with strong correctness and privacy guarantees, similar to smart-contract platforms 
 such as Ethereum - the key difference in Enigma is that the data itself 
 is concealed from the nodes that execute computations. This allows
 developers to include sensitive data in their smart contracts without 
@@ -40,10 +41,12 @@ where its integrity is cryptographically verified.
 The Enigma Testnet - What's Inside?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This initial testnet release is a highly simplified containerized Docker release 
-which includes every core component of a functional Enigma Network, including 
-nodes and the blockchain itself. Using this, dApp developers will be able to 
-get hands-on with the code and learn how to deploy secret contracts as well 
+This `initial testnet release <https://github.com/enigmampc/enigma-docker-network>`__
+is a highly simplified containerized Docker release 
+which includes every core component of a functional Enigma Network, down to the 
+nodes and the blockchain itself. By using this release in combination with the examples
+provided in this documentation, dApp developers will be able to have some hands-on 
+experience with the code, learn how to deploy secret contracts / dApps as well 
 as gain a thorough understanding of how the various components of Enigmas 
 functionality interconnect. 
 

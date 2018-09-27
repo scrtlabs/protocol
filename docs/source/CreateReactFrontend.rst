@@ -1,8 +1,9 @@
 Creating a React Front-End
 ===========================
 This section is dedicated to creating a simple graphical front-end for the 
-Millionares Problem example using React, a JavaScript library for building
-component-oriented user interfaces. The ``enigma-template-dapp`` repository is 
+:doc:`Millionaires Problem example <SecretContracts>` 
+using React, a JavaScript library for building component-oriented user interfaces. 
+The ``enigma-template-dapp`` repository is 
 based off of `truffle-react box variant <https://github.com/adrianmcli/truffle-react>`__,
 which allows for the rapid deployment of a unique front-end with the related packages
 and logic separated from the code - in this case, located in the ``/client/src`` folder. 
