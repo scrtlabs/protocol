@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Appendix &mdash; Enigma Protocol 0.1 documentation</title>
+  <title>Basic Introduction &mdash; Enigma Protocol 0.1 documentation</title>
   
 
   
@@ -36,7 +36,8 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Enigma Protocol 0.1 documentation" href="index.html"/>
-        <link rel="prev" title="License" href="License.html"/> 
+        <link rel="next" title="Technical Introduction" href="TechnicalIntroduction.html"/>
+        <link rel="prev" title="Overview" href="index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -76,9 +77,9 @@
           
           
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="BasicIntroduction.html">Basic Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="BasicIntroduction.html#how-enigma-works">How Enigma Works</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BasicIntroduction.html#the-enigma-testnet-what-s-inside">The Enigma Testnet - What’s Inside?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-enigma-works">How Enigma Works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-enigma-testnet-what-s-inside">The Enigma Testnet - What’s Inside?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="TechnicalIntroduction.html">Technical Introduction</a><ul>
@@ -191,14 +192,14 @@
 <li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="License.html">License</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Appendix</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#cryptography">Cryptography</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#elliptic-curve">Elliptic Curve</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#signing">Signing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#encryption">Encryption</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix.html">Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Appendix.html#cryptography">Cryptography</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix.html#elliptic-curve">Elliptic Curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix.html#signing">Signing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix.html#encryption">Encryption</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#implementation">Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix.html#implementation">Implementation</a></li>
 </ul>
 </li>
 </ul>
@@ -225,11 +226,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Appendix</li>
+    <li>Basic Introduction</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/Appendix.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/BasicIntroduction.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -238,91 +239,59 @@
 </div>
           <div role="main" class="document">
             
-  <div class="section" id="appendix">
-<h1>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h1>
-<p>Additional reference materials for further reading.</p>
-<div class="section" id="cryptography">
-<span id="id1"></span><h2>Cryptography<a class="headerlink" href="#cryptography" title="Permalink to this headline">¶</a></h2>
-<p>The enclaves in the Enigma protocol use public-key cryptography, also known as
-asymmetrical cryptography, which use a pair of keys: a public key that may be
-disseminated widely, and a private key that is known only to the enclave. This
-accomplishes two functions: <strong>authentication</strong>, where the public key verifies
-that a holder of the paired private key sent the message, and <strong>encryption</strong>,
-where only the paired private key holder can decrypt the message encrypted with
-the public key.</p>
-<p>Within the realm of public-key cryptography, Enigma uses elliptic curve (EC)
-cryptography, which provide smaller key sizes and faster operations for
-approximately equivalent estimated security.</p>
-<div class="section" id="elliptic-curve">
-<h3>Elliptic Curve<a class="headerlink" href="#elliptic-curve" title="Permalink to this headline">¶</a></h3>
-<p>The Enigma Protocol uses the <strong>secp256k1</strong> curve for both signing and encryption
-keys, as it’s standard in Bitcoin/Ethereum (but the keys themselves should not
-be the same). secp256k1 is not considered a safe curve, but it’s unclear if that
-opens any vector of attack, and it’s good enough for Bitcoin/Ethereum.
-(<a class="reference external" href="https://safecurves.cr.yp.to">SafeCurves</a>, all the attacks here on secp256k1
-are theoretical only.)</p>
-<p>secp256k1 was constructed in a special non-random way that allows for especially
-efficient computation. As a result, it is often more than 30% faster than other
-curves if the implementation is sufficiently optimized. Also, unlike the popular
-NIST curves, secp256k1’s constants were selected in a predictable way, which
-significantly reduces the possibility that the curve’s creator inserted any sort
-of backdoor into the curve.</p>
-<p>Alternatives:
-Cardano/Ouroborous uses <strong>secp256r1</strong> curve for ECDSA, though we see no good
-reason to use <strong>secp256r1</strong>, as it has the almost the same security as
-<strong>secp256k1</strong>. The only difference is that <strong>secp256k1</strong> uses the “Koblitz
-curve” which means there is less chance for backdoors (because the constants
-aren’t random). If at some point we don’t need compatibility with
-bitcoin/ethereum then he should use something like <strong>Curve25519</strong> which is
-considered to be a “safe curve”.</p>
+  <div class="section" id="basic-introduction">
+<h1>Basic Introduction<a class="headerlink" href="#basic-introduction" title="Permalink to this headline">¶</a></h1>
+<p>This page contains a lightly-worded and easily digestable overview of both
+the Enigma protocol and this Docker testnet release. For more thorough
+and indepth information, see the
+<a class="reference internal" href="TechnicalIntroduction.html"><span class="doc">technical introduction</span></a> or the various
+architecture pages.</p>
+<div class="section" id="how-enigma-works">
+<h2>How Enigma Works<a class="headerlink" href="#how-enigma-works" title="Permalink to this headline">¶</a></h2>
+<p>The Enigma protocol is a decentralized and distributed network of servers
+around the world (known as ‘nodes’) which, through the use of
+<a class="reference external" href="https://blog.enigma.co/defining-secret-contracts-f40ddee67ef2">secret contracts</a>,
+are able to compute data in a way that maintains confidentiality and integrity.
+Secret contracts ensure that the data is kept verifiably untampered and private
+from the beginning to the end of the process, including from the node performing
+the computational task. The Enigma Network is also able to take on task orders from
+Ethereum.</p>
+<p>After a user of a dApp initiates a task (whether it be making a purchase,
+bidding on an auction or any other use-case), the local Enigma-JS client
+library encrypts the data and sends it off to a selected worker in the
+Enigma network to perform the computational task. As the data is encrypted
+<strong>prior</strong> to being sent, it is therefore kept private from the network nodes
+(and anyone else who might be watching, for that matter). After completion
+the answer is securely passed back to the end-user.</p>
+<p>This order of operations can be thought of in five steps:</p>
+<ol class="arabic simple">
+<li>A dApp end-user initiates a task. Data passed to Enigma-JS.</li>
+<li>Data is encrypted by the Enigma-JS client library.</li>
+<li>The now encrypted data is sent off to the Enigma Network.</li>
+<li>Task is broadcasted to the network. A worker is selected to compute the task.</li>
+<li>Computation is performed, node is rewarded and answer to task is returned.</li>
+</ol>
+<p>For more information on this process as well as some helpful visuals,
+check out the <a class="reference internal" href="SoftwareArchitecture.html"><span class="doc">software architecture</span></a> page.</p>
 </div>
-<div class="section" id="signing">
-<h3>Signing<a class="headerlink" href="#signing" title="Permalink to this headline">¶</a></h3>
-<p>For signing, the Enigma Protocol uses <strong>Elliptic Curve Digital Signature
-Algorithm</strong> (ECDSA) with <strong>keccak256</strong> as the hashing function(for compatibility
-with ethereum’s solidity), a variant of the Digital Signature Algorithm that
-uses elliptic curve cryptography. ECDSA is used by most blockchains.</p>
-</div>
-<div class="section" id="encryption">
-<h3>Encryption<a class="headerlink" href="#encryption" title="Permalink to this headline">¶</a></h3>
-<p>For encryption, the Enigma Protocol uses an adaptation of <strong>Elliptic Curve
-Diffie-Hellman</strong> (ECDH), an anonymous key agreement protocol that allows two
-parties to establish a shared secret over an insecure channel.</p>
-<p>The enclave can make their public key known a priori. Any user that wants to
-encrypt a message for the enclave can generate a one-time asymmetric key-pair,
-and use that to derive a one-time symmetric key as in the usual ECDH protocol.
-The one-time symmetric key is generated with a key derivation function (KDF)
-that is yet to be specified. The symmetric-key algorithm used for encryption
-is most likely <strong>Advanced Encryption Standard</strong> (AES) with the <strong>GCM</strong> mode
-(<strong>Galois/Counter Mode</strong>) to add HMAC(Hash-based Message Authentication Code) to
-add message authentication to the encrypted message and to protect against a
-number of known vector attacks of AES. The encryption is used with a key length
-of 256 bits.</p>
-<p>Now, the user can use that secret to encrypt a message, and send to the enclave
-both the encrypted message, and the public key it used. With that information,
-the enclave can derive the symmetric key and decrypt the message.</p>
-<p>(Side note: if we want authentication as well, we may need to sign these
-messages as well, but that’s to be determined. I don’t think we care much about
-users authenticating towards the enclaves.)</p>
-<p><em>Elliptic Curve Integrated Encryption Scheme</em> (ECIES) was also considered as an
-option for encryption, while being similar to ECDH. The reason to prefer ECDH
-over ECIES is because ECIES isn’t standardized yet, it doesn’t add much security
-to the protocol, and because it isn’t standardized yet most of the known
-cryptography libraries doesn’t implement it. (which also means it wasn’t tested
-enough).</p>
-</div>
-</div>
-<div class="section" id="implementation">
-<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
-<p>For the PoC, the Enigma Protocol implements all the above cryptographic
-algorithms in Python using the <a class="reference external" href="https://cryptography.io/en/latest/">pyca/cryptography</a>
-package. The Enigma implementation of the cryptographic primitives can be found
-in the core repository: <a class="reference external" href="https://github.com/enigmampc/core/tree/develop/src/core/cryptography">core/src/core/cryptography</a> (develop branch).</p>
-<p>In the near future we may move to a C/C++ library that is compatible with the
-SGX implementation to be run natively inside an SGX enclave. The implementation
-under consideration is <a class="reference external" href="https://github.com/weidai11/cryptopp">Crypto++</a>, a
-free C++ class library of cryptographic schemes that includes all the algorithms
-outlined above.</p>
+<div class="section" id="the-enigma-testnet-what-s-inside">
+<h2>The Enigma Testnet - What’s Inside?<a class="headerlink" href="#the-enigma-testnet-what-s-inside" title="Permalink to this headline">¶</a></h2>
+<p>This testnet release is an entirely self-contained network (deployed using
+<a class="reference external" href="https://docker.com">Docker</a>) which is intended to let developers have
+a chance to build their first secret contracts and learn how Enigma’s
+components operate. As the Enigma Network is not live yet, this release
+contains a local version of every component necessary for a fully operating
+network, nodes and all.</p>
+<p>Inside the
+<a class="reference external" href="https://github.com/enigmampc/enigma-docker-network">Enigma Docker Network</a>
+is four independent containers - a <strong>principal node</strong>, two <strong>standard nodes</strong>
+and one for the blockchain logic itself. By following along with the
+<a class="reference internal" href="GettingStarted.html"><span class="doc">getting started</span></a> guide down to the
+<a class="reference internal" href="CreateReactFrontend.html"><span class="doc">creating a React front-end</span></a> section, you will
+gain an understanding of how these individual containers as well as Enigma’s
+core components interact with eachother.</p>
+<p>For a more thorough breakdown of this process including some helpful visuals,
+see the <a class="reference internal" href="NetworkTopology.html"><span class="doc">network topology</span></a> page.</p>
 </div>
 </div>
 
@@ -332,8 +301,10 @@ outlined above.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="TechnicalIntroduction.html" class="btn btn-neutral float-right" title="Technical Introduction" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="License.html" class="btn btn-neutral" title="License" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="index.html" class="btn btn-neutral" title="Overview" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

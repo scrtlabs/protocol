@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Enigma Protocol 0.1 documentation" href="index.html"/>
         <link rel="next" title="About this Release" href="AboutThisRelease.html"/>
-        <link rel="prev" title="Introduction" href="introduction.html"/> 
+        <link rel="prev" title="Technical Introduction" href="TechnicalIntroduction.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -77,8 +77,27 @@
           
           
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">How to use this Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BasicIntroduction.html">Basic Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="BasicIntroduction.html#how-enigma-works">How Enigma Works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicIntroduction.html#the-enigma-testnet-what-s-inside">The Enigma Testnet - What’s Inside?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="TechnicalIntroduction.html">Technical Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="TechnicalIntroduction.html#how-enigma-works">How Enigma Works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TechnicalIntroduction.html#the-enigma-testnet-what-s-inside">The Enigma Testnet - What’s Inside?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to use this Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-hands-on-with-the-code">Getting Hands-on with the Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#understanding-the-enigma-protocol">Understanding the Enigma Protocol</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#high-level-information">High-level information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#low-level-information">Low-level information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#learning-about-enigma-s-encryption">Learning about Enigma’s Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enigma-use-cases">Enigma Use-Cases</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="AboutThisRelease.html">About this Release</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="AboutThisRelease.html#selected-features-of-this-release">Selected features of this release</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AboutThisRelease.html#assumptions-made-in-this-testnet-release">Assumptions made in this testnet release</a></li>
@@ -100,7 +119,19 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="SecretContracts.html">Writing a Secret Contract</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SecretContracts.html#example-the-millionaires-problem">Example: The Millionaires Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SecretContracts.html#example-01-the-millionaires-problem">Example 01: The Millionaires Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SecretContracts.html#example-02-secret-auctions">Example 02: Secret Auctions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SecretContracts.html#how-it-works">How it Works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SecretContracts.html#breaking-down-the-code">Breaking Down the Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="SecretContracts.html#the-contract-state">The Contract State</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SecretContracts.html#the-bidding-process">The Bidding Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SecretContracts.html#post-auction-callable-and-callback">Post-Auction: Callable and Callback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SecretContracts.html#post-auction-withdrawls">Post-Auction: Withdrawls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SecretContracts.html#design-considerations">Design Considerations</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="CreateReactFrontend.html">Creating a React Front-End</a><ul>
@@ -210,44 +241,60 @@
             
   <div class="section" id="how-to-use-this-documentation">
 <h1>How to use this Documentation<a class="headerlink" href="#how-to-use-this-documentation" title="Permalink to this headline">¶</a></h1>
-<p>This documentation is designed to help developers get started with
-the Enigma Protocol testnet, as well as defining our current software
-architecture and outlining the different parts of the Enigma system.</p>
-<p>A practical <a class="reference internal" href="GettingStarted.html"><span class="doc">getting started</span></a> section walks
-through the development process of a secret contract. The
-<a class="reference internal" href="SystemDesign.html"><span class="doc">system design</span></a> section describes the different components
-of the Enigma protocol at a high level. Both
+<p>This documentation is designed to help developers set up
+the Enigma Protocol testnet, learn how to write their first secret
+contracts as well as how to deploy a responsive user interface.
+This is followed up by a few sections which define our current software
+architecture and the different components of the Enigma system.</p>
+<p>This is a living document, and we encourage discussion and debate on our
+<a class="reference external" href="https://forum.enigma.co/">developer forum</a> in order to make quality
+modifications and additions in future revisions.</p>
+<div class="section" id="getting-hands-on-with-the-code">
+<h2>Getting Hands-on with the Code<a class="headerlink" href="#getting-hands-on-with-the-code" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="GettingStarted.html"><span class="doc">getting started</span></a> section will walk you through
+the system requirements and dependencies of the Enigma Docker Network, as
+well as comprehensive step-by-step instructions which outline how to configure
+your working folder and initiate your first secret contract deployment. After
+completing this page, you will be ready to start playing with the code.</p>
+<p>The <a class="reference internal" href="SecretContracts.html"><span class="doc">writing a secret contract</span></a> page includes full
+break-downs on simple code examples for various problems that the Enigma
+protocol can solve for. These are intended to give dApp developers a real-world
+understanding of the underlying logic and potential of the network in their
+development process.</p>
+<p>Lastly in the hands-on portion, the <a class="reference internal" href="CreateReactFrontend.html"><span class="doc">creating a React front-end</span></a> section will explain how to rapidly deploy a responsive
+graphical user interface for the prior examples (or whatever else you will build!).</p>
+</div>
+<div class="section" id="understanding-the-enigma-protocol">
+<h2>Understanding the Enigma Protocol<a class="headerlink" href="#understanding-the-enigma-protocol" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="high-level-information">
+<h3>High-level information<a class="headerlink" href="#high-level-information" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The <a class="reference internal" href="NetworkTopology.html"><span class="doc">network topology</span></a> section displays the different components of the Enigma Docker Network release.</li>
+<li>The <a class="reference internal" href="SystemDesign.html"><span class="doc">system design</span></a> page provides a high-level overview of the protocol itself.</li>
+</ul>
+</div>
+<div class="section" id="low-level-information">
+<h3>Low-level information<a class="headerlink" href="#low-level-information" title="Permalink to this headline">¶</a></h3>
+<p>Both the
 <a class="reference internal" href="SoftwareArchitecture.html"><span class="doc">software architecture</span></a> and
 <a class="reference internal" href="SubsystemArchitecture.html"><span class="doc">subsystem architecture</span></a> sections describe in
 detail the current implementations of these components.</p>
-<p>This is a living document, and we encourage discussion and debate on our
-<a class="reference external" href="https://forum.enigma.co/">developer forum</a>.</p>
-<p><strong>How do I develop my first secret contract?</strong></p>
-<p>Get your feet wet with the <a class="reference internal" href="GettingStarted.html"><span class="doc">getting started</span></a>, which will
-walk you through installing the docker network and writing your first secret
-contract.</p>
+</div>
+</div>
+<div class="section" id="learning-about-enigma-s-encryption">
+<h2>Learning about Enigma’s Encryption<a class="headerlink" href="#learning-about-enigma-s-encryption" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Jump right into the <a class="reference internal" href="Enigma-js.html"><span class="doc">Enigma.js client library</span></a></li>
-<li>Learn about the <a class="reference internal" href="SystemDesign.html#enigma-contract"><span class="std std-ref">Enigma Contract</span></a>, which enables secret contracts using Ethereum.</li>
+<li>Explore our <span class="xref std std-doc">cryptography appendix</span></li>
+<li>How are you handling <a class="reference internal" href="SubsystemArchitecture.html#client-encryption-and-storage"><span class="std std-ref">key generation and management</span></a>?</li>
+<li>Read about Enigma’s JavaScript client library, <a class="reference internal" href="Enigma-js.html"><span class="doc">Enigma-JS</span></a></li>
 </ul>
-<p><strong>I’m looking for the big picture of developing on Enigma.</strong></p>
-<p>The <a class="reference internal" href="SystemDesign.html"><span class="doc">System Design</span></a> section breaks down the layers of
-developing on Enigma.</p>
-<p><strong>Where can I find more information on the protocol architecture?</strong></p>
-<ul class="simple">
-<li>Check out our <a class="reference internal" href="SoftwareArchitecture.html"><span class="doc">Software Architecture Overview</span></a> to
-see how the pieces fit together.</li>
-<li>See the <a class="reference internal" href="NetworkTopology.html"><span class="doc">Network Topology</span></a> of this release</li>
-</ul>
-<p><strong>Where can I learn more about Enigma’s encryption?</strong></p>
-<ul class="simple">
-<li>Explore our <a class="reference internal" href="Enigma_Protocol_Cryptography.html"><span class="doc">cryptography appendix</span></a></li>
-<li>How are you handling <a class="reference internal" href="SubsystemArchitecture.html#client-encryption-and-storage"><span class="std std-ref">key generation and management</span></a> ?</li>
-</ul>
-<p><strong>What kind of products can I build with Enigma?</strong></p>
-<p>Check out our <a class="reference external" href="https://blog.enigma.co/solutions/home">Solutions Series</a> ,
+</div>
+<div class="section" id="enigma-use-cases">
+<h2>Enigma Use-Cases<a class="headerlink" href="#enigma-use-cases" title="Permalink to this headline">¶</a></h2>
+<p>Looking for some inspiration? Check out our <a class="reference external" href="https://blog.enigma.co/solutions/home">Solutions Series</a>,
 our <a class="reference external" href="https://blog.enigma.co/defining-secret-contracts-f40ddee67ef2">Secret Contracts</a>
-post from Guy, or <a class="reference external" href="mailto:info&#37;&#52;&#48;enigma&#46;co">reach out to us</a> to talk through your idea.</p>
+post from Guy, or <a class="reference external" href="mailto:info&#37;&#52;&#48;enigma&#46;co">reach out to us</a> to talk through your idea!</p>
+</div>
 </div>
 
 
@@ -259,7 +306,7 @@ post from Guy, or <a class="reference external" href="mailto:info&#37;&#52;&#48;
         <a href="AboutThisRelease.html" class="btn btn-neutral float-right" title="About this Release" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="TechnicalIntroduction.html" class="btn btn-neutral" title="Technical Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
