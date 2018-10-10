@@ -12,7 +12,7 @@ guide you will be operating entirely out of the
 ``enigma-template-dapp`` folder (the ``dapp`` terminal). 
 
 Example 01: The Millionaires Problem
-``````````````````````````````````
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The millionaires problem is a simple concept with complex solutions: How do two 
 individuals compare their net worth without ever exposing their actual value to 
@@ -226,7 +226,7 @@ a fresh ``MillionairesProblemFactory`` instance with this address as an argument
 with the following command: ``darq-truffle migrate --reset --network development``
 
 Example 02: Secret Auctions
-````````````````````````````
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Auction theory is a complex economics field involving significant academic research, and thus 
 there are a large variety of auction types which enable different economic and social behaviours. 
 To best showcase the value of cryptographic privacy in auctions, the below example outlines a 
