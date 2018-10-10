@@ -257,7 +257,7 @@ source of the below snippets, see
 `this repository <https://github.com/enigmampc/secret-contracts/blob/master/contracts/Auction.sol>`__.
 
 The Contract State
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 ::
 
  enum AuctionState { IN_PROGRESS, CALCULATING, COMPLETED }
@@ -298,7 +298,8 @@ determining if they have already bidded and their current encrypted bid.
 refers to the amount of Ether (in wei) that each address has staked.
 
 The Bidding Process
-^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
+
 Bidding begins by users staking Ether in the contract, which acts as a binding commitment 
 towards paying their bid value in the case they are victorious. It is assumed that users will 
 bid an amount less than their deposit in order to obscure the true value of their bid (See 
@@ -339,7 +340,7 @@ Finally, the creator of the auction will end the auction when the bidding period
  }
 
 Post-Auction: Callable and Callback
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 After the auction has come to an end, the dApp which deployed the contracts 
 will submit a task to the Enigma Network in order to calculate the winner. 
@@ -391,7 +392,7 @@ The ``callback`` function
 
 
 Post-Auction: Withdrawls
-^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~
 Bidders who did not win the auction withdraw all their prior staked ether, and the winner 
 can claim their reward. ::
 
@@ -423,7 +424,7 @@ Finally, the creator of the auction can withdraw the winner's stake. ::
  }
  
 Design Considerations
-^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~
  
 Please note that this design has a few limitations: 
 
