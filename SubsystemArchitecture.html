@@ -122,14 +122,12 @@
 <li class="toctree-l2"><a class="reference internal" href="SecretContracts.html#example-01-the-millionaires-problem">Example 01: The Millionaires Problem</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SecretContracts.html#example-02-secret-auctions">Example 02: Secret Auctions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="SecretContracts.html#how-it-works">How it Works</a></li>
-<li class="toctree-l3"><a class="reference internal" href="SecretContracts.html#breaking-down-the-code">Breaking Down the Code</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="SecretContracts.html#the-contract-state">The Contract State</a></li>
-<li class="toctree-l4"><a class="reference internal" href="SecretContracts.html#the-bidding-process">The Bidding Process</a></li>
-<li class="toctree-l4"><a class="reference internal" href="SecretContracts.html#post-auction-callable-and-callback">Post-Auction: Callable and Callback</a></li>
-<li class="toctree-l4"><a class="reference internal" href="SecretContracts.html#post-auction-withdrawls">Post-Auction: Withdrawls</a></li>
-<li class="toctree-l4"><a class="reference internal" href="SecretContracts.html#design-considerations">Design Considerations</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="SecretContracts.html#breaking-down-the-code">Breaking Down the Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SecretContracts.html#the-contract-state">The Contract State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SecretContracts.html#the-bidding-process">The Bidding Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SecretContracts.html#post-auction-callable-and-callback">Post-Auction: Callable and Callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SecretContracts.html#post-auction-withdrawls">Post-Auction: Withdrawls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SecretContracts.html#design-considerations">Design Considerations</a></li>
 </ul>
 </li>
 </ul>
@@ -291,7 +289,7 @@ decrypt this data in context of a future computation task.</p>
 <li>Request the application key pair from the dApp config. In this development release, there is a single app key for all applications. In the future releases, each application will generate its own key pair.</li>
 <li>Request an encryption public key from the dApp config. Again, since this is a development release, the encryption key is simply a configuration parameter. All nodes in the network currently use the same encryption key pair. In future releases, encryption keys will be provided by the network. A key management protocol will control the lifecycle of the keys.</li>
 <li>Derive a new key from the dApp private key and the encryption key. Encrypting with this derived key will ensure that the selected enclave can decrypt the message, while proving that the message was encrypted by the dApp (and nothing else).</li>
-<li>Generate a random initialization vector (IV) <a href="#id7"><span class="problematic" id="id8"><span id="id3"></span>[4]_</span></a>, then use it to encrypt the message with the derived key. The IV will be concatenated at the beginning of the encrypted message. The IV and message can later be easily extracted because the IV always contains 12 bytes.</li>
+<li>Generate a random initialization vector (IV), then use it to encrypt the message with the derived key. The IV will be concatenated at the beginning of the encrypted message. The IV and message can later be easily extracted because the IV always contains 12 bytes.</li>
 <li>Depending on the use case, the encrypted message may or may not need to be stored in the world state. If the purpose of the message is to immediately serve as input to a transaction (and the transaction does not require any inputs stored on-chain), it can be sent directly to the Enigma Contract by requesting a computation task. As a general rule:<ol class="loweralpha">
 <li>If the encrypted message serves as input to an immediate transaction that does not have any other inputs stored encrypted in state, invoke to the Enigma Contract using web3.</li>
 <li>If the encrypted message must be stored for later or serve as an input to an immediate transaction along with other inputs stored encrypted in the state, use the dApp contract to broker the transaction.</li>
@@ -302,7 +300,7 @@ decrypt this data in context of a future computation task.</p>
 <p>This <a class="reference internal" href="Appendix.html#cryptography"><span class="std std-ref">Cryptography</span></a> appendix reference describes the specific curves used for encryption and other cryptography related considerations.</p>
 </div>
 <div class="section" id="worker-selection">
-<span id="id4"></span><h2>Worker Selection<a class="headerlink" href="#worker-selection" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>Worker Selection<a class="headerlink" href="#worker-selection" title="Permalink to this headline">¶</a></h2>
 <p>Sampling workers means that the entire Enigma network needs to reach an
 agreement about the identity of a given worker (or one or more groups of
 workers) at a given time. This sampling process happens once in every
@@ -327,14 +325,12 @@ configurable number of blocks.</p>
 algorithm, for this testnet it suffices to have a <em>principal</em> Enigma node that generates this kind of randomness.</p>
 </div>
 <div class="section" id="computation">
-<span id="id5"></span><h2>Computation<a class="headerlink" href="#computation" title="Permalink to this headline">¶</a></h2>
-<div class="line-block">
-<div class="line">When a worker executes a computation and signs its view (namely -
+<span id="id4"></span><h2>Computation<a class="headerlink" href="#computation" title="Permalink to this headline">¶</a></h2>
+<p>When a worker executes a computation and signs its view (namely -
 H(input, code, output)) with its key, the user can be confident that
 these computations finished successfully – assuming the enclave is
 limited to only run computations inside the EVM and sign them. This is
-illustrated below.</div>
-</div>
+illustrated below.</p>
 <img alt="Compute Sequence Diagram" class="align-center" src="https://s3.amazonaws.com/enigmaco-docs/protocol/computation-sequence.png" />
 <p>This diagram assumes that <em>callableArgs</em> have been encrypted using the
 <a class="reference external" href="#client-encryption-and-storage">Client Encryption and Storage</a> subsystem described
@@ -458,7 +454,7 @@ method of the dApp contract.</p>
 </div>
 </div>
 <div class="section" id="attestation">
-<span id="id6"></span><h2>Attestation<a class="headerlink" href="#attestation" title="Permalink to this headline">¶</a></h2>
+<span id="id5"></span><h2>Attestation<a class="headerlink" href="#attestation" title="Permalink to this headline">¶</a></h2>
 <p>Performing attestation involves a verifiable proof that guarantees that
 a given worker runs an intact version of Core within a certified
 enclave. Combined with <a class="reference external" href="#on-chain-verification">On-Chain
@@ -482,14 +478,26 @@ registration, it would never receive any task.</p>
 <p>The attestation protocol works as follows before each computation task:</p>
 <ol class="arabic simple">
 <li>The dApp calls the Enigma Library with a <em>compute</em> request</li>
-<li>If the Enigma Library has workers parameters cached, it checks if the current block number is lower than the associated block number + number of blocks before the next reparameterization event.</li>
-<li>If the workers parameters are expired or not already in cache, it calls the Enigma Contract to get a new seed and ordered list of workers.</li>
-<li>It generates a random number that will serve as a nonce to ensure that the taskId is always unique. Then, it uses it to generate a taskId and determine the selected worker using the pseudo-randomness algorithm described in the <a class="reference external" href="#worker-selection">Worker Selection</a> section.</li>
-<li>If the worker has not yet been verified locally (i.e. not in cache), it requests a full report from the Enigma Contract. This report was already requested from Intel and stored in the contract during <a class="reference external" href="#registration">Registration</a>.</li>
-<li>It parses the report into its parts: body of the report, signature, the x509 certificate associated with the report and its root certificate.</li>
+<li>If the Enigma Library has workers parameters cached, it checks if the current
+block number is lower than the associated block number + number of blocks
+before the next reparameterization event.</li>
+<li>If the workers parameters are expired or not already in cache, it calls the
+Enigma Contract to get a new seed and ordered list of workers.</li>
+<li>It generates a random number that will serve as a nonce to ensure that the
+taskId is always unique. Then, it uses it to generate a taskId and determine
+the selected worker using the pseudo-randomness algorithm described in the
+<a class="reference external" href="#worker-selection">Worker Selection</a> section.</li>
+<li>If the worker has not yet been verified locally (i.e. not in cache), it
+requests a full report from the Enigma Contract. This report was already
+requested from Intel and stored in the contract during
+<a class="reference external" href="#registration">Registration</a>.</li>
+<li>It parses the report into its parts: body of the report, signature, the x509
+certificate associated with the report and its root certificate.</li>
+<li>Using standard crypto libraries, it verifies that the report is correctly
+signed by the attached x509 certificate. It also verifies that the attached
+root certificate matches Intel’s publically available root certificate issued
+by a Certificate Authority.</li>
 </ol>
-<p>7. Using standard crypto libraries, it verifies that the report is correctly signed by the attached x509 certificate. It also verifies that the attached root certificate matches Intel’s
-publically available root certificate issued by a Certificate Authority.</p>
 </div>
 </div>
 

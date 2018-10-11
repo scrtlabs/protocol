@@ -77,7 +77,7 @@ In the encryption and storage protocol, functions of the
 
 3. Derive a new key from the dApp private key and the encryption key. Encrypting with this derived key will ensure that the selected enclave can decrypt the message, while proving that the message was encrypted by the dApp (and nothing else).
 
-4. Generate a random initialization vector (IV) [4]_, then use it to encrypt the message with the derived key. The IV will be concatenated at the beginning of the encrypted message. The IV and message can later be easily extracted because the IV always contains 12 bytes.
+4. Generate a random initialization vector (IV), then use it to encrypt the message with the derived key. The IV will be concatenated at the beginning of the encrypted message. The IV and message can later be easily extracted because the IV always contains 12 bytes.
 
 5. Depending on the use case, the encrypted message may or may not need to be stored in the world state. If the purpose of the message is to immediately serve as input to a transaction (and the transaction does not require any inputs stored on-chain), it can be sent directly to the Enigma Contract by requesting a computation task. As a general rule:
 
@@ -136,11 +136,12 @@ algorithm, for this testnet it suffices to have a *principal* Enigma node that g
 Computation
 ~~~~~~~~~~~~
 
-| When a worker executes a computation and signs its view (namely -
-  H(input, code, output)) with its key, the user can be confident that
-  these computations finished successfully – assuming the enclave is
-  limited to only run computations inside the EVM and sign them. This is
-  illustrated below.
+When a worker executes a computation and signs its view (namely -
+H(input, code, output)) with its key, the user can be confident that
+these computations finished successfully – assuming the enclave is
+limited to only run computations inside the EVM and sign them. This is
+illustrated below.
+
 .. image:: https://s3.amazonaws.com/enigmaco-docs/protocol/computation-sequence.png
     :align: center
     :alt: Compute Sequence Diagram
@@ -328,10 +329,22 @@ registration, it would never receive any task.
 The attestation protocol works as follows before each computation task:
 
 1. The dApp calls the Enigma Library with a *compute* request
-2. If the Enigma Library has workers parameters cached, it checks if the current block number is lower than the associated block number + number of blocks before the next reparameterization event.
-3. If the workers parameters are expired or not already in cache, it calls the Enigma Contract to get a new seed and ordered list of workers.
-4. It generates a random number that will serve as a nonce to ensure that the taskId is always unique. Then, it uses it to generate a taskId and determine the selected worker using the pseudo-randomness algorithm described in the `Worker Selection <#worker-selection>`__ section.
-5. If the worker has not yet been verified locally (i.e. not in cache), it requests a full report from the Enigma Contract. This report was already requested from Intel and stored in the contract during `Registration <#registration>`__.
-6. It parses the report into its parts: body of the report, signature, the x509 certificate associated with the report and its root certificate.
-7. Using standard crypto libraries, it verifies that the report is correctly signed by the attached x509 certificate. It also verifies that the attached root certificate matches Intel’s
-publically available root certificate issued by a Certificate Authority.
+2. If the Enigma Library has workers parameters cached, it checks if the current
+   block number is lower than the associated block number + number of blocks
+   before the next reparameterization event.
+3. If the workers parameters are expired or not already in cache, it calls the
+   Enigma Contract to get a new seed and ordered list of workers.
+4. It generates a random number that will serve as a nonce to ensure that the
+   taskId is always unique. Then, it uses it to generate a taskId and determine
+   the selected worker using the pseudo-randomness algorithm described in the
+   `Worker Selection <#worker-selection>`__ section.
+5. If the worker has not yet been verified locally (i.e. not in cache), it
+   requests a full report from the Enigma Contract. This report was already
+   requested from Intel and stored in the contract during 
+   `Registration <#registration>`__.
+6. It parses the report into its parts: body of the report, signature, the x509
+   certificate associated with the report and its root certificate.
+7. Using standard crypto libraries, it verifies that the report is correctly
+   signed by the attached x509 certificate. It also verifies that the attached
+   root certificate matches Intel’s publically available root certificate issued
+   by a Certificate Authority.
